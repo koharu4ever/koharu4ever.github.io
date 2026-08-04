@@ -1,0 +1,14 @@
+node_modules/
+.pnpm-store/
+public/
+.deploy_git/
+.git/
+.agents/
+.codex/
+db.json
+pnpm-lock.yaml
+source/img/
+
+# Long-form Markdown is edited as prose rather than auto-formatted.
+docs/
+source/_posts/

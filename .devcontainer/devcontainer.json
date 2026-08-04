@@ -1,0 +1,40 @@
+{
+  "name": "koharu-hexo",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "remoteUser": "node",
+  "containerEnv": {
+    "CHOKIDAR_USEPOLLING": "true",
+    "CHOKIDAR_INTERVAL": "300"
+  },
+  "forwardPorts": [4000, 4001],
+  "portsAttributes": {
+    "4000": {
+      "label": "Hexo",
+      "onAutoForward": "openBrowser"
+    },
+    "4001": {
+      "label": "Hexo live reload",
+      "onAutoForward": "silent"
+    }
+  },
+  "postCreateCommand": "sudo corepack enable && pnpm install",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "yzhang.markdown-all-in-one"
+      ],
+      "settings": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "explicit"
+        },
+        "eslint.validate": ["javascript"],
+        "files.eol": "\n",
+        "prettier.requireConfig": true
+      }
+    }
+  }
+}

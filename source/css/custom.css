@@ -1,0 +1,447 @@
+/* Keep visual changes here so Butterfly remains easy to upgrade. */
+
+:root {
+  --kral-accent: #38bdf8;
+  --kral-accent-soft: #a5f3fc;
+  --kral-surface: rgba(255, 255, 255, 0.88);
+  --kral-border: rgba(15, 23, 42, 0.08);
+  --kral-shadow: 0 24px 70px rgba(15, 23, 42, 0.1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(56, 189, 248, 0.1), transparent 28rem),
+    radial-gradient(circle at 88% 18%, rgba(99, 102, 241, 0.08), transparent 26rem), #f4f7fb;
+}
+
+#page-header.full_page {
+  height: 100vh !important;
+  min-height: 100vh;
+  background-attachment: scroll !important;
+  background-position: center 42% !important;
+  background-size: cover !important;
+}
+
+#page-header.full_page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(6, 12, 24, 0.82) 0%,
+      rgba(6, 12, 24, 0.48) 48%,
+      rgba(6, 12, 24, 0.24) 100%
+    ),
+    linear-gradient(0deg, rgba(6, 12, 24, 0.54) 0%, transparent 45%);
+}
+
+#page-header #site-info,
+#page-header #scroll-down {
+  position: relative;
+  z-index: 1;
+}
+
+#nav {
+  z-index: 2;
+}
+
+#page-header.full_page #site-info {
+  padding: 0 1rem;
+  text-align: center;
+}
+
+#page-header.full_page #site-title {
+  display: none;
+}
+
+#site-subtitle {
+  min-height: 2.5rem;
+  margin-top: 0;
+  font-size: clamp(1.1rem, 2.2vw, 1.65rem) !important;
+  letter-spacing: 0.02em;
+  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.75);
+}
+
+#subtitle {
+  display: inline;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+}
+
+#scroll-down .scroll-down-effects {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+#page-header.not-home-page {
+  background: linear-gradient(135deg, #0f172a, #1e293b) !important;
+}
+
+#content-inner.layout {
+  max-width: 1200px;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding-top: 3.5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
+
+.recent-post-item,
+#aside-content .card-widget,
+#page,
+#post {
+  border: 1px solid var(--kral-border);
+  border-radius: 20px !important;
+  background: var(--kral-surface) !important;
+  box-shadow: var(--kral-shadow) !important;
+  backdrop-filter: blur(18px);
+}
+
+#aside-content {
+  width: 290px;
+}
+
+#aside-content .card-widget {
+  overflow: hidden;
+}
+
+#aside-content .card-info .avatar-img {
+  border: 3px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.18);
+}
+
+#aside-content .card-info .author-info-name {
+  font-size: 1.35rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+#aside-content .card-info .author-info-description {
+  color: #64748b;
+}
+
+#aside-content .card-info #card-info-btn {
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0284c7, var(--kral-accent));
+  box-shadow: 0 10px 22px rgba(14, 165, 233, 0.22);
+}
+
+#aside-content .card-info #card-info-btn:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.recent-post-item {
+  overflow: hidden;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+/* Keep the sparse initial homepage balanced; masonry resumes at two posts. */
+#recent-posts .recent-post-items > .recent-post-item:only-child {
+  width: 100% !important;
+}
+
+.recent-post-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.16) !important;
+}
+
+.recent-post-item .recent-post-info {
+  padding: 1.55rem 1.65rem 1.75rem !important;
+}
+
+.recent-post-item .article-title {
+  font-size: clamp(1.3rem, 2vw, 1.65rem) !important;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.recent-post-item .content {
+  margin-top: 1rem;
+  line-height: 1.8;
+}
+
+#page,
+#post {
+  padding: clamp(1.5rem, 4vw, 3rem);
+}
+
+#article-container {
+  max-width: none;
+}
+
+.kral-projects-header {
+  margin-bottom: 1.5rem;
+}
+
+#page:has(.kral-projects-header) > .page-title {
+  display: none;
+}
+
+.kral-projects-eyebrow {
+  margin: 0 0 0.45rem;
+  color: #0284c7;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.16em;
+}
+
+.kral-projects-header h1 {
+  margin: 0;
+  font-size: clamp(2.25rem, 5vw, 3.7rem);
+  letter-spacing: -0.045em;
+}
+
+.kral-projects-header p:last-child {
+  max-width: 42rem;
+  margin: 0.75rem 0 0;
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+.kral-project-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.kral-project-card {
+  overflow: hidden;
+  border: 1px solid var(--kral-border);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  color: #0f172a;
+  box-shadow: 0 16px 42px rgba(15, 23, 42, 0.08);
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.kral-project-card:hover {
+  color: #0f172a;
+  transform: translateY(-5px);
+  box-shadow: 0 24px 58px rgba(15, 23, 42, 0.16);
+}
+
+.kral-project-card-media {
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: #0f172a;
+}
+
+.kral-project-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 350ms ease;
+}
+
+.kral-project-card:hover .kral-project-card-media img {
+  transform: scale(1.035);
+}
+
+.kral-project-card-body {
+  padding: 1.35rem 1.45rem 1.5rem;
+}
+
+.kral-project-meta {
+  display: flex;
+  margin-bottom: 0.75rem;
+  align-items: center;
+  justify-content: space-between;
+  color: #64748b;
+  font-size: 0.76rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.kral-project-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.kral-project-status::before {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: #22c55e;
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.12);
+  content: '';
+}
+
+.kral-project-status.is-placeholder::before {
+  background: #a855f7;
+  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.12);
+}
+
+.kral-project-card h2 {
+  margin: 0;
+  font-size: clamp(1.35rem, 2.5vw, 1.75rem);
+  letter-spacing: -0.025em;
+}
+
+.kral-project-card-body > p {
+  min-height: 3.7rem;
+  margin: 0.65rem 0 1rem;
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.kral-project-open {
+  color: #0284c7;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.kral-project-open i {
+  margin-left: 0.25rem;
+  font-size: 0.75rem;
+  transition: transform 180ms ease;
+}
+
+.kral-project-card:hover .kral-project-open i {
+  transform: translateX(3px);
+}
+
+.type-resume #page {
+  max-width: 900px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.type-resume #article-container h1 {
+  margin-bottom: 0.5rem;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  letter-spacing: -0.04em;
+}
+
+.type-resume #article-container h2 {
+  margin-top: 2.5rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--kral-border);
+}
+
+#footer {
+  border-top: 1px solid var(--kral-border);
+  background: transparent !important;
+}
+
+html[data-theme='dark'] {
+  --kral-surface: rgba(15, 23, 42, 0.86);
+  --kral-border: rgba(148, 163, 184, 0.14);
+  --kral-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+}
+
+html[data-theme='dark'] body {
+  background:
+    radial-gradient(circle at 12% 10%, rgba(14, 165, 233, 0.1), transparent 28rem),
+    radial-gradient(circle at 88% 18%, rgba(99, 102, 241, 0.1), transparent 26rem), #080d18;
+}
+
+html[data-theme='dark'] #aside-content .card-info .author-info-description {
+  color: #94a3b8;
+}
+
+html[data-theme='dark'] .kral-projects-header p:last-child,
+html[data-theme='dark'] .kral-project-card-body > p,
+html[data-theme='dark'] .kral-project-meta {
+  color: #94a3b8;
+}
+
+html[data-theme='dark'] .kral-project-card,
+html[data-theme='dark'] .kral-project-card:hover {
+  border-color: rgba(148, 163, 184, 0.14);
+  background: rgba(15, 23, 42, 0.72);
+  color: #e2e8f0;
+}
+
+@media (max-width: 1024px) {
+  #content-inner.layout {
+    gap: 1rem;
+  }
+
+  #aside-content {
+    width: 260px;
+  }
+}
+
+@media (max-width: 768px) {
+  #page-header.full_page {
+    height: 100svh !important;
+    min-height: 100svh;
+    background-position: 58% center !important;
+  }
+
+  #page-header.full_page #site-info {
+    padding: 0 1.5rem;
+  }
+
+  #site-subtitle {
+    min-height: 4rem;
+    font-size: 1rem !important;
+    line-height: 1.6;
+  }
+
+  #content-inner.layout {
+    padding-top: 1.5rem;
+    padding-right: 0.75rem;
+    padding-left: 0.75rem;
+  }
+
+  .recent-post-item .recent-post-info {
+    padding: 1.5rem !important;
+  }
+
+  .kral-project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .kral-project-card-body > p {
+    min-height: 0;
+  }
+
+  #page,
+  #post {
+    padding: 1.35rem;
+    border-radius: 18px !important;
+  }
+}
+
+@media print {
+  #page-header,
+  #footer,
+  #rightside,
+  #post-comment,
+  .pagination-post,
+  .post-copyright,
+  .tag_share {
+    display: none !important;
+  }
+
+  body,
+  #body-wrap,
+  #content-inner,
+  #page,
+  #post {
+    background: #fff !important;
+    border: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .type-resume #page {
+    max-width: none;
+    padding: 0;
+  }
+}

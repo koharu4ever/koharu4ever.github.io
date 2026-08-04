@@ -1,0 +1,5 @@
+{
+  "editor.formatOnSave": true,
+  "files.eol": "\n",
+  "markdown.extension.toc.levels": "2..4"
+}

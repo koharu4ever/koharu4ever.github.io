@@ -1,0 +1,15 @@
+node_modules/
+.pnpm-store/
+public/
+.deploy_git/
+db.json
+.DS_Store
+
+# Local environment and tool output
+.env
+.env.*
+!.env.example
+*.log
+
+# Local visual-review screenshots
+preview-*.png

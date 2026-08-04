@@ -1,0 +1,148 @@
+nav:
+  display_title: true
+  display_post_title: true
+  fixed: true
+
+menu:
+  Home: / || fas fa-home
+  Resume: /resume/ || fas fa-file-lines
+  Blog||fas fa-book:
+    Archive: /archives/ || fas fa-box-archive
+    Categories: /categories/ || fas fa-folder-open
+    Tags: /tags/ || fas fa-tags
+  Projects||fas fa-code:
+    Project Home: /projects/ || fas fa-grip
+    Kita: https://kita.kral-koharu.com/ || fas fa-rocket
+    Archive: https://archive.kral-koharu.com/ || fas fa-box-archive
+    GitHub: https://github.com/koharu4ever || fab fa-github
+
+social:
+  fab fa-github: https://github.com/koharu4ever || GitHub
+
+favicon: /img/favicon.ico
+
+avatar:
+  img: https://github.com/koharu4ever.png
+  effect: false
+
+disable_top_img: false
+default_top_img: false
+index_img: /img/cover.png
+archive_img: false
+tag_img: false
+category_img: false
+footer_img: false
+background:
+
+cover:
+  index_enable: true
+  aside_enable: true
+  archives_enable: true
+  default_cover:
+    - /img/cover.png
+
+index_site_info_top: 46%
+index_top_img_height: 100vh
+
+subtitle:
+  enable: true
+  effect: true
+  source: false
+  sub:
+    - Ein starker Glanz von hundert Sonnen,
+    - Der unsern Tag zur Mitternacht
+    - Und unsre Sonne finster macht,
+    - Hat dein verklärtes Haupt umsponnen.
+
+# Use Butterfly's built-in masonry cards, as seen on the reference site.
+index_layout: 6
+
+index_post_content:
+  method: 2
+  length: 180
+
+aside:
+  enable: true
+  hide: false
+  button: false
+  mobile: false
+  position: right
+  display:
+    archive: false
+    tag: false
+    category: false
+  card_author:
+    enable: true
+    description: Full-Stack Developer · Tokyo
+    button:
+      enable: true
+      icon: fas fa-file-lines
+      text: View Resume
+      link: /resume/
+  card_announcement:
+    enable: true
+    content: 源码正在重新整理中，项目与文章会逐步补充。
+  card_recent_post:
+    enable: true
+    limit: 3
+    sort: date
+  card_newest_comments:
+    enable: false
+  card_categories:
+    enable: true
+    limit: 8
+    expand: none
+    sort_order: none
+  card_tags:
+    enable: true
+    limit: 12
+    color: false
+    orderby: name
+    order: 1
+  card_archives:
+    enable: false
+  card_webinfo:
+    enable: true
+    post_count: true
+    last_push_date: true
+
+comments:
+  use:
+
+share:
+  use:
+
+busuanzi:
+  site_uv: true
+  site_pv: true
+  page_pv: true
+
+search:
+  use: local_search
+  placeholder: 搜索文章
+  local_search:
+    preload: false
+    top_n_per_article: 1
+    unescape: false
+    pagination:
+      enable: false
+      hitsPerPage: 8
+    CDN:
+
+darkmode:
+  enable: true
+  button: true
+  autoChangeMode: false
+
+footer:
+  owner:
+    enable: true
+    since: 2025
+  copyright:
+    enable: true
+    version: false
+
+inject:
+  head:
+    - <link rel="stylesheet" href="/css/custom.css">
+  bottom:
