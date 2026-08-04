@@ -17,7 +17,7 @@
       "onAutoForward": "silent"
     }
   },
-  "postCreateCommand": "sudo corepack enable && pnpm install",
+  "postCreateCommand": "git config --global --add safe.directory /workspaces/koharu-hexo && sudo corepack enable && pnpm install",
   "customizations": {
     "vscode": {
       "extensions": [
