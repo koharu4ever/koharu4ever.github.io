@@ -306,6 +306,51 @@ body {
   font-size: 0.82rem;
 }
 
+/* Keep long article series readable without turning the aside into a cover wall. */
+#aside-content .card-post-series .aside-list {
+  counter-reset: kral-series-item;
+}
+
+#aside-content .card-post-series .aside-list-item {
+  counter-increment: kral-series-item;
+  display: grid;
+  grid-template-columns: 1.6rem minmax(0, 1fr);
+  gap: 0.45rem;
+  padding: 0.55rem 0;
+  align-items: start;
+}
+
+#aside-content .card-post-series .aside-list-item::before {
+  content: counter(kral-series-item, decimal-leading-zero);
+  padding-top: 0.1rem;
+  color: var(--card-meta);
+  font-size: 0.7rem;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+#aside-content .card-post-series .thumbnail,
+#aside-content .card-post-series time {
+  display: none;
+}
+
+#aside-content .card-post-series .content {
+  min-width: 0;
+  padding-left: 0;
+}
+
+#aside-content .card-post-series .title {
+  font-size: 0.82rem;
+  line-height: 1.45;
+}
+
+#aside-content .card-post-series .title:focus-visible {
+  border-radius: 3px;
+  outline: 2px solid var(--kral-accent);
+  outline-offset: 3px;
+}
+
 /* Remote counters stay out of view unless Busuanzi returns a real value. */
 #aside-content .webinfo-item:has(#busuanzi_value_site_uv),
 #aside-content .webinfo-item:has(#busuanzi_value_site_pv),
@@ -324,6 +369,16 @@ body {
 
 .post-meta-separator:has(+ .post-meta-pv-cv:not(.kral-stat-ready)) {
   display: none;
+}
+
+#kral-random-post:focus-visible {
+  outline: 2px solid var(--kral-accent);
+  outline-offset: 3px;
+}
+
+#kral-random-post:disabled {
+  cursor: wait;
+  opacity: 0.45;
 }
 
 #aside-content .card-info .avatar-img {

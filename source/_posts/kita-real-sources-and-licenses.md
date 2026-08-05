@@ -10,6 +10,7 @@ tags:
   - 开源项目
 categories:
   - Kita 真实开发记录
+series: Kita 真实开发记录
 ---
 
 Kita 不是从空白屏幕里独立发明出来的。

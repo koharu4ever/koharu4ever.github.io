@@ -10,6 +10,7 @@ tags:
   - 故障排查
 categories:
   - Kita 工程案例
+series: Kita 工程案例
 ---
 
 > 这是“Kita 工程案例”系列的第三篇。前两篇建立了 Dev Container 与 DIND PostgreSQL；这一篇处理实际使用后出现的性能和文件所有权问题。

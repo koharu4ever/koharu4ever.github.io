@@ -10,6 +10,7 @@ tags:
   - 项目架构
 categories:
   - Kita 工程案例
+series: Kita 工程案例
 toc: false
 ---
 

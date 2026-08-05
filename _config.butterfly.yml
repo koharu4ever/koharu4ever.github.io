@@ -119,6 +119,11 @@ aside:
     order: 1
   card_archives:
     enable: false
+  card_post_series:
+    enable: true
+    series_title: true
+    orderBy: date
+    order: 1
   card_webinfo:
     enable: true
     post_count: true

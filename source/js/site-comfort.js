@@ -1,4 +1,4 @@
-/* global document, MutationObserver */
+/* global document, location, MutationObserver, window */
 
 (() => {
   'use strict';
@@ -51,11 +51,84 @@
 
   const initStats = () => metrics.forEach(revealWhenReady);
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initStats, { once: true });
-  } else {
+  let randomPostsRequest;
+
+  const normalizePath = (value) => {
+    const path = new URL(value, window.location.origin).pathname;
+    return path.endsWith('/') ? path : `${path}/`;
+  };
+
+  const loadRandomPosts = () => {
+    if (!randomPostsRequest) {
+      randomPostsRequest = fetch('/random-posts.json', {
+        credentials: 'same-origin',
+      })
+        .then((response) => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        })
+        .then((data) => (Array.isArray(data.posts) ? data.posts : []))
+        .catch((error) => {
+          randomPostsRequest = undefined;
+          throw error;
+        });
+    }
+
+    return randomPostsRequest;
+  };
+
+  const visitRandomPost = async (button) => {
+    const defaultTitle = button.title;
+    button.disabled = true;
+
+    try {
+      const currentPath = normalizePath(location.href);
+      const posts = (await loadRandomPosts()).filter((post) => normalizePath(post) !== currentPath);
+
+      if (!posts.length) throw new Error('No random post candidates');
+
+      const destination = posts[Math.floor(Math.random() * posts.length)];
+      window.location.assign(destination);
+    } catch {
+      button.title = '暂时无法获取文章列表';
+      button.setAttribute('aria-label', button.title);
+
+      window.setTimeout(() => {
+        button.title = defaultTitle;
+        button.setAttribute('aria-label', defaultTitle);
+        button.disabled = false;
+      }, 2500);
+    }
+  };
+
+  const initRandomPost = () => {
+    if (document.getElementById('kral-random-post')) return;
+
+    const rightside = document.getElementById('rightside-config-show');
+    const goUp = document.getElementById('go-up');
+    if (!rightside || !goUp) return;
+
+    const button = document.createElement('button');
+    button.id = 'kral-random-post';
+    button.type = 'button';
+    button.title = '随便逛逛';
+    button.setAttribute('aria-label', button.title);
+    button.innerHTML = '<i class="fas fa-random" aria-hidden="true"></i>';
+    button.addEventListener('click', () => visitRandomPost(button));
+
+    rightside.insertBefore(button, goUp);
+  };
+
+  const initComfort = () => {
     initStats();
+    initRandomPost();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initComfort, { once: true });
+  } else {
+    initComfort();
   }
 
-  document.addEventListener('pjax:complete', initStats);
+  document.addEventListener('pjax:complete', initComfort);
 })();

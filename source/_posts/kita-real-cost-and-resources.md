@@ -10,6 +10,7 @@ tags:
   - 成本
 categories:
   - Kita 真实开发记录
+series: Kita 真实开发记录
 ---
 
 “Next.js、Payload、PostgreSQL 和 OpenList 都是开源软件”，不等于 Kita 免费运行。

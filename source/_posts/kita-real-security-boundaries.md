@@ -10,6 +10,7 @@ tags:
   - Cloudflare R2
 categories:
   - Kita 真实开发记录
+series: Kita 真实开发记录
 ---
 
 Kita 没有企业级安全团队，也不需要写一份假装覆盖所有威胁的安全白皮书。

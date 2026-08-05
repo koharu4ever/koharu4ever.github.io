@@ -10,6 +10,7 @@ tags:
   - 实操案例
 categories:
   - Kita 工程案例
+series: Kita 工程案例
 ---
 
 > 这是“Kita 工程案例”系列的第四篇。前三篇建立并修复本地开发环境；这一篇把 Games 图片从应用文件系统迁移到 Payload Media 与 Cloudflare R2。

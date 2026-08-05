@@ -10,6 +10,7 @@ tags:
   - Docker Compose
 categories:
   - Kita 工程案例
+series: Kita 工程案例
 ---
 
 > 这是“Kita 工程案例”系列的第六篇。上一篇完成 Coolify 部署；这一篇把 PostgreSQL 备份从路线图变成可审计、可测试的 Compose sidecar。

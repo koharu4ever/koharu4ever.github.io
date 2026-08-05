@@ -10,6 +10,7 @@ tags:
   - 时间线
 categories:
   - Kita 真实开发记录
+series: Kita 真实开发记录
 ---
 
 Kita 的第一个 commit 是 2026 年 6 月 13 日。

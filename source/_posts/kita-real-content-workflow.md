@@ -10,6 +10,7 @@ tags:
   - 发布
 categories:
   - Kita 真实开发记录
+series: Kita 真实开发记录
 ---
 
 Kita 已经有 Payload Admin，但它还不是一套完整编辑部系统。

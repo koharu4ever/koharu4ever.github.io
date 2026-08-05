@@ -10,6 +10,7 @@ tags:
   - 内容设计
 categories:
   - Kita 真实开发记录
+series: Kita 真实开发记录
 ---
 
 Kita 当前注册了五个 Payload Collections：

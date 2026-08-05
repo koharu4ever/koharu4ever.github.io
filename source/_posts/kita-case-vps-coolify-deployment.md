@@ -10,6 +10,7 @@ tags:
   - 部署实操
 categories:
   - Kita 工程案例
+series: Kita 工程案例
 ---
 
 > 这是“Kita 工程案例”系列的第五篇。上一篇完成 Media + R2；这一篇把代码、PostgreSQL、域名和环境变量真正放到一台 VPS 上运行。

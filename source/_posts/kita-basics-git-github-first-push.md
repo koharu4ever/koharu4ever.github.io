@@ -9,6 +9,7 @@ tags:
   - 初学者
 categories:
   - Kita 从零理解
+series: Kita 从零理解
 ---
 
 > 这是“从零读懂 Kita”系列的第八篇。这里不假设读者已经会 Git，而是从“我的电脑里有一个项目文件夹”开始。

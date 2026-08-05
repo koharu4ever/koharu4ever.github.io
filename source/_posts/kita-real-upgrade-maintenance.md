@@ -10,6 +10,7 @@ tags:
   - Payload CMS
 categories:
   - Kita 真实开发记录
+series: Kita 真实开发记录
 ---
 
 Kita 当前的版本组合写在 `package.json`：

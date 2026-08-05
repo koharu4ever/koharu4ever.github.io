@@ -10,6 +10,7 @@ tags:
   - 排错
 categories:
   - Kita 真实开发记录
+series: Kita 真实开发记录
 ---
 
 假设浏览器打开：

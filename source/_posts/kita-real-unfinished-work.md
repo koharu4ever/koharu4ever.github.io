@@ -10,6 +10,7 @@ tags:
   - 路线图
 categories:
   - Kita 真实开发记录
+series: Kita 真实开发记录
 ---
 
 Kita 已经能运行、能部署、能编辑内容，也有 CI 和自动备份。

@@ -10,6 +10,7 @@ tags:
   - 实操案例
 categories:
   - Kita 工程案例
+series: Kita 工程案例
 ---
 
 > 这是“Kita 工程案例”系列的第二篇。上一篇建立 Dev Container；这一篇在容器内部加入 PostgreSQL，并把“两步启动”收敛为一个可靠入口。

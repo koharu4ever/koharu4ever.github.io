@@ -10,6 +10,7 @@ tags:
   - 503
 categories:
   - Kita 真实开发记录
+series: Kita 真实开发记录
 ---
 
 2026 年 7 月 3 日，Kita 的 Games 接入 Payload 后，production build 是成功的，网站却返回：

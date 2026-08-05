@@ -10,6 +10,7 @@ tags:
   - Next.js
 categories:
   - Kita 工程案例
+series: Kita 工程案例
 ---
 
 > 这是“Kita 工程案例”系列的第七篇。这篇不介绍新工具，而是复盘一次最有价值的生产事故：CI 与 Docker build 都通过，线上仍然返回 503。

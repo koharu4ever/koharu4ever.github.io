@@ -10,6 +10,7 @@ tags:
   - 实操案例
 categories:
   - Kita 工程案例
+series: Kita 工程案例
 ---
 
 > 这是“Kita 工程案例”系列的第一篇。技术选择系列解释我为什么使用 Dev Container；这一篇直接展示 Kita 当前怎样配置、验证和排错。

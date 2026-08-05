@@ -10,6 +10,7 @@ tags:
   - Cloudflare
 categories:
   - Kita 开发记录
+series: Kita 开发记录
 ---
 
 > 这是“Kita 技术选择”系列的第三篇。上一篇把开发环境写进了仓库；这一篇开始回答项目离开开发电脑以后，应该在哪里运行。

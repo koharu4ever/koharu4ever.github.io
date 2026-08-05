@@ -10,6 +10,7 @@ tags:
   - 内容迁移
 categories:
   - Kita 开发记录
+series: Kita 开发记录
 ---
 
 > 这是“Kita 技术选择”系列的第六篇。上一篇建立了 Payload 到页面的数据流；这一篇处理其中最容易被低估的一类内容：图片。

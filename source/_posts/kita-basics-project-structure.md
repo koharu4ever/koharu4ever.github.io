@@ -10,6 +10,7 @@ tags:
   - Bulletproof React
 categories:
   - Kita 从零理解
+series: Kita 从零理解
 ---
 
 > 这是“从零读懂 Kita”系列的第四篇。上一篇解释根目录配置；这一篇进入 `src`，回答每类代码为什么放在这里。

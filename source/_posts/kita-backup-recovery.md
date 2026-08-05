@@ -10,6 +10,7 @@ tags:
   - R2
 categories:
   - Kita 开发记录
+series: Kita 开发记录
 ---
 
 > 这是“Kita 技术选择”系列的第八篇。上一篇把 OpenList 从 Kita 发布单元中分离；这一篇开始清点每个系统真正需要保护和恢复的资产。
