@@ -256,6 +256,76 @@ body {
   overflow: hidden;
 }
 
+#aside-content .card-announcement > .item-headline {
+  display: none;
+}
+
+#aside-content .card-announcement .announcement_content {
+  text-align: left;
+}
+
+.kral-now h3 {
+  margin: 0 0 0.85rem;
+  color: #0284c7;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.kral-now dl {
+  margin: 0;
+}
+
+.kral-now dl > div {
+  display: grid;
+  grid-template-columns: 4.25rem minmax(0, 1fr);
+  gap: 0.7rem;
+  padding: 0.48rem 0;
+  border-top: 1px solid var(--kral-border);
+}
+
+.kral-now dl > div:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.kral-now dt,
+.kral-now dd {
+  margin: 0;
+  line-height: 1.55;
+}
+
+.kral-now dt {
+  color: #0f172a;
+  font-size: 0.84rem;
+  font-weight: 750;
+}
+
+.kral-now dd {
+  color: #64748b;
+  font-size: 0.82rem;
+}
+
+/* Remote counters stay out of view unless Busuanzi returns a real value. */
+#aside-content .webinfo-item:has(#busuanzi_value_site_uv),
+#aside-content .webinfo-item:has(#busuanzi_value_site_pv),
+.post-meta-pv-cv {
+  display: none;
+}
+
+#aside-content .webinfo-item.kral-stat-ready:has(#busuanzi_value_site_uv),
+#aside-content .webinfo-item.kral-stat-ready:has(#busuanzi_value_site_pv) {
+  display: flex;
+}
+
+.post-meta-pv-cv.kral-stat-ready {
+  display: inline;
+}
+
+.post-meta-separator:has(+ .post-meta-pv-cv:not(.kral-stat-ready)) {
+  display: none;
+}
+
 #aside-content .card-info .avatar-img {
   border: 3px solid rgba(255, 255, 255, 0.8);
   box-shadow: 0 10px 28px rgba(15, 23, 42, 0.18);
@@ -314,6 +384,14 @@ body {
   line-height: 1.8;
 }
 
+.recent-post-item .post_cover a:focus-visible,
+.recent-post-item .article-title:focus-visible,
+.kral-project-card:focus-visible {
+  border-radius: 8px;
+  outline: 3px solid var(--kral-accent);
+  outline-offset: 4px;
+}
+
 #page,
 #post {
   padding: clamp(1.5rem, 4vw, 3rem);
@@ -321,6 +399,20 @@ body {
 
 #article-container {
   max-width: none;
+}
+
+#article-container .mermaid-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 0.5rem 0;
+  overscroll-behavior-inline: contain;
+}
+
+#article-container .mermaid-wrap > svg {
+  display: block;
+  height: auto !important;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .kral-projects-header {
@@ -357,6 +449,11 @@ body {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
+}
+
+.kral-project-grid > .kral-project-card:only-child {
+  grid-column: 1 / -1;
+  max-width: 46rem;
 }
 
 .kral-project-card {
@@ -425,11 +522,6 @@ body {
   content: '';
 }
 
-.kral-project-status.is-placeholder::before {
-  background: #a855f7;
-  box-shadow: 0 0 0 4px rgba(168, 85, 247, 0.12);
-}
-
 .kral-project-card h2 {
   margin: 0;
   font-size: clamp(1.35rem, 2.5vw, 1.75rem);
@@ -495,6 +587,14 @@ html[data-theme='dark'] body {
 }
 
 html[data-theme='dark'] #aside-content .card-info .author-info-description {
+  color: #94a3b8;
+}
+
+html[data-theme='dark'] .kral-now dt {
+  color: #e2e8f0;
+}
+
+html[data-theme='dark'] .kral-now dd {
   color: #94a3b8;
 }
 
@@ -604,13 +704,27 @@ html[data-theme='dark'] .kral-project-card:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .kral-start-card img,
-  .kral-start-card::after {
-    transition: none;
+  html {
+    scroll-behavior: auto !important;
   }
 
+  .recent-post-item,
+  .recent-post-item .post-bg,
+  .kral-project-card,
+  .kral-project-card-media img,
+  .kral-project-open i,
+  .kral-start-card img,
+  .kral-start-card::after {
+    transition: none !important;
+  }
+
+  .recent-post-item:hover,
+  .recent-post-item:hover .post-bg,
+  .kral-project-card:hover,
+  .kral-project-card:hover .kral-project-card-media img,
+  .kral-project-card:hover .kral-project-open i,
   .kral-start-card:hover img {
-    transform: none;
+    transform: none !important;
   }
 }
 

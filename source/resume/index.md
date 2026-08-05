@@ -11,7 +11,7 @@ top_img: false
 
 **Full-Stack Developer · Tokyo, Japan**
 
-TypeScript / JavaScript 全栈开发者。这里先保留最小内容，之后用 Codex 按目标岗位继续修改。
+TypeScript / JavaScript 全栈开发者，重视清晰的数据边界、可复现的开发环境和长期维护。当前主要维护 Kita，并持续学习 C#/.NET 与 Java 后端开发。
 
 ## 技术栈
 

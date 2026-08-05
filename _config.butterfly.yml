@@ -82,7 +82,24 @@ aside:
       link: /resume/
   card_announcement:
     enable: true
-    content: 正在整理 Kita 的架构与内容，并准备下一个 C#/.NET 项目。
+    content: |
+      <div class="kral-now" aria-labelledby="kral-now-title">
+        <h3 id="kral-now-title">NOW</h3>
+        <dl>
+          <div>
+            <dt>Kita</dt>
+            <dd>整理架构、文章和真实内容</dd>
+          </div>
+          <div>
+            <dt>.NET</dt>
+            <dd>准备开始第一个完整项目</dd>
+          </div>
+          <div>
+            <dt>Homelab</dt>
+            <dd>给 Dell G3 准备长期运行环境</dd>
+          </div>
+        </dl>
+      </div>
   card_recent_post:
     enable: true
     limit: 3
@@ -106,6 +123,7 @@ aside:
     enable: true
     post_count: true
     last_push_date: true
+    runtime_date: '2025/12/14 00:00:00'
 
 comments:
   use:
@@ -123,6 +141,9 @@ wordcount:
   post_wordcount: true
   min2read: true
   total_wordcount: false
+
+toc:
+  scroll_percent: false
 
 mermaid:
   enable: true
@@ -148,6 +169,12 @@ darkmode:
   button: true
   autoChangeMode: false
 
+rightside_scroll_percent: true
+
+anchor:
+  auto_update: false
+  click_to_scroll: true
+
 footer:
   owner:
     enable: true
@@ -160,3 +187,4 @@ inject:
   head:
     - <link rel="stylesheet" href="/css/custom.css">
   bottom:
+    - <script defer src="/js/site-comfort.js"></script>
