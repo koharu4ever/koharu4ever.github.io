@@ -1,7 +1,7 @@
 ---
 title: Kita 还没有完成：我现在明确保留的技术债
 date: 2026-08-04 17:45:00
-cover: /img/home-rain-harbor.jpg
+cover: /img/covers/kita-unfinished-work.webp
 description: 把 Kita 当前没有闭环的内容、恢复、安全、测试和体验问题公开列出来，并区分真正下一步与暂时不做。
 tags:
   - 技术债
@@ -156,4 +156,3 @@ Kita 根目录仍缺：
 - 想看真实时间线、事故和缺口：[从本系列第一篇开始](/2026/08/04/kita-real-timeline/)
 
 如果以后这些“未完成”项目真的关闭，我希望文章保留当时状态，再补一条带日期的实施结果，而不是改写成项目从来没有遇到过问题。
-

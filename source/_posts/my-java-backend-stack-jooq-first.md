@@ -1,7 +1,7 @@
 ---
 title: 我为什么为个人项目选择这套 Java 后端栈：jOOQ-first，Hibernate-local
 date: 2026-08-04 22:50:00
-cover: /img/home-night-sky.jpg
+cover: /img/covers/backend-java-jooq.webp
 description: 从 TypeScript/Go 开发者的视角，解释 Java 25、Spring Boot 4.1、PostgreSQL、Flyway、jOOQ、Testcontainers 等选择背后的目的，以及我明确拒绝的企业级复杂度。
 tags:
   - Java

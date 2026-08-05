@@ -1,7 +1,7 @@
 ---
 title: 从空白 VPS 到 Coolify 部署 Kita
 date: 2026-08-04 12:00:00
-cover: /img/home-rain-harbor.jpg
+cover: /img/covers/vps-coolify-deployment.webp
 description: 以 Kita 的真实部署链路为例，整理 VPS 基线、Cloudflare DNS、GitHub、Coolify Compose、生产环境变量和上线验收。
 tags:
   - VPS
@@ -316,4 +316,3 @@ Kita 当前的 Coolify Compose Production 已运行，Payload Media + R2、六�
 - 对应的决策文章：[为什么 Kita 要 Self-host](/2026/08/02/kita-self-host-coolify/)
 - 上一篇：[从 Payload Media 到 Cloudflare R2 的完整配置](/2026/08/04/kita-case-payload-media-r2/)
 - 下一篇：[用 Backup Sidecar 把 PostgreSQL 备份到 R2](/2026/08/04/kita-case-postgres-r2-backup/)
-

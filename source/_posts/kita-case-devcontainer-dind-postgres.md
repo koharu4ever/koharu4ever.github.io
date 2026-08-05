@@ -1,7 +1,7 @@
 ---
 title: 在 Dev Container 中用 DIND 启动 PostgreSQL
 date: 2026-08-04 09:30:00
-cover: /img/home-rain-harbor.jpg
+cover: /img/covers/devcontainer-dind-postgres.webp
 description: 以 Kita 为例，把 PostgreSQL 16 运行在 Dev Container 内部的 Docker 中，并让 pnpm dev 自动启动、等待和验证数据库。
 tags:
   - Docker-in-Docker

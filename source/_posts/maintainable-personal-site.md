@@ -1,7 +1,7 @@
 ---
 title: 个人网站，简单比复杂更重要
 date: 2026-07-30 19:10:00
-cover: /img/home-sea-girl.jpg
+cover: /img/covers/maintainable-site.webp
 description: 少一些框架和功能，多一些真正能够持续更新的内容。
 tags:
   - Hexo

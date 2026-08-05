@@ -1,7 +1,7 @@
 ---
 title: 为什么我一直使用 Dev Container：开发环境也应该写进仓库
 date: 2026-08-02 09:00:00
-cover: /img/home-night-sky.jpg
+cover: /img/covers/dev-container.webp
 description: 源码能够提交到 Git，并不代表开发环境就能复现。这篇记录 Kita 为什么把 Node、pnpm、Docker 和编辑器配置一起放进 Dev Container，以及我为此付出的代价。
 tags:
   - Dev Container

@@ -1,7 +1,7 @@
 ---
 title: 从能部署到能恢复：PostgreSQL、R2 与灾难恢复
 date: 2026-08-03 15:00:00
-cover: /img/home-rain-harbor.jpg
+cover: /img/covers/backup-recovery.webp
 description: 部署成功只证明当前容器能运行。Kita 怎样用质量门禁、migration、backup sidecar 和恢复清单逐步接近真正的可恢复状态。
 tags:
   - PostgreSQL

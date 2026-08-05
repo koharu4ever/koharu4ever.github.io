@@ -1,7 +1,7 @@
 ---
 title: Kita 的目录结构从哪里来：App、Feature、Server 与 Payload
 date: 2026-08-04 16:15:00
-cover: /img/home-sunset-field.jpg
+cover: /img/covers/project-structure.webp
 description: Kita 没有凭空设计目录，也没有照抄企业模板；它组合了 create-next-app、App Router、Bulletproof React feature boundary 和 Payload 约定。
 tags:
   - 项目结构
@@ -264,4 +264,3 @@ docker-entrypoint.sh
 
 - 上一篇：[tsconfig、ESLint、Prettier 与 next.config 分别负责什么](/2026/08/04/kita-basics-config-files/)
 - 下一篇：[环境变量到底是什么：本地、生产、公开变量与 Secret](/2026/08/04/kita-basics-environment-variables/)
-

@@ -1,7 +1,7 @@
 ---
 title: Kita 不是按路线图做出来的：从 6 月 13 日到 Media 上线
 date: 2026-08-04 17:00:00
-cover: /img/home-night-sky.jpg
+cover: /img/covers/kita-timeline.webp
 description: 不从最终架构倒推设计，而是沿着 Kita 的真实 Git 历史，看看一个个人项目怎样在问题出现后逐层长出来。
 tags:
   - Kita
@@ -174,4 +174,3 @@ main 会触发生产
 Git 历史里没有“从第一天就想好一切”的证据。我真正想保留的也不是这种神话，而是每次改变都能找到当时的问题、代码和验证记录。
 
 继续阅读：[Build 通过，网站却 503：我第一次真正看懂 Runner](/2026/08/04/kita-real-503-incident/)
-

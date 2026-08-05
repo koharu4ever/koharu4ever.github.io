@@ -1,7 +1,7 @@
 ---
 title: 修复 Windows 9P 导致的 Next.js 编译缓慢
 date: 2026-08-04 10:00:00
-cover: /img/home-sunset-field.jpg
+cover: /img/covers/windows-nextjs-performance.webp
 description: Kita 在 Windows bind mount 上出现分钟级编译和 root 污染，本案例展示怎样用两个定向 volume 与用户守卫修复，而不搬走整个源码。
 tags:
   - Windows
@@ -209,4 +209,3 @@ Kita 目前只有两个经过实测证明的性能例外：`node_modules` 和 `.
 
 - 上一篇：[在 Dev Container 中用 DIND 启动 PostgreSQL](/2026/08/04/kita-case-devcontainer-dind-postgres/)
 - 下一篇：[从 Payload Media 到 Cloudflare R2 的完整配置](/2026/08/04/kita-case-payload-media-r2/)
-

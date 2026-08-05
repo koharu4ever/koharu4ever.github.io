@@ -1,7 +1,7 @@
 ---
 title: GitHub Actions、Checks 和 Ruleset 是怎样连起来的
 date: 2026-08-04 16:45:00
-cover: /img/home-rain-harbor.jpg
+cover: /img/covers/github-actions-ruleset.webp
 description: 从一次 Pull Request 出发，解释 CI、workflow、job、step、check 与 main 分支保护之间的关系。
 tags:
   - GitHub Actions

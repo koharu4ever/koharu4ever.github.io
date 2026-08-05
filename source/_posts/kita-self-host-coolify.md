@@ -1,7 +1,7 @@
 ---
 title: 为什么 Kita 要 Self-host：我怎样从 VPS 走到 Coolify
 date: 2026-08-02 12:00:00
-cover: /img/home-rain-harbor.jpg
+cover: /img/covers/self-host-coolify.webp
 description: Self-host 对我不是拒绝自动化，而是理解代码怎样穿过 GitHub、Docker、域名和数据库，最终运行在自己管理的服务器上。
 tags:
   - Self-host

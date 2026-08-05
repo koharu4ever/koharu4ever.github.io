@@ -1,7 +1,7 @@
 ---
 title: Self-host 不是免费：Kita 的资源、成本与单点故障
 date: 2026-08-04 17:35:00
-cover: /img/home-sunset-field.jpg
+cover: /img/covers/kita-cost-resources.webp
 description: 不虚构账单数字，只根据当前部署拓扑盘点 Kita 实际消耗的机器、存储、域名、维护时间和故障风险。
 tags:
   - Self-host
@@ -179,4 +179,3 @@ Media 放进 R2 后，重新部署 Web container 不会删除图片。PostgreSQL
 Kita 当前的选择不是最便宜，也不是最稳健。它是在单人维护、少量内容和希望掌握完整链路之间取得的阶段性平衡。
 
 下一篇处理另一个经常被“GitHub 上能看到”掩盖的问题：[Kita 的参考、改造与许可证](/2026/08/04/kita-real-sources-and-licenses/)。
-

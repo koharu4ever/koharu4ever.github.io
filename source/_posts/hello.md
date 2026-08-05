@@ -1,7 +1,7 @@
 ---
 title: 关于这个网站，我想保留什么
 date: 2026-08-03 17:00:00
-cover: /img/home-night-sky.jpg
+cover: /img/covers/about-site.webp
 description: 一个简单、清晰，也愿意长期维护的个人网站。
 tags:
   - Hexo

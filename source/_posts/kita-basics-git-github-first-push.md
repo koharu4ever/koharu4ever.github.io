@@ -1,7 +1,7 @@
 ---
 title: 从本地文件夹到 GitHub：第一次建仓库和 Push
 date: 2026-08-04 16:35:00
-cover: /img/P3F.jpg
+cover: /img/covers/git-first-push.webp
 description: 从 Git 与 GitHub 的区别开始，解释 git init、第一次 commit、remote、origin、认证与第一次 push。
 tags:
   - Git

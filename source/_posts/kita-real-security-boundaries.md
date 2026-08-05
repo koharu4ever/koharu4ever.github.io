@@ -1,7 +1,7 @@
 ---
 title: Kita 的门锁装在哪里：Admin、数据库、R2 与 Secret
 date: 2026-08-04 17:25:00
-cover: /img/home-rain-harbor.jpg
+cover: /img/covers/kita-security-boundaries.webp
 description: 按公开入口、登录边界、内部网络和 Secret 存储检查 Kita 当前安全模型，同时保留尚未处理的风险。
 tags:
   - 安全
@@ -198,4 +198,3 @@ backup container 已做了几项限制：只读 root filesystem、临时 `/tmp`�
 这份清单不是“项目不安全”的结论，而是当前安全承诺的边界。对 Kita 来说，下一步不是增加一套昂贵安全平台，而是先把已有默认权限显式化、轮换已经越界的 Secret，并验证恢复。
 
 下一篇讨论另一种长期风险：[一个人维护全栈项目，我准备怎样升级 Kita](/2026/08/04/kita-real-upgrade-maintenance/)。
-

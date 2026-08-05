@@ -1,7 +1,7 @@
 ---
 title: 从静态页面到 Payload Local API：Kita 的数据流怎么形成
 date: 2026-08-02 18:00:00
-cover: /img/home-sea-girl.jpg
+cover: /img/covers/payload-local-api.webp
 description: 页面效果确定以后，Kita 怎样用 Payload、PostgreSQL、Local API、server getter 和 mapper 建立一条可解释的数据流。
 tags:
   - Payload CMS

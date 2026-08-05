@@ -1,7 +1,7 @@
 ---
 title: package.json、pnpm-lock.yaml 和 scripts 到底是什么
 date: 2026-08-04 16:05:00
-cover: /img/home-sea-girl.jpg
+cover: /img/covers/package-json-pnpm.webp
 description: 用 Kita 的真实 package.json 解释项目身份、ESM、包管理器、scripts、dependencies、devDependencies 和 lockfile。
 tags:
   - package.json
@@ -282,4 +282,3 @@ pnpm build
 
 - 上一篇：[拿到一个项目后，应该先看哪些文件](/2026/08/04/kita-basics-read-repository/)
 - 下一篇：[tsconfig、ESLint、Prettier 与 next.config 分别负责什么](/2026/08/04/kita-basics-config-files/)
-

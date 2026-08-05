@@ -1,7 +1,7 @@
 ---
 title: Kita 常用命令手册：先判断目的，再敲命令
 date: 2026-08-04 16:50:00
-cover: /img/home-sea-girl.jpg
+cover: /img/covers/kita-command-guide.webp
 description: 按查看、开发、检查、Payload、Docker 和 Git 六类目的整理 Kita 命令，并标记它们会改变什么。
 tags:
   - 命令行

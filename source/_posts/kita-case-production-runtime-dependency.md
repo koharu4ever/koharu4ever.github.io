@@ -1,7 +1,7 @@
 ---
 title: 为什么 Build 通过了，生产容器仍然 503
 date: 2026-08-04 14:00:00
-cover: /img/P3F.jpg
+cover: /img/covers/production-runtime-dependency.webp
 description: 一次真实的 Kita 生产故障：Next.js 构建成功，但 Payload migration 在精简 runner 中加载前端依赖失败，导致容器反复退出。
 tags:
   - 故障复盘

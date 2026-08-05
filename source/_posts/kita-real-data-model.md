@@ -1,7 +1,7 @@
 ---
 title: 我到底在 Kita 里保存什么：Games、Reviews、Tools 和 Media
 date: 2026-08-04 17:10:00
-cover: /img/home-sea-girl.jpg
+cover: /img/covers/kita-data-model.webp
 description: 不从数据库名词开始，而是直接拆开 Kita 当前五个 Payload Collections，说明哪些字段已经合理，哪些仍是过渡状态。
 tags:
   - Payload CMS
@@ -194,4 +194,3 @@ Payload 官方的默认访问控制会要求请求中存在已登录用户，但
 这个数据模型没有追求“内容平台该有的所有能力”。它保留了当前网站真正使用的字段，也留下了几个可以被真实内容验证的过渡点。
 
 下一篇沿着一条 Game 数据继续走：[打开一个 Games 页面时，数据到底走了哪条路](/2026/08/04/kita-real-request-path/)。
-

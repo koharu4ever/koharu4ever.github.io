@@ -15,7 +15,7 @@ top_img: false
 <div class="kral-project-grid">
   <a class="kral-project-card" href="https://kita.kral-koharu.com/" target="_blank" rel="noopener noreferrer">
     <div class="kral-project-card-media">
-      <img src="/img/home-sea-girl.jpg" alt="Kita 项目封面" loading="lazy">
+      <img src="/img/projects/kita.webp" alt="Kita 项目封面" loading="lazy">
     </div>
     <div class="kral-project-card-body">
       <div class="kral-project-meta">
@@ -30,7 +30,7 @@ top_img: false
 
   <a class="kral-project-card" href="https://archive.kral-koharu.com/" target="_blank" rel="noopener noreferrer">
     <div class="kral-project-card-media">
-      <img src="/img/home-night-sky.jpg" alt="Archive 项目封面" loading="lazy">
+      <img src="/img/projects/archive.webp" alt="Archive 项目封面" loading="lazy">
     </div>
     <div class="kral-project-card-body">
       <div class="kral-project-meta">

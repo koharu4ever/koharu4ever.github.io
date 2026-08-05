@@ -1,7 +1,7 @@
 ---
 title: 拿到一个项目后，应该先看哪些文件
 date: 2026-08-04 16:00:00
-cover: /img/home-night-sky.jpg
+cover: /img/covers/read-repository.webp
 description: 以 Kita 为例，建立阅读陌生仓库的顺序：先找入口、命令、环境、源码和数据边界，再决定从哪里开始修改。
 tags:
   - 初学者
@@ -254,4 +254,3 @@ pnpm run
 
 - 下一篇：[package.json、pnpm-lock.yaml 和 scripts 到底是什么](/2026/08/04/kita-basics-package-json-pnpm/)
 - 相关工程案例：[在 Windows 上为 Next.js 配置 Dev Container](/2026/08/04/kita-case-devcontainer-setup/)
-

@@ -1,7 +1,7 @@
 ---
 title: 从备份文件到真正恢复：Kita Restore Drill 操作手册
 date: 2026-08-04 15:00:00
-cover: /img/home-sunset-field.jpg
+cover: /img/covers/restore-drill.webp
 description: 把 GitHub、Dev Container、PostgreSQL dump、R2 Media、Coolify、OpenList 和 DNS 串成一次隔离恢复演练，并标明 Kita 已完成与尚未完成的部分。
 tags:
   - 灾难恢复

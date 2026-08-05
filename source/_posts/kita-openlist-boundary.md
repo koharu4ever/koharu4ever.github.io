@@ -1,7 +1,7 @@
 ---
 title: 为什么 OpenList 是独立应用，而不是 Kita 的一个微服务
 date: 2026-08-03 12:00:00
-cover: /img/home-night-sky.jpg
+cover: /img/covers/openlist-boundary.webp
 description: Games 与资源目录在体验上应该连接，但这不代表 OpenList 必须进入 Kita 的数据库、Compose 和发布流程。
 tags:
   - OpenList
@@ -177,4 +177,3 @@ API 集成会带来 token、缓存、超时、错误降级和版本兼容，却�
 
 - 上一篇：[Games 封面从源码枚举到 Payload Media + R2](/2026/08/03/kita-media-r2/)
 - 下一篇：[从能部署到能恢复：PostgreSQL、R2 与灾难恢复](/2026/08/03/kita-backup-recovery/)
-

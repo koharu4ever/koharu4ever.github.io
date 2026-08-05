@@ -1,7 +1,7 @@
 ---
 title: 打开一个 Games 页面时，数据到底走了哪条路
 date: 2026-08-04 17:15:00
-cover: /img/home-sunset-field.jpg
+cover: /img/covers/kita-request-path.webp
 description: 跟踪一次真实的 /games/[slug] 请求，从 Cloudflare、Next Route、Payload Local API、PostgreSQL 一直到 R2 图片和 OpenList 外链。
 tags:
   - Next.js
@@ -214,4 +214,3 @@ getter 在 development 中允许本地 fallback：Payload 为空或查询失败�
 排错不再从“重启 VPS”开始，而是先问：哪一段已经有 200，哪一段第一次出现错误。
 
 下一篇把同一条链反过来，从 Admin 写入开始：[发布一条 Game 不是点一下 Save](/2026/08/04/kita-real-content-workflow/)。
-

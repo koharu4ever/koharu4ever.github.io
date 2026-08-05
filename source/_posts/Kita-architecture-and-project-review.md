@@ -1,7 +1,7 @@
 ---
 title: Kita 项目整体架构、数据流与边界审查
 date: 2026-08-05 14:30:00
-cover: /img/home-night-sky.jpg
+cover: /img/covers/kita-architecture-review.webp
 description: 从整体架构、数据流、开发环境、部署和恢复边界出发，系统审查 Kita 项目当前的真实结构。
 tags:
   - Kita
@@ -10,6 +10,7 @@ tags:
   - 项目架构
 categories:
   - Kita 工程案例
+toc: false
 ---
 
 # Kita 项目整体架构、数据流与边界审查
@@ -507,7 +508,7 @@ Recovery
 
 ### 4.2 系统上下文图
 
-```mermaid
+{% mermaid %}
 flowchart LR
   Visitor["访客浏览器"]
   Admin["站点管理员"]
@@ -534,7 +535,7 @@ flowchart LR
   Coolify --> Web
   Coolify --> DB
   DB -->|"pg_dump sidecar"| Backup
-```
+{% endmermaid %}
 
 ---
 
@@ -831,7 +832,7 @@ Games 封面最初经历了：
 
 当前生产核心可以看成三个 service：
 
-```mermaid
+{% mermaid %}
 flowchart TB
   Proxy["Coolify Proxy / HTTPS"]
   Web["web\nNext.js standalone + Payload"]
@@ -847,7 +848,7 @@ flowchart TB
   Backup --> Postgres
   Backup --> R2Backup
   Web --> R2Media
-```
+{% endmermaid %}
 
 #### `web`
 
@@ -969,7 +970,7 @@ Browser
 
 ### 7.1 物理与容器层次
 
-```mermaid
+{% mermaid %}
 flowchart TB
   Windows["Windows 文件系统\nC:\\dev\\Kita"]
   DockerDesktop["Docker Desktop / WSL2"]
@@ -987,7 +988,7 @@ flowchart TB
   LocalPG --> PGVolume
   Dev --> NodeModules
   Dev --> NextCache
-```
+{% endmermaid %}
 
 ---
 
@@ -1340,7 +1341,7 @@ Kita 当前最值得保留的结构，不是目录名字，而是依赖方向。
 
 ### 9.1 当前主方向
 
-```mermaid
+{% mermaid %}
 flowchart LR
   App["src/app"]
   Server["src/server"]
@@ -1357,7 +1358,7 @@ flowchart LR
   Feature --> Payload
   Payload --> Config
   Migrations -. schema history .-> Payload
-```
+{% endmermaid %}
 
 这里需要解释几个看起来“不够纯”的地方。
 
@@ -2051,7 +2052,7 @@ Original image + generated variants
 
 修改 Collection 时，影响链如下：
 
-```mermaid
+{% mermaid %}
 flowchart TB
   Collection["Collection Config"]
   Admin["Admin Form"]
@@ -2075,7 +2076,7 @@ flowchart TB
   Types --> Seed
   Types --> Tests
   Mapper --> UI
-```
+{% endmermaid %}
 
 这解释了为什么 PR #18 删除 Games 四个旧封面字段时，需要同步改：
 
@@ -4627,7 +4628,7 @@ error.tsx
 
 目标不是换架构，而是把现有架构收敛成更容易理解的版本。
 
-```mermaid
+{% mermaid %}
 flowchart LR
   Route["Next route\nthin composition"]
   Query["feature/server query\ncached per request"]
@@ -4643,7 +4644,7 @@ flowchart LR
   Query --> Mapper
   Mapper --> Model
   Model --> UI
-```
+{% endmermaid %}
 
 内容写入：
 

@@ -38,4 +38,3 @@ GitHub: <https://github.com/koharu4ever/Kita>
 ## 联系方式
 
 - GitHub: <https://github.com/koharu4ever>
-- Email: `TODO`

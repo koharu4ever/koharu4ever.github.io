@@ -1,7 +1,7 @@
 ---
 title: 一个人维护全栈项目：我准备怎样升级 Kita
 date: 2026-08-04 17:30:00
-cover: /img/home-night-sky.jpg
+cover: /img/covers/kita-upgrade-maintenance.webp
 description: 把依赖升级拆成 Node、Next、Payload、PostgreSQL 和 OpenList 五条不同风险路径，而不是一次性追逐最新版。
 tags:
   - 依赖升级
@@ -206,4 +206,3 @@ Kita 已经发生过文档与源码不一致：早期文档说不使用 named vo
 Kita 以后可以继续更新，但每次只扩大一个已知边界。升级应该留下 commit、PR、检查结果和数据恢复路径，而不是只在 `package.json` 里留下几个更大的数字。
 
 下一篇讨论 Self-host 最容易被忽略的部分：[Kita 的资源、成本与单点故障](/2026/08/04/kita-real-cost-and-resources/)。
-

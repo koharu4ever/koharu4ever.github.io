@@ -1,7 +1,7 @@
 ---
 title: Build 通过，网站却 503：我第一次真正看懂 Runner
 date: 2026-08-04 17:05:00
-cover: /img/home-rain-harbor.jpg
+cover: /img/covers/kita-503-incident.webp
 description: 复盘 Kita 真实发生的一次生产故障：镜像成功构建，Payload migration 却因为缺少前端源文件让容器持续退出。
 tags:
   - 故障复盘
@@ -221,4 +221,3 @@ clone
 更具体的一条规则是：如果 runner 使用 selective `COPY`，就要检查有哪些工具会在 runtime 直接读取 TypeScript 源文件。Kita 的 Payload migration CLI 就属于这一类。
 
 这篇复盘的完整工程说明保存在 Kita 仓库的 `docs/games-production-runtime-dependency-incident.md`。下一篇回到数据本身：[我到底在 Kita 里保存什么](/2026/08/04/kita-real-data-model/)。
-

@@ -1,7 +1,7 @@
 ---
 title: tsconfig、ESLint、Prettier 与 next.config 分别负责什么
 date: 2026-08-04 16:10:00
-cover: /img/home-rain-harbor.jpg
+cover: /img/covers/config-files.webp
 description: 用 Kita 根目录的真实配置理解类型检查、静态分析、格式化、框架行为、测试、Git 忽略和 Docker 构建边界。
 tags:
   - TypeScript
@@ -242,4 +242,3 @@ Vitest 配置决定：
 
 - 上一篇：[package.json、pnpm-lock.yaml 和 scripts 到底是什么](/2026/08/04/kita-basics-package-json-pnpm/)
 - 下一篇：[Kita 的目录结构从哪里来：App、Feature、Server 与 Payload](/2026/08/04/kita-basics-project-structure/)
-

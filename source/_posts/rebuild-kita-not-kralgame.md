@@ -1,7 +1,7 @@
 ---
 title: 为什么我重新做了 Kita，而不是继续修旧项目
 date: 2026-08-02 15:00:00
-cover: /img/P3F.jpg
+cover: /img/covers/rebuild-kita.webp
 description: 重做 Kita 不是否定 Kralgame，而是把旧项目真正有价值的视觉与内容意图，从已经无法可靠重建的代码和配置里分离出来。
 tags:
   - Kita
@@ -158,4 +158,3 @@ Games 图片从 `coverKey` 枚举走到静态路径，再走到 Payload Media �
 
 - 上一篇：[为什么 Kita 要 Self-host：我怎样从 VPS 走到 Coolify](/2026/08/02/kita-self-host-coolify/)
 - 下一篇：[从静态页面到 Payload Local API：Kita 的数据流怎么形成](/2026/08/02/kita-payload-local-api/)
-

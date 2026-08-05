@@ -1,7 +1,7 @@
 ---
 title: 发布一条 Game 不是点一下 Save：Kita 现在的内容工作流
 date: 2026-08-04 17:20:00
-cover: /img/P3F.jpg
+cover: /img/covers/kita-content-workflow.webp
 description: 记录 Kita 当前真正可用的内容发布流程，也说明预览、重定向、软删除和版本历史还没有做到哪里。
 tags:
   - Payload Admin
@@ -160,4 +160,3 @@ Tools 没有 draft 字段。只要保存，公开 getter 就可能读到它。�
 以后内容增长后，这张清单应该逐步被 schema validation、preview 和自动 smoke 替代；现在它至少把尚未自动化的责任写出来。
 
 下一篇转向这些入口背后的保护边界：[Kita 的门锁装在哪里](/2026/08/04/kita-real-security-boundaries/)。
-

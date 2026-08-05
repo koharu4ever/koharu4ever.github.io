@@ -1,7 +1,7 @@
 ---
 title: 把学习过程写成可以复用的笔记
 date: 2026-07-27 22:00:00
-cover: /img/home-sunset-field.jpg
+cover: /img/covers/learning-notes.webp
 description: 不追求日更，只记录以后还会再次用到的知识。
 tags:
   - 学习笔记

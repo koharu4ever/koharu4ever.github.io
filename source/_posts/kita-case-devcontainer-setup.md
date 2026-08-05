@@ -1,7 +1,7 @@
 ---
 title: 在 Windows 上为 Next.js 配置 Dev Container
 date: 2026-08-04 09:00:00
-cover: /img/home-night-sky.jpg
+cover: /img/covers/devcontainer-setup.webp
 description: 以 Kita 的实际配置为例，把 Node、pnpm、VS Code 扩展和项目依赖写进 Dev Container，让 Windows 宿主机保持干净。
 tags:
   - Dev Container

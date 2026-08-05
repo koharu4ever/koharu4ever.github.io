@@ -1,7 +1,7 @@
 ---
 title: 分支、Commit 和 Pull Request 到底各管哪一步
 date: 2026-08-04 16:40:00
-cover: /img/home-sunset-field.jpg
+cover: /img/covers/git-branch-commit-pr.webp
 description: 用 Kita 的真实开发流程解释工作区、暂存区、本地分支、远程分支、Pull Request 与 main。
 tags:
   - Git

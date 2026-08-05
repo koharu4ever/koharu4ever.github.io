@@ -1,7 +1,7 @@
 ---
 title: 从一个视频开始：我怎样为 Kita 搭起 Next.js 开发基座
 date: 2026-08-01 20:30:00
-cover: /img/home-rain-harbor.jpg
+cover: /img/covers/nextjs-starter.webp
 description: 作为初学者，我先要解决的不是页面设计，而是弄明白一个 Next.js 项目需要哪些基础工具，以及每个工具究竟解决什么问题。
 tags:
   - Next.js

@@ -1,7 +1,7 @@
 ---
 title: 我一开始不懂 Migration：数据库为什么不能跟着代码自动变
 date: 2026-08-04 16:30:00
-cover: /img/home-night-sky.jpg
+cover: /img/covers/database-migrations.webp
 description: 用 Kita 的 Media 改造解释 schema、migration、内容迁移、seed、backup 与生产发布之间的区别。
 tags:
   - Payload CMS

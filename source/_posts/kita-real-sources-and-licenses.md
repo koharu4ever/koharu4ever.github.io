@@ -1,7 +1,7 @@
 ---
 title: 哪些是我写的，哪些来自别人：Kita 的参考、改造与许可证
 date: 2026-08-04 17:40:00
-cover: /img/home-sea-girl.jpg
+cover: /img/covers/kita-sources-licenses.webp
 description: 盘点 Kita 已确认的 Starter、目录思想、WebGL 雨滴、OpenList 和图片来源边界，并记录目前缺失的 attribution 工作。
 tags:
   - 开源许可证

@@ -18,6 +18,7 @@ menu:
 
 social:
   fab fa-github: https://github.com/koharu4ever || GitHub
+  fas fa-rss: /atom.xml || RSS
 
 favicon: /img/favicon.ico
 
@@ -81,7 +82,7 @@ aside:
       link: /resume/
   card_announcement:
     enable: true
-    content: 源码正在重新整理中，项目与文章会逐步补充。
+    content: 正在整理 Kita 的架构与内容，并准备下一个 C#/.NET 项目。
   card_recent_post:
     enable: true
     limit: 3
@@ -95,7 +96,7 @@ aside:
     sort_order: none
   card_tags:
     enable: true
-    limit: 12
+    limit: 8
     color: false
     orderby: name
     order: 1
@@ -116,6 +117,19 @@ busuanzi:
   site_uv: true
   site_pv: true
   page_pv: true
+
+wordcount:
+  enable: true
+  post_wordcount: true
+  min2read: true
+  total_wordcount: false
+
+mermaid:
+  enable: true
+  code_write: true
+  theme:
+    light: default
+    dark: dark
 
 search:
   use: local_search

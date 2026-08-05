@@ -1,7 +1,7 @@
 ---
 title: 用 Backup Sidecar 把 PostgreSQL 备份到 R2
 date: 2026-08-04 13:00:00
-cover: /img/home-night-sky.jpg
+cover: /img/covers/postgres-r2-backup.webp
 description: 在 Kita Compose 中加入最小权限 backup service，使用 pg_dump、pg_restore 和 rclone 把 PostgreSQL custom dump 上传到私有 R2。
 tags:
   - PostgreSQL
@@ -278,4 +278,3 @@ Kita 当前生产 sidecar 已连续成功，真实 R2 对象和日志均已核�
 - 对应的决策文章：[从能部署到能恢复](/2026/08/03/kita-backup-recovery/)
 - 上一篇：[从空白 VPS 到 Coolify 部署 Kita](/2026/08/04/kita-case-vps-coolify-deployment/)
 - 下一篇：[为什么 Build 通过了，生产容器仍然 503](/2026/08/04/kita-case-production-runtime-dependency/)
-

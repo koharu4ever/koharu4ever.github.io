@@ -1,7 +1,7 @@
 ---
 title: 从开发到恢复：Kita 的六层运行地图
 date: 2026-08-04 16:55:00
-cover: /img/home-sunset-field.jpg
+cover: /img/covers/kita-runtime-layers.webp
 description: 把源码、依赖、构建、运行、持久化数据和备份恢复放在一张地图上，说明一次改动如何走到生产。
 tags:
   - Next.js

@@ -1,7 +1,7 @@
 ---
 title: 我为什么最终选择这套 C#/.NET 后端栈：EF Core-first，SQL/Npgsql-local
 date: 2026-08-04 23:00:00
-cover: /img/home-rain-harbor.jpg
+cover: /img/covers/backend-dotnet-ef-core.webp
 description: 从把 C# 误解为“微软版 Java”，到选择 .NET 10、ASP.NET Core、EF Core、Npgsql 和 PostgreSQL：一套面向单人中等规模项目的克制后端方案。
 tags:
   - C#

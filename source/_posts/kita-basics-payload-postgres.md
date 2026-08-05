@@ -1,7 +1,7 @@
 ---
 title: Payload、PostgreSQL、Collection、CRUD 和 Adapter 的关系
 date: 2026-08-04 16:25:00
-cover: /img/home-sea-girl.jpg
+cover: /img/covers/payload-postgres.webp
 description: 用 Kita 的真实数据流解释 CMS、数据库、Collection、Document、CRUD、关系、Adapter、Admin 和 Local API。
 tags:
   - Payload CMS
@@ -266,4 +266,3 @@ NODE_ENV 不是 production
 - 上一篇：[环境变量到底是什么](/2026/08/04/kita-basics-environment-variables/)
 - 下一篇：[我一开始不懂 Migration：数据库为什么不能跟着代码自动变](/2026/08/04/kita-basics-migrations/)
 - 相关决策：[从静态页面到 Payload Local API](/2026/08/02/kita-payload-local-api/)
-

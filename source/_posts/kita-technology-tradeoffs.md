@@ -1,7 +1,7 @@
 ---
 title: Kita 用了哪些技术，以及我刻意没有使用什么
 date: 2026-08-03 18:00:00
-cover: /img/home-sea-girl.jpg
+cover: /img/covers/technology-tradeoffs.webp
 description: Kita 的技术栈不是一张依赖清单，而是从代码基座、开发环境、内容、部署到恢复逐层解决真实问题后的结果。
 tags:
   - Kita

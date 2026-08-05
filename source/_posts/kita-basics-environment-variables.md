@@ -1,7 +1,7 @@
 ---
 title: 环境变量到底是什么：本地、生产、公开变量与 Secret
 date: 2026-08-04 16:20:00
-cover: /img/home-rain-harbor.jpg
+cover: /img/covers/environment-variables.webp
 description: 用 Kita 的变量解释 .env、.env.example、NEXT_PUBLIC、Buildtime、Runtime、Secret、类型校验和 local/production 边界。
 tags:
   - 环境变量
@@ -264,4 +264,3 @@ Production secret
 - 上一篇：[Kita 的目录结构从哪里来](/2026/08/04/kita-basics-project-structure/)
 - 下一篇：[Payload、PostgreSQL、Collection、CRUD 和 Adapter 的关系](/2026/08/04/kita-basics-payload-postgres/)
 - 相关案例：[从 Payload Media 到 Cloudflare R2 的完整配置](/2026/08/04/kita-case-payload-media-r2/)
-

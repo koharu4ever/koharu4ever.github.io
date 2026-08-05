@@ -1,7 +1,7 @@
 ---
 title: 从 Payload Media 到 Cloudflare R2 的完整配置
 date: 2026-08-04 11:00:00
-cover: /img/home-sea-girl.jpg
+cover: /img/covers/payload-media-r2.webp
 description: 创建独立 R2 bucket、custom domain 和最小权限 token，并让 Payload 在本地使用目录、生产使用 R2，同时安全迁移 Games 封面。
 tags:
   - Payload Media
@@ -297,4 +297,3 @@ Kita 生产 6 条 Games 已全部绑定必填 Media，旧封面字段已删除�
 - 对应的决策文章：[Games 封面从源码枚举到 Payload Media + R2](/2026/08/03/kita-media-r2/)
 - 上一篇：[修复 Windows 9P 导致的 Next.js 编译缓慢](/2026/08/04/kita-case-windows-nextjs-performance/)
 - 下一篇：[从空白 VPS 到 Coolify 部署 Kita](/2026/08/04/kita-case-vps-coolify-deployment/)
-

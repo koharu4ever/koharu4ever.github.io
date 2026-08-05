@@ -1,7 +1,7 @@
 ---
 title: Games 封面从源码枚举到 Payload Media + R2
 date: 2026-08-03 09:00:00
-cover: /img/home-sunset-field.jpg
+cover: /img/covers/media-r2-migration.webp
 description: Kita 的 Games 图片经历了枚举、静态路径和 Payload Media 三个阶段。这次迁移真正解决的是让内容变化不再等于代码发布。
 tags:
   - Payload Media
