@@ -1,3 +1,17 @@
+---
+title: Kita 项目整体架构、数据流与边界审查
+date: 2026-08-05 14:30:00
+cover: /img/home-night-sky.jpg
+description: 从整体架构、数据流、开发环境、部署和恢复边界出发，系统审查 Kita 项目当前的真实结构。
+tags:
+  - Kita
+  - Next.js
+  - Payload
+  - 项目架构
+categories:
+  - Kita 工程案例
+---
+
 # Kita 项目整体架构、数据流与边界审查
 
 > 审查日期：2026-08-05  
