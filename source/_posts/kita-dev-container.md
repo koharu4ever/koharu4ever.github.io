@@ -10,7 +10,7 @@ tags:
   - 开发环境
 categories:
   - Kita 开发记录
-series: Kita 开发记录
+series: Kita 技术选择
 ---
 
 > 这是“Kita 技术选择”系列的第二篇。上一篇解决了 Next.js 代码基座怎样建立；这一篇继续处理更靠下一层的问题：运行这些代码的环境，能不能也跟随仓库。

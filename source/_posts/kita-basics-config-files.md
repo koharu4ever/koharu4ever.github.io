@@ -10,7 +10,7 @@ tags:
   - Next.js
 categories:
   - Kita 从零理解
-series: Kita 从零理解
+series: 从零读懂 Kita
 ---
 
 > 这是“从零读懂 Kita”系列的第三篇。上一篇解释了 package.json；这一篇处理根目录中数量最多、也最容易混在一起的配置文件。

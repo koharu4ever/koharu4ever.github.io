@@ -10,7 +10,7 @@ tags:
   - 初学者
 categories:
   - Kita 从零理解
-series: Kita 从零理解
+series: 从零读懂 Kita
 ---
 
 > 这是“从零读懂 Kita”系列的第七篇。上一章说明 Payload 如何把内容存进 PostgreSQL；这一章处理我最晚才真正理解、也最容易误操作的部分：migration。

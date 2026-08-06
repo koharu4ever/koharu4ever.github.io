@@ -7,13 +7,14 @@ menu:
   Home: / || fas fa-home
   Resume: /resume/ || fas fa-file-lines
   Blog||fas fa-book:
+    Notes: /notes/ || fas fa-book-open
     Archive: /archives/ || fas fa-box-archive
     Categories: /categories/ || fas fa-folder-open
     Tags: /tags/ || fas fa-tags
   Projects||fas fa-code:
     Project Home: /projects/ || fas fa-grip
     Kita: https://kita.kral-koharu.com/ || fas fa-rocket
-    Archive: https://archive.kral-koharu.com/ || fas fa-box-archive
+    Game Archive: https://archive.kral-koharu.com/ || fas fa-box-archive
     GitHub: https://github.com/koharu4ever || fab fa-github
 
 social:
@@ -74,11 +75,11 @@ aside:
     category: false
   card_author:
     enable: true
-    description: Full-Stack Developer · Tokyo
+    description: TypeScript / JavaScript · Kita · Homelab
     button:
       enable: true
       icon: fas fa-file-lines
-      text: View Resume
+      text: 关于与简历
       link: /resume/
   card_announcement:
     enable: true

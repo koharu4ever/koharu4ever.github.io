@@ -11,7 +11,10 @@ hexo.extend.generator.register('random-posts', (locals) => {
   const root = normalizeRoot(hexo.config.root);
   const posts = locals.posts
     .toArray()
-    .filter((post) => post.published !== false && post.draft !== true && post.path)
+    .filter(
+      (post) =>
+        post.published !== false && post.draft !== true && post.random !== false && post.path
+    )
     .map((post) => `${root}${post.path}`.replace(/\/{2,}/g, '/'))
     .sort();
 

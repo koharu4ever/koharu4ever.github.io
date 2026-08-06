@@ -10,7 +10,7 @@ tags:
   - 初学者
 categories:
   - Kita 从零理解
-series: Kita 从零理解
+series: 从零读懂 Kita
 ---
 
 > 这是“从零读懂 Kita”系列的第二篇。上一篇先画仓库地图；这一篇阅读 Node 项目最重要的入口文件之一。

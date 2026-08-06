@@ -10,11 +10,14 @@ tags:
   - 项目架构
 categories:
   - Kita 工程案例
-series: Kita 工程案例
+random: false
 toc: false
 ---
 
-# Kita 项目整体架构、数据流与边界审查
+这篇审查把 Kita 当前的代码、数据流、开发环境、部署与恢复边界放在一起梳理。它更接近一份可以反复查阅的项目手册；如果只想先抓住主线，可以直接从“先给结论”开始。
+
+<details>
+<summary>审查基线与适用范围</summary>
 
 > 审查日期：2026-08-05  
 > 审查对象：[`koharu4ever/Kita`](https://github.com/koharu4ever/Kita)  
@@ -23,9 +26,12 @@ toc: false
 > 文档性质：项目解剖、架构说明、边界审查、问题清单与演进建议  
 > 目标读者：项目所有者本人；假设读者会写 TypeScript/React，但还没有把 Kita 的全部运行链路装进脑子里
 
+</details>
+
 ---
 
-## 目录
+<details>
+<summary>展开完整目录</summary>
 
 - [0. 先给结论](#0-先给结论)
 - [1. 审查范围、证据与限制](#1-审查范围证据与限制)
@@ -72,6 +78,8 @@ toc: false
 - [42. 最终评价](#42-最终评价)
 - [附录 A：关键文件索引](#附录-a关键文件索引)
 - [附录 B：建议拆分的具体 PR](#附录-b建议拆分的具体-pr)
+
+</details>
 
 ---
 

@@ -10,7 +10,7 @@ tags:
   - 架构取舍
 categories:
   - Kita 开发记录
-series: Kita 开发记录
+series: Kita 技术选择
 ---
 
 > 这是“Kita 技术选择”系列的第七篇。上一篇把 Games 封面变成由 Payload 管理的内容；这一篇继续划分 Games 与外部文件资源之间的边界。

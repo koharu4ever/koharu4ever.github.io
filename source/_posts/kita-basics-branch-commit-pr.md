@@ -10,7 +10,7 @@ tags:
   - 初学者
 categories:
   - Kita 从零理解
-series: Kita 从零理解
+series: 从零读懂 Kita
 ---
 
 > 这是“从零读懂 Kita”系列的第九篇。第一次 push 只建立远程副本；真正的日常维护，需要先分清代码在 Git 流程中的位置。

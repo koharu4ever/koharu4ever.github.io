@@ -10,7 +10,7 @@ tags:
   - 初学者
 categories:
   - Kita 从零理解
-series: Kita 从零理解
+series: 从零读懂 Kita
 ---
 
 > 这是“从零读懂 Kita”系列的第十篇。上一章把代码送进 Pull Request；这一章解释 PR 页面上的自动检查怎样产生，以及为什么检查失败时 main 可以拒绝合并。

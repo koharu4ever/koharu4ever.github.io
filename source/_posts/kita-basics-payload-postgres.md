@@ -10,7 +10,7 @@ tags:
   - 初学者
 categories:
   - Kita 从零理解
-series: Kita 从零理解
+series: 从零读懂 Kita
 ---
 
 > 这是“从零读懂 Kita”系列的第六篇。上一篇解释配置怎样进入不同环境；这一篇解释 Kita 的内容究竟怎样进入数据库和页面。

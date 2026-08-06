@@ -7,7 +7,7 @@ const homeMainWithStart = '<main class="layout kral-home-layout" id="content-inn
 
 // Image paths are intentionally kept here so final artwork can be swapped easily.
 const startHereImages = {
-  kita: '/img/start/kita.webp',
+  projects: '/img/start/projects.webp',
   notes: '/img/start/notes.webp',
 };
 
@@ -20,23 +20,23 @@ const startHere = `
       <p class="kral-start-kicker">START HERE</p>
       <h2 id="kral-start-title">从这里开始</h2>
     </div>
-    <p>从项目实践与技术记录开始了解这个站点。</p>
+    <p>我主要在这里记录做过的项目，以及我为什么选择某一种技术。</p>
   </header>
 
   <nav class="kral-start-grid" aria-label="推荐阅读入口">
-    <a class="kral-start-card kral-start-card-kita" href="/categories/Kita-工程案例/">
-      <img src="${startHereImages.kita}" alt="" loading="lazy" decoding="async">
+    <a class="kral-start-card kral-start-card-projects" href="/projects/">
+      <img src="${startHereImages.projects}" alt="" loading="lazy" decoding="async">
       <span class="kral-start-card-content">
-        <strong>Kita 系列</strong>
-        <small>项目、架构与工程记录</small>
+        <strong>项目实践</strong>
+        <small>真实项目里的架构、部署、故障与复盘</small>
       </span>
     </a>
 
-    <a class="kral-start-card kral-start-card-notes" href="/categories/开发笔记/">
+    <a class="kral-start-card kral-start-card-notes" href="/notes/">
       <img src="${startHereImages.notes}" alt="" loading="lazy" decoding="async">
       <span class="kral-start-card-content">
         <strong>技术札记</strong>
-        <small>Java、C#、SQL 与后端选择</small>
+        <small>语言、数据库、工具与技术选择</small>
       </span>
     </a>
   </nav>

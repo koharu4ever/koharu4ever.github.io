@@ -10,7 +10,7 @@ tags:
   - 初学者
 categories:
   - Kita 从零理解
-series: Kita 从零理解
+series: 从零读懂 Kita
 ---
 
 > 这是“从零读懂 Kita”系列的第五篇。上一篇解释代码放在哪里；这一篇解释同一份代码怎样在本地、CI 和生产使用不同配置。

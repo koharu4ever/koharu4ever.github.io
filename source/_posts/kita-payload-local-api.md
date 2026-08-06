@@ -10,7 +10,7 @@ tags:
   - 数据流
 categories:
   - Kita 开发记录
-series: Kita 开发记录
+series: Kita 技术选择
 ---
 
 > 这是“Kita 技术选择”系列的第五篇。上一篇先从旧项目中恢复了页面和内容意图；这一篇让静态效果开始承载真实数据。
