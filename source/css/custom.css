@@ -2901,6 +2901,14 @@ html[data-theme='dark'] .kral-notes-gallery {
     padding: 0 7px 9px;
   }
 
+  .kral-notes-subnav {
+    scrollbar-width: none;
+  }
+
+  .kral-notes-subnav::-webkit-scrollbar {
+    display: none;
+  }
+
   .kral-notes-search-panel {
     width: 100%;
     padding: 9px;
@@ -2951,6 +2959,71 @@ html[data-theme='dark'] .kral-notes-gallery {
     width: 145px;
     right: 0;
     bottom: 0;
+  }
+
+  .kral-notes-list-shell {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .kral-notes-list-head,
+  #article-container .kral-notes-entry__link {
+    grid-template-columns: 104px 22px minmax(0, 1fr);
+  }
+
+  .kral-notes-list-head span:nth-child(2),
+  .kral-notes-list-head span:nth-child(5),
+  .kral-notes-list-head span:nth-child(6),
+  .kral-notes-entry time,
+  .kral-notes-entry__reading,
+  .kral-notes-entry__uploader {
+    display: none;
+  }
+
+  .kral-notes-list-head span:first-child::after {
+    content: 'Category';
+  }
+
+  .kral-notes-list-head span:first-child,
+  .kral-notes-list-head span:nth-child(4) {
+    text-align: center;
+  }
+
+  .kral-notes-entry__category {
+    width: 98px;
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  #article-container .kral-notes-entry h2 {
+    font-size: 12.5px;
+  }
+
+  .kral-notes-gallery[data-notes-view='compact'] .kral-notes-entry__title-cell,
+  .kral-notes-gallery[data-notes-view='extended'] .kral-notes-entry__title-cell {
+    grid-template-columns: 64px minmax(0, 1fr);
+    gap: 6px;
+  }
+
+  .kral-notes-gallery[data-notes-view='compact'] .kral-notes-entry__media {
+    height: 50px;
+  }
+
+  .kral-notes-gallery[data-notes-view='extended'] .kral-notes-entry__link {
+    min-height: 84px;
+  }
+
+  .kral-notes-gallery[data-notes-view='extended'] .kral-notes-entry__media {
+    height: 70px;
+  }
+
+  #article-container .kral-notes-gallery[data-notes-view='extended'] .kral-notes-entry h2 {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 13px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: normal;
   }
 
   .kral-notes-active-filters {
