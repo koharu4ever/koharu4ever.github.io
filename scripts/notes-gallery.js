@@ -124,11 +124,12 @@ function articleEntry(post) {
   const series = String(post.series || '').trim();
   const minutes = readingMinutes(post);
   const date = postDate(post);
+  const timestamp = Number(post.date?.valueOf?.()) || 0;
   const path = `/${String(post.path || '').replace(/^\/+/, '')}`;
   const searchText = [title, ...categories, ...tags, series].filter(Boolean).join(' ');
 
   return `
-    <article class="kral-notes-entry" data-search="${escapeHtml(searchText)}" data-categories="${escapeHtml(
+    <article class="kral-notes-entry" data-search="${escapeHtml(searchText)}" data-title="${escapeHtml(title)}" data-timestamp="${timestamp}" data-reading-minutes="${minutes}" data-categories="${escapeHtml(
       JSON.stringify(categories)
     )}" data-tags="${escapeHtml(JSON.stringify(tags))}">
       <a class="kral-notes-entry__link" href="${escapeHtml(path)}">
@@ -237,13 +238,39 @@ hexo.extend.tag.register('notes_gallery', () => {
       </div>
       <div class="kral-notes-advanced-links">
         <details class="kral-notes-advanced">
-          <summary>[Show Advanced Options]</summary>
-          <p>标题、分类、系列与标签使用同一个关键词搜索。</p>
+          <summary>
+            <span class="kral-notes-advanced-summary--show">[Show Advanced Options]</span>
+            <span class="kral-notes-advanced-summary--hide">[Hide Advanced Options]</span>
+          </summary>
+          <div class="kral-notes-advanced-panel">
+            <label class="kral-notes-advanced-control">
+              <span>Sort</span>
+              <select name="notes-sort">
+                <option value="newest" selected>Newest</option>
+                <option value="oldest">Oldest</option>
+                <option value="title">Title</option>
+                <option value="reading">Reading Time</option>
+              </select>
+            </label>
+            <label class="kral-notes-advanced-control">
+              <span>Per Page</span>
+              <select name="notes-page-size">
+                <option value="25" selected>25</option>
+                <option value="50">50</option>
+                <option value="all">All</option>
+              </select>
+            </label>
+          </div>
         </details>
         <details class="kral-notes-all-tags">
           <summary>[Show Tag Search]</summary>
           <div>${allTagButtons(tags)}</div>
         </details>
+      </div>
+      <div class="kral-notes-active-filters" data-notes-active-filters hidden>
+        <span class="kral-notes-active-filters__label">Active Filters</span>
+        <div class="kral-notes-active-filters__list" data-notes-active-filter-list></div>
+        <button type="button" data-notes-clear-active>Clear all</button>
       </div>
     </form>
 
@@ -259,7 +286,7 @@ hexo.extend.tag.register('notes_gallery', () => {
         <button type="button" data-notes-page="last">Last &gt;&gt;</button>
       </nav>
       <label class="kral-notes-view-picker">
-        <span class="sr-only">显示方式</span>
+        <span class="sr-only">View</span>
         <select name="notes-view">
           <option value="minimal" selected>Minimal</option>
           <option value="minimal-plus">Minimal+</option>

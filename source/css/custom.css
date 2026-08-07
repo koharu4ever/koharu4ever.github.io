@@ -1770,9 +1770,34 @@ html[data-theme='dark'] .kral-reading-path__item--reference .kral-reading-path__
  * the compact grey table geometry shown by the reference archive.
  */
 body:has(.kral-notes-gallery) {
+  --notes-sea-white: #f4fcff;
+  --notes-sea-ice: #d9f4ff;
+  --notes-sea-cyan: #78d9ff;
+  --notes-sea-blue: #239fd6;
+  --notes-sea-deep: #052742;
   background:
-    linear-gradient(180deg, rgba(218, 242, 255, 0.2), rgba(8, 34, 64, 0.74)),
-    url('/img/start/projects.webp') center / cover fixed no-repeat !important;
+    radial-gradient(68rem 34rem at 48% -8%, rgba(255, 255, 255, 0.2), transparent 58%),
+    radial-gradient(ellipse at 84% 16%, rgba(137, 224, 255, 0.08), transparent 30%),
+    linear-gradient(
+      180deg,
+      rgba(221, 247, 255, 0.02) 0%,
+      rgba(58, 158, 205, 0.06) 42%,
+      rgba(3, 31, 55, 0.26) 100%
+    ),
+    url('/img/start/projects.webp') center 42% / cover fixed no-repeat !important;
+}
+
+html[data-theme='dark'] body:has(.kral-notes-gallery) {
+  background:
+    radial-gradient(68rem 34rem at 48% -8%, rgba(224, 247, 255, 0.14), transparent 58%),
+    radial-gradient(ellipse at 84% 16%, rgba(89, 199, 240, 0.07), transparent 30%),
+    linear-gradient(
+      180deg,
+      rgba(94, 195, 232, 0.02) 0%,
+      rgba(15, 94, 137, 0.08) 42%,
+      rgba(1, 21, 39, 0.38) 100%
+    ),
+    url('/img/start/projects.webp') center 42% / cover fixed no-repeat !important;
 }
 
 body:has(.kral-notes-gallery) #body-wrap {
@@ -1795,16 +1820,30 @@ body:has(.kral-notes-gallery) #page-header {
 }
 
 body:has(.kral-notes-gallery) #page {
+  position: relative;
+  isolation: isolate;
   width: 100%;
   margin: 0;
   padding: 0 !important;
   overflow: visible;
-  border: 1px solid rgba(220, 244, 255, 0.34);
-  border-radius: 12px !important;
+  border: 1px solid rgba(255, 255, 255, 0.52);
+  border-radius: 18px !important;
   color: #f2f2f2;
-  background: rgba(17, 45, 72, 0.76);
-  box-shadow: 0 22px 70px rgba(4, 24, 48, 0.36);
-  backdrop-filter: blur(15px) saturate(1.08);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.022),
+    transparent 24%,
+    transparent 76%,
+    rgba(210, 244, 255, 0.014)
+  ) !important;
+  box-shadow:
+    0 22px 68px rgba(0, 38, 68, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    inset 1px 0 0 rgba(255, 255, 255, 0.3),
+    inset -1px 0 0 rgba(153, 226, 255, 0.22),
+    inset 0 -1px 0 rgba(105, 207, 245, 0.28) !important;
+  -webkit-backdrop-filter: saturate(1.04) contrast(1.02);
+  backdrop-filter: saturate(1.04) contrast(1.02);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
 }
@@ -1822,22 +1861,31 @@ body:has(.kral-notes-gallery) #page-header.not-top-img {
   margin-bottom: 0;
 }
 
-.kral-notes-gallery,
-html[data-theme='dark'] .kral-notes-gallery {
-  --notes-page: rgba(21, 51, 78, 0.78);
-  --notes-panel: rgba(24, 56, 84, 0.72);
-  --notes-field: rgba(9, 31, 54, 0.76);
-  --notes-row: rgba(24, 50, 75, 0.82);
-  --notes-row-alt: rgba(37, 66, 91, 0.82);
-  --notes-border: rgba(218, 242, 255, 0.22);
-  --notes-border-light: rgba(224, 246, 255, 0.46);
-  --notes-text: #f2f2f2;
-  --notes-muted: #c9c9c9;
-  --notes-link: #f4f4f4;
+.kral-notes-gallery {
+  --notes-page: rgba(255, 255, 255, 0.035);
+  --notes-panel: rgba(255, 255, 255, 0.055);
+  --notes-field: rgba(2, 30, 49, 0.3);
+  --notes-row: rgba(8, 47, 76, 0.58);
+  --notes-row-alt: rgba(24, 70, 99, 0.58);
+  --notes-border: rgba(232, 249, 255, 0.28);
+  --notes-border-light: rgba(255, 255, 255, 0.52);
+  --notes-text: #f5fbff;
+  --notes-muted: #c6e2ef;
+  --notes-link: #f7fcff;
   padding: 0 19px 18px;
   color: var(--notes-text);
   background: transparent;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+html[data-theme='dark'] .kral-notes-gallery {
+  --notes-page: rgba(255, 255, 255, 0.025);
+  --notes-panel: rgba(255, 255, 255, 0.04);
+  --notes-field: rgba(1, 24, 41, 0.36);
+  --notes-row: rgba(5, 37, 63, 0.66);
+  --notes-row-alt: rgba(18, 55, 83, 0.64);
+  --notes-border: rgba(218, 242, 255, 0.24);
+  --notes-border-light: rgba(238, 250, 255, 0.46);
 }
 
 .kral-notes-subnav {
@@ -1851,11 +1899,22 @@ html[data-theme='dark'] .kral-notes-gallery {
   align-items: center;
   justify-content: center;
   gap: 27px;
-  border: 1px solid rgba(220, 244, 255, 0.2);
-  border-radius: 9px;
-  background: rgba(8, 31, 53, 0.68);
-  box-shadow: 0 8px 24px rgba(2, 20, 39, 0.18);
-  backdrop-filter: blur(14px) saturate(1.08);
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  border-radius: 12px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.026),
+    transparent 48%,
+    rgba(191, 235, 252, 0.012)
+  );
+  box-shadow:
+    0 8px 26px rgba(0, 39, 68, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.78),
+    inset 0 -1px 0 rgba(120, 216, 251, 0.25),
+    inset 1px 0 0 rgba(255, 255, 255, 0.18),
+    inset -1px 0 0 rgba(167, 231, 255, 0.16);
+  -webkit-backdrop-filter: blur(1px) saturate(1.06);
+  backdrop-filter: blur(1px) saturate(1.06);
   white-space: nowrap;
 }
 
@@ -1870,12 +1929,12 @@ html[data-theme='dark'] .kral-notes-gallery {
 #article-container .kral-notes-subnav a::before {
   position: absolute;
   left: -9px;
-  color: #8f9196;
+  color: rgba(217, 244, 255, 0.68);
   content: '›';
 }
 
 #article-container .kral-notes-subnav a:hover {
-  color: #fff3dd;
+  color: #dff8ff;
 }
 
 .kral-notes-header {
@@ -1891,6 +1950,7 @@ html[data-theme='dark'] .kral-notes-gallery {
   font-size: 14px;
   font-weight: 700;
   text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 28, 49, 0.72);
 }
 
 #article-container .kral-notes-brand a,
@@ -1900,14 +1960,26 @@ html[data-theme='dark'] .kral-notes-gallery {
 }
 
 .kral-notes-search-panel {
+  position: relative;
   width: min(915px, calc(100% - 40px));
   margin: 0 auto 10px;
   padding: 12px 48px 10px;
-  border: 1px solid rgba(220, 244, 255, 0.28);
-  border-radius: 10px;
-  background: rgba(214, 238, 250, 0.12);
-  box-shadow: 0 10px 28px rgba(3, 23, 43, 0.16);
-  backdrop-filter: blur(12px) saturate(1.08);
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  border-radius: 16px;
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.028),
+    transparent 42%,
+    rgba(200, 240, 255, 0.014)
+  );
+  box-shadow:
+    0 14px 38px rgba(0, 44, 75, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.82),
+    inset 1px 0 0 rgba(255, 255, 255, 0.22),
+    inset -1px 0 0 rgba(151, 226, 255, 0.2),
+    inset 0 -1px 0 rgba(113, 216, 255, 0.28);
+  -webkit-backdrop-filter: blur(1.5px) saturate(1.06);
+  backdrop-filter: blur(1.5px) saturate(1.06);
 }
 
 .kral-notes-quick-filters {
@@ -1923,10 +1995,10 @@ html[data-theme='dark'] .kral-notes-gallery {
   height: 26px;
   padding: 0 8px;
   overflow: hidden;
-  border: 0;
-  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 9px;
   color: #fff;
-  background: #777;
+  background: var(--notes-filter-tone, rgba(92, 126, 143, 0.94)) !important;
   align-items: center;
   justify-content: center;
   gap: 6px;
@@ -1936,6 +2008,9 @@ html[data-theme='dark'] .kral-notes-gallery {
   letter-spacing: 0.04em;
   line-height: 1;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.55);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 5px 15px rgba(0, 36, 65, 0.13);
   cursor: pointer;
 }
 
@@ -1946,49 +2021,53 @@ html[data-theme='dark'] .kral-notes-gallery {
 }
 
 .kral-notes-tone-0 {
-  background: #b62820 !important;
+  --notes-filter-tone: rgba(199, 43, 35, 0.94);
 }
 
 .kral-notes-tone-1 {
-  background: #e36a18 !important;
+  --notes-filter-tone: rgba(232, 108, 28, 0.94);
 }
 
 .kral-notes-tone-2 {
-  background: #e3940f !important;
+  --notes-filter-tone: rgba(230, 155, 10, 0.94);
 }
 
 .kral-notes-tone-3 {
-  background: #709b73 !important;
+  --notes-filter-tone: rgba(103, 160, 112, 0.94);
 }
 
 .kral-notes-tone-4 {
-  background: #a99f5e !important;
+  --notes-filter-tone: rgba(177, 163, 84, 0.94);
 }
 
 .kral-notes-tone-5 {
-  background: #5ba8cd !important;
+  --notes-filter-tone: rgba(73, 172, 211, 0.94);
 }
 
 .kral-notes-tone-6 {
-  background: #3565b2 !important;
+  --notes-filter-tone: rgba(55, 105, 184, 0.94);
 }
 
 .kral-notes-tone-7 {
-  background: #7435a8 !important;
+  --notes-filter-tone: rgba(123, 45, 174, 0.94);
 }
 
 .kral-notes-tone-8 {
-  background: #a62b79 !important;
+  --notes-filter-tone: rgba(176, 38, 128, 0.94);
 }
 
 .kral-notes-tone-9 {
-  background: #777 !important;
+  --notes-filter-tone: rgba(119, 119, 119, 0.94);
 }
 
 .kral-notes-filter-button:hover,
 .kral-notes-filter-button[aria-pressed='true'] {
-  filter: brightness(1.18);
-  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.72);
+  filter: brightness(1.12);
+  border-color: rgba(255, 255, 255, 0.7);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.46),
+    0 0 0 2px rgba(109, 216, 255, 0.18),
+    0 8px 24px rgba(0, 70, 108, 0.2);
 }
 
 .kral-notes-search-row {
@@ -2014,10 +2093,13 @@ html[data-theme='dark'] .kral-notes-gallery {
 .kral-notes-search-row input,
 .kral-notes-search-row button,
 .kral-notes-view-picker select {
-  border: 1px solid rgba(225, 246, 255, 0.55);
-  border-radius: 6px;
+  border: 1px solid rgba(238, 250, 255, 0.42);
+  border-radius: 10px;
   color: #f4f4f4;
-  background: rgba(7, 29, 51, 0.72);
+  background: rgba(1, 28, 47, 0.3);
+  box-shadow:
+    inset 0 1px 8px rgba(0, 18, 35, 0.16),
+    0 1px 0 rgba(255, 255, 255, 0.1);
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
 }
@@ -2029,8 +2111,10 @@ html[data-theme='dark'] .kral-notes-gallery {
 }
 
 .kral-notes-search-row input:focus {
-  border-color: #e2f7ff;
-  box-shadow: 0 0 0 2px rgba(150, 220, 249, 0.2);
+  border-color: rgba(174, 233, 255, 0.9);
+  box-shadow:
+    0 0 0 4px rgba(90, 200, 244, 0.14),
+    inset 0 1px 8px rgba(0, 18, 35, 0.14);
 }
 
 .kral-notes-search-row input::placeholder {
@@ -2071,7 +2155,115 @@ html[data-theme='dark'] .kral-notes-gallery {
   display: none;
 }
 
-.kral-notes-advanced p,
+.kral-notes-advanced-summary--hide {
+  display: none;
+}
+
+.kral-notes-advanced[open] .kral-notes-advanced-summary--show {
+  display: none;
+}
+
+.kral-notes-advanced[open] .kral-notes-advanced-summary--hide {
+  display: inline;
+}
+
+.kral-notes-advanced-panel {
+  display: grid;
+  width: 360px;
+  margin: 8px 0 2px -115px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.kral-notes-advanced-control {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: 7px;
+  color: rgba(235, 249, 255, 0.82);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.kral-notes-advanced-control select {
+  min-width: 0;
+  height: 29px;
+  padding: 0 7px;
+  border: 1px solid rgba(238, 250, 255, 0.38);
+  border-radius: 7px;
+  color: #f4f4f4;
+  background: rgba(1, 28, 47, 0.3);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.kral-notes-active-filters {
+  display: flex;
+  min-height: 29px;
+  margin-top: 2px;
+  padding: 6px 0 0;
+  border-top: 1px solid rgba(235, 249, 255, 0.18);
+  align-items: center;
+  gap: 8px;
+}
+
+.kral-notes-active-filters[hidden] {
+  display: none;
+}
+
+.kral-notes-active-filters__label {
+  flex: 0 0 auto;
+  color: rgba(224, 246, 255, 0.72);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.kral-notes-active-filters__list {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.kral-notes-active-filters__list button,
+.kral-notes-active-filters > [data-notes-clear-active] {
+  min-height: 21px;
+  padding: 2px 8px;
+  border: 1px solid rgba(224, 246, 255, 0.34);
+  border-radius: 999px;
+  color: #eefaff;
+  background: rgba(2, 35, 59, 0.28);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  line-height: 1.2;
+  cursor: pointer;
+}
+
+.kral-notes-active-filters__list button:hover,
+.kral-notes-active-filters__list button:focus-visible,
+.kral-notes-active-filters > [data-notes-clear-active]:hover,
+.kral-notes-active-filters > [data-notes-clear-active]:focus-visible {
+  border-color: rgba(255, 255, 255, 0.68);
+  color: #fff;
+  background: rgba(73, 153, 192, 0.3);
+  outline: 0;
+}
+
+.kral-notes-active-filters > [data-notes-clear-active] {
+  flex: 0 0 auto;
+  border-color: transparent;
+  color: rgba(224, 246, 255, 0.68);
+  background: transparent;
+}
+
 .kral-notes-all-tags > div {
   position: absolute;
   z-index: 15;
@@ -2080,16 +2272,15 @@ html[data-theme='dark'] .kral-notes-gallery {
   margin: 7px 0 0;
   padding: 9px;
   overflow: auto;
-  border: 1px solid rgba(220, 244, 255, 0.3);
-  border-radius: 8px;
+  border: 1px solid rgba(238, 250, 255, 0.36);
+  border-radius: 12px;
   color: #efefef;
-  background: rgba(14, 41, 66, 0.94);
-  box-shadow: 0 10px 28px rgba(2, 19, 37, 0.42);
-  backdrop-filter: blur(12px);
-}
-
-.kral-notes-advanced p {
-  left: -170px;
+  background: rgba(4, 42, 69, 0.82);
+  box-shadow:
+    0 16px 38px rgba(2, 19, 37, 0.34),
+    inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2);
+  backdrop-filter: blur(18px) saturate(1.2);
 }
 
 .kral-notes-all-tags > div {
@@ -2113,24 +2304,40 @@ html[data-theme='dark'] .kral-notes-gallery {
   margin: 0 auto 5px;
   padding: 0 8px;
   border-radius: 13px;
-  border: 1px solid rgba(220, 244, 255, 0.14);
-  background: rgba(218, 242, 255, 0.16);
+  border: 1px solid rgba(238, 250, 255, 0.24);
+  background: rgba(255, 255, 255, 0.012);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(116, 213, 250, 0.2),
+    0 5px 18px rgba(0, 45, 75, 0.06);
   align-items: center;
   justify-content: space-between;
   gap: 5px;
 }
 
 .kral-notes-seekbar span {
-  width: 12px;
-  height: 12px;
-  flex: 0 0 12px;
+  width: 10px;
+  height: 10px;
+  flex: 0 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.42);
   border-radius: 50%;
-  background: rgba(221, 242, 250, 0.5);
+  background: radial-gradient(
+    circle at 32% 26%,
+    rgba(255, 255, 255, 0.82),
+    rgba(179, 231, 252, 0.38) 42%,
+    rgba(40, 133, 178, 0.24) 72%
+  );
+  box-shadow:
+    inset 0 -1px 2px rgba(0, 69, 108, 0.22),
+    0 2px 5px rgba(0, 37, 66, 0.14);
 }
 
 .kral-notes-seekbar span.is-active {
-  background: #f2fbff;
-  box-shadow: 0 0 0 3px rgba(176, 226, 249, 0.16);
+  border-color: rgba(255, 255, 255, 0.86);
+  background: #e4f9ff;
+  box-shadow:
+    0 0 0 4px rgba(92, 210, 255, 0.16),
+    0 0 14px rgba(106, 220, 255, 0.58);
 }
 
 .kral-notes-result-count {
@@ -2138,6 +2345,7 @@ html[data-theme='dark'] .kral-notes-gallery {
   color: #fff;
   font-size: 15px;
   text-align: center;
+  text-shadow: 0 2px 12px rgba(0, 28, 49, 0.72);
 }
 
 .kral-notes-toolbar {
@@ -2161,6 +2369,7 @@ html[data-theme='dark'] .kral-notes-gallery {
   background: transparent;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 18px;
+  text-shadow: 0 2px 12px rgba(0, 28, 49, 0.62);
   white-space: nowrap;
 }
 
@@ -2179,29 +2388,41 @@ html[data-theme='dark'] .kral-notes-gallery {
 }
 
 .kral-notes-view-picker {
+  display: block;
   position: absolute;
   width: 158px;
   height: 35px;
+  min-height: 0;
   right: 0;
   bottom: 0;
-  display: block;
-  min-height: 0;
   border: 0;
   background: transparent;
+  grid-template-columns: none;
 }
 
 .kral-notes-pagination--bottom {
   margin-top: 14px;
   padding: 9px 18px;
-  border: 1px solid rgba(220, 244, 255, 0.2);
-  border-radius: 9px;
-  background: rgba(8, 31, 53, 0.58);
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(238, 250, 255, 0.28);
+  border-radius: 12px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.012) 54%,
+    rgba(150, 216, 243, 0.04)
+  );
+  box-shadow:
+    0 10px 26px rgba(0, 39, 68, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.56),
+    inset 0 -1px 0 rgba(99, 204, 244, 0.14);
+  -webkit-backdrop-filter: blur(9px) saturate(1.14);
+  backdrop-filter: blur(9px) saturate(1.14);
 }
 
 .kral-notes-view-picker select {
   width: 100%;
   height: 100%;
+  min-width: 0;
   padding: 0 9px;
   font-weight: 700;
   cursor: pointer;
@@ -2210,11 +2431,14 @@ html[data-theme='dark'] .kral-notes-gallery {
 .kral-notes-list-shell {
   min-width: 720px;
   overflow: hidden;
-  border: 1px solid rgba(220, 244, 255, 0.24);
-  border-radius: 8px;
-  background: rgba(11, 34, 56, 0.36);
-  box-shadow: 0 12px 28px rgba(2, 21, 40, 0.16);
-  backdrop-filter: blur(8px);
+  border: 1px solid rgba(230, 247, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.018);
+  box-shadow:
+    0 16px 34px rgba(2, 21, 40, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 .kral-notes-list-head,
@@ -2227,7 +2451,8 @@ html[data-theme='dark'] .kral-notes-gallery {
 .kral-notes-list-head {
   min-height: 27px;
   color: #fff;
-  background: rgba(8, 31, 53, 0.86);
+  background: rgba(2, 37, 62, 0.72);
+  box-shadow: inset 0 -1px 0 rgba(225, 246, 255, 0.16);
   font-size: 12px;
   font-weight: 700;
   text-align: left;
@@ -2277,13 +2502,13 @@ html[data-theme='dark'] .kral-notes-gallery {
 
 #article-container .kral-notes-entry__link:hover {
   color: #fff;
-  background: rgba(191, 230, 248, 0.09);
+  background: rgba(191, 230, 248, 0.12);
 }
 
 #article-container .kral-notes-entry__link:focus-visible {
   position: relative;
   z-index: 2;
-  outline: 2px solid #d9d9d9;
+  outline: 2px solid #b8edff;
   outline-offset: -2px;
 }
 
@@ -2293,14 +2518,17 @@ html[data-theme='dark'] .kral-notes-gallery {
   max-width: calc(100% - 4px);
   padding: 3px 7px;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 3px;
   color: #fff;
+  background: var(--notes-filter-tone, rgba(87, 126, 146, 0.78));
   font-size: 12px;
   font-weight: 700;
   line-height: 1.15;
   text-align: center;
   text-overflow: ellipsis;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.55);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2);
   white-space: nowrap;
 }
 
@@ -2336,7 +2564,7 @@ html[data-theme='dark'] .kral-notes-gallery {
   overflow: hidden;
   border: 1px solid rgba(220, 244, 255, 0.22);
   border-radius: 4px;
-  background: rgba(6, 27, 47, 0.8);
+  background: rgba(3, 35, 59, 0.68);
 }
 
 .kral-notes-entry__media img {
@@ -2383,7 +2611,7 @@ html[data-theme='dark'] .kral-notes-gallery {
   border: 1px solid rgba(218, 242, 255, 0.32);
   border-radius: 4px;
   color: #ededed;
-  background: rgba(197, 229, 244, 0.13);
+  background: rgba(207, 238, 250, 0.16);
   font-size: 10px;
   line-height: 1.35;
 }
@@ -2506,9 +2734,12 @@ html[data-theme='dark'] .kral-notes-gallery {
   margin: 0 0 10px;
   overflow: hidden;
   break-inside: avoid;
-  border: 1px solid rgba(148, 163, 184, 0.24);
-  border-radius: 6px;
-  background: #090d16;
+  border: 1px solid rgba(224, 246, 255, 0.28);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.025);
+  box-shadow:
+    0 10px 26px rgba(0, 31, 55, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
   page-break-inside: avoid;
 }
 
@@ -2616,6 +2847,11 @@ html[data-theme='dark'] .kral-notes-gallery {
   filter: brightness(1.05);
 }
 
+.kral-notes-gallery[data-notes-view='thumbnail'] .kral-notes-entry__link:hover,
+.kral-notes-gallery[data-notes-view='thumbnail'] .kral-notes-entry__link:focus-visible {
+  box-shadow: inset 0 0 0 1px rgba(174, 233, 255, 0.72);
+}
+
 @media (min-width: 640px) {
   .kral-notes-gallery[data-notes-view='thumbnail'] .kral-notes-results {
     column-count: 2;
@@ -2717,7 +2953,15 @@ html[data-theme='dark'] .kral-notes-gallery {
     bottom: 0;
   }
 
-  .kral-notes-advanced p,
+  .kral-notes-active-filters {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .kral-notes-active-filters__label {
+    padding-top: 4px;
+  }
+
   .kral-notes-all-tags > div {
     position: fixed;
     width: calc(100vw - 30px);
@@ -2729,6 +2973,11 @@ html[data-theme='dark'] .kral-notes-gallery {
 
   .kral-notes-all-tags > div {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .kral-notes-advanced-panel {
+    width: min(330px, calc(100vw - 42px));
+    margin-left: -85px;
   }
 }
 
