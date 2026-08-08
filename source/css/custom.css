@@ -3125,3 +3125,825 @@ html[data-theme='dark'] .kral-notes-gallery {
     padding: 0;
   }
 }
+
+/* VNDB-inspired project database. The implementation is original and scoped. */
+body:has(.kral-vndb-projects) {
+  --kral-vndb-bg: #020f1c;
+  --kral-vndb-panel: rgba(2, 22, 38, 0.88);
+  --kral-vndb-panel-soft: rgba(5, 34, 55, 0.78);
+  --kral-vndb-stripe: rgba(16, 55, 79, 0.56);
+  --kral-vndb-border: #18577d;
+  --kral-vndb-border-soft: rgba(61, 132, 169, 0.44);
+  --kral-vndb-title: #2e678f;
+  --kral-vndb-text: #d7e5ee;
+  --kral-vndb-muted: #7298ae;
+  --kral-vndb-link: #62a9d1;
+  min-height: 100vh;
+  background: var(--kral-vndb-bg);
+  color: var(--kral-vndb-text);
+}
+
+body:has(.kral-vndb-projects) #web_bg {
+  background:
+    linear-gradient(90deg, rgba(0, 11, 22, 0.2), rgba(0, 12, 23, 0.88) 82%),
+    linear-gradient(180deg, rgba(0, 7, 18, 0.08), rgba(0, 10, 20, 0.78) 78%),
+    url('/img/projects/kita.webp') center top / cover fixed no-repeat !important;
+}
+
+body:has(.kral-vndb-projects) #page-header,
+body:has(.kral-vndb-projects) #footer,
+body:has(.kral-vndb-projects) #rightside {
+  display: none !important;
+}
+
+body:has(.kral-vndb-projects) #body-wrap,
+body:has(.kral-vndb-projects) #content-inner,
+body:has(.kral-vndb-projects) .layout,
+body:has(.kral-vndb-projects) #page {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  background: transparent !important;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+body:has(.kral-vndb-projects) #article-container {
+  color: inherit;
+  font-family: Tahoma, Arial, 'Microsoft YaHei', sans-serif;
+  font-size: 13px;
+  line-height: 1.35;
+}
+
+#article-container .kral-vndb-projects,
+#article-container .kral-vndb-projects * {
+  box-sizing: border-box;
+}
+
+#article-container .kral-vndb-projects {
+  display: grid;
+  width: min(1180px, calc(100% - 32px));
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 0 0 42px;
+  grid-template-columns: 164px minmax(0, 1fr);
+  grid-template-rows: 172px auto;
+  gap: 0 10px;
+  color: var(--kral-vndb-text);
+}
+
+#article-container .kral-vndb-projects a {
+  color: var(--kral-vndb-link);
+  text-decoration: none;
+}
+
+#article-container .kral-vndb-projects a:hover {
+  color: #9cd3f0;
+  text-decoration: underline;
+}
+
+.kral-vndb-projects__masthead {
+  position: relative;
+  grid-column: 1 / -1;
+  overflow: hidden;
+  background:
+    linear-gradient(90deg, rgba(1, 12, 24, 0.1), rgba(1, 12, 24, 0.72) 55%, rgba(1, 12, 24, 0.96)),
+    url('/img/projects/kita.webp') center 46% / cover no-repeat;
+}
+
+.kral-vndb-projects__masthead::after {
+  position: absolute;
+  inset: auto 0 0;
+  height: 42px;
+  background: linear-gradient(transparent, rgba(1, 14, 25, 0.95));
+  content: '';
+  pointer-events: none;
+}
+
+#article-container .kral-vndb-projects__brand {
+  position: absolute;
+  z-index: 1;
+  top: 54px;
+  left: 300px;
+  display: flex;
+  width: fit-content;
+  flex-direction: column;
+  color: #295c80;
+  font-style: italic;
+  line-height: 1;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.65);
+}
+
+#article-container .kral-vndb-projects__brand:hover {
+  color: #3b789f;
+  text-decoration: none;
+}
+
+.kral-vndb-projects__brand span {
+  margin-left: 1px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.kral-vndb-projects__brand strong {
+  font-size: 25px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.kral-vndb-projects__sidebar {
+  position: sticky;
+  top: 10px;
+  align-self: start;
+  padding: 0 0 24px;
+}
+
+.kral-vndb-sidebox {
+  margin: 0 0 10px;
+  border: 1px solid var(--kral-vndb-border);
+  background: rgba(1, 20, 34, 0.76);
+  box-shadow: inset 0 0 22px rgba(14, 72, 105, 0.12);
+}
+
+#article-container .kral-vndb-sidebox h2 {
+  margin: 0;
+  padding: 2px 5px 3px;
+  border-bottom: 1px solid var(--kral-vndb-border);
+  color: #c9dce8;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.kral-vndb-sidebox nav {
+  display: flex;
+  padding: 4px 6px 6px;
+  flex-direction: column;
+}
+
+#article-container .kral-vndb-sidebox nav a {
+  position: relative;
+  padding: 0 0 0 7px;
+  color: #c4d5df;
+  line-height: 1.28;
+}
+
+#article-container .kral-vndb-sidebox nav a::before {
+  position: absolute;
+  left: 0;
+  color: var(--kral-vndb-title);
+  content: '›';
+}
+
+#article-container .kral-vndb-sidebox nav a.is-current,
+#article-container .kral-vndb-sidebox nav a:hover {
+  color: #fff;
+}
+
+.kral-vndb-stats {
+  margin: 0;
+  padding: 5px 7px 7px;
+}
+
+.kral-vndb-stats div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.kral-vndb-stats dt {
+  color: #b6cbd7;
+  font-style: italic;
+}
+
+.kral-vndb-stats dd {
+  margin: 0;
+  color: #dbe8ef;
+  text-align: right;
+}
+
+.kral-vndb-projects__main {
+  min-width: 0;
+  padding-top: 14px;
+}
+
+.kral-vndb-panel,
+.kral-vndb-record,
+.kral-vndb-section {
+  border: 1px solid var(--kral-vndb-border);
+  background: var(--kral-vndb-panel);
+}
+
+#article-container .kral-vndb-panel h1,
+#article-container .kral-vndb-panel h2,
+#article-container .kral-vndb-section h2 {
+  margin: 0;
+  padding: 1px 4px 3px;
+  color: var(--kral-vndb-title);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+#article-container .kral-vndb-panel h2,
+#article-container .kral-vndb-section h2 {
+  border-bottom: 1px solid rgba(24, 87, 125, 0.5);
+  font-size: 16px;
+}
+
+.kral-vndb-panel h1 small,
+.kral-vndb-panel h2 small {
+  float: right;
+  color: var(--kral-vndb-muted);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.kral-vndb-panel__body {
+  padding: 14px 116px;
+}
+
+#article-container .kral-vndb-panel__body p {
+  margin: 0 0 8px;
+}
+
+#article-container .kral-vndb-panel__body p:last-child {
+  margin-bottom: 0;
+}
+
+.kral-vndb-intro {
+  min-height: 188px;
+  margin-bottom: 10px;
+}
+
+.kral-vndb-intro .kral-vndb-panel__body {
+  padding-top: 20px;
+}
+
+.kral-vndb-dashboard {
+  display: grid;
+  margin-bottom: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.kral-vndb-linklist {
+  margin: 0;
+  padding: 7px 10px 9px;
+  list-style: none;
+}
+
+.kral-vndb-linklist li {
+  display: flex;
+  min-width: 0;
+  margin: 0;
+  padding: 1px 0;
+  align-items: baseline;
+  gap: 6px;
+}
+
+.kral-vndb-linklist time,
+.kral-vndb-linklist span {
+  flex: 0 0 auto;
+  color: var(--kral-vndb-muted);
+  font-size: 11px;
+}
+
+.kral-vndb-linklist a {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kral-vndb-project-list {
+  margin-bottom: 10px;
+}
+
+#article-container .kral-vndb-project-row {
+  display: grid;
+  min-height: 84px;
+  padding: 7px;
+  grid-template-columns: 110px 36px minmax(0, 1fr) 74px 62px;
+  align-items: center;
+  gap: 10px;
+  color: var(--kral-vndb-text);
+  background: var(--kral-vndb-stripe);
+}
+
+#article-container .kral-vndb-project-row:hover {
+  color: #fff;
+  background: rgba(27, 82, 112, 0.72);
+  text-decoration: none;
+}
+
+.kral-vndb-project-row img {
+  width: 110px;
+  height: 68px;
+  border: 1px solid var(--kral-vndb-border-soft);
+  object-fit: cover;
+}
+
+.kral-vndb-project-row__id {
+  color: var(--kral-vndb-muted);
+  font-weight: 700;
+  text-align: center;
+}
+
+.kral-vndb-project-row__title {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.kral-vndb-project-row__title strong {
+  color: #dbeaf2;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.kral-vndb-project-row__title small {
+  overflow: hidden;
+  color: #91adbd;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kral-vndb-project-row__status {
+  color: #74ba77;
+  font-weight: 700;
+}
+
+.kral-vndb-project-row__year {
+  color: var(--kral-vndb-muted);
+}
+
+.kral-vndb-tagindex {
+  display: flex;
+  padding: 12px;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+#article-container .kral-vndb-tagindex a {
+  padding: 2px 7px;
+  border: 1px solid var(--kral-vndb-border-soft);
+  color: #bcd5e3;
+  background: rgba(25, 73, 101, 0.5);
+}
+
+.kral-vndb-muted {
+  color: var(--kral-vndb-muted);
+  font-size: 11px;
+}
+
+.kral-vndb-tabs {
+  display: flex;
+  min-height: 24px;
+  margin-bottom: -1px;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 4px;
+}
+
+#article-container .kral-vndb-tabs a {
+  padding: 3px 10px;
+  border: 1px solid var(--kral-vndb-border);
+  border-bottom: 0;
+  color: #477a99;
+  background: rgba(4, 27, 45, 0.78);
+}
+
+#article-container .kral-vndb-tabs a.is-current,
+#article-container .kral-vndb-tabs a:hover {
+  color: #dbe9f1;
+  background: var(--kral-vndb-panel);
+  text-decoration: none;
+}
+
+.kral-vndb-record {
+  padding: 0 0 12px;
+}
+
+.kral-vndb-record__report {
+  float: right;
+  margin: 5px 8px 0 !important;
+  font-size: 11px;
+  font-style: italic;
+}
+
+#article-container .kral-vndb-record > h1 {
+  margin: 0;
+  padding: 1px 7px 0;
+  color: var(--kral-vndb-title);
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+#article-container .kral-vndb-record__subtitle {
+  margin: 0;
+  padding: 0 7px 8px;
+  color: #d1e2ea;
+  font-size: 13px;
+}
+
+.kral-vndb-record__summary {
+  display: grid;
+  padding: 0 90px 10px;
+  grid-template-columns: 252px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+}
+
+.kral-vndb-record__cover {
+  margin: 0;
+  text-align: center;
+}
+
+.kral-vndb-record__cover img {
+  display: block;
+  width: 252px;
+  height: 354px;
+  border: 1px solid var(--kral-vndb-border-soft);
+  object-fit: cover;
+  object-position: 62% center;
+}
+
+.kral-vndb-record__cover figcaption {
+  padding-top: 3px;
+  color: var(--kral-vndb-muted);
+  font-size: 11px;
+}
+
+.kral-vndb-record__facts {
+  margin: 0;
+}
+
+.kral-vndb-record__facts > div {
+  display: grid;
+  min-height: 29px;
+  padding: 5px 7px;
+  grid-template-columns: 92px minmax(0, 1fr);
+  gap: 7px;
+}
+
+.kral-vndb-record__facts > div:nth-child(odd) {
+  background: var(--kral-vndb-stripe);
+}
+
+.kral-vndb-record__facts dt {
+  color: #c1d4df;
+}
+
+.kral-vndb-record__facts dd {
+  min-width: 0;
+  margin: 0;
+  color: #d8e6ed;
+}
+
+.kral-vndb-record__facts dd span {
+  color: #9bb5c3;
+}
+
+.kral-vndb-status--active {
+  color: #76c27d !important;
+}
+
+.kral-vndb-section {
+  margin: 10px 10px 0;
+  background: rgba(2, 23, 39, 0.72);
+  scroll-margin-top: 12px;
+}
+
+.kral-vndb-section__body {
+  padding: 9px 12px 11px;
+}
+
+#article-container .kral-vndb-section__body p {
+  margin: 0 0 8px;
+}
+
+#article-container .kral-vndb-section__body p:last-child {
+  margin-bottom: 0;
+}
+
+.kral-vndb-architecture {
+  display: grid;
+  padding: 9px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  background: var(--kral-vndb-border-soft);
+}
+
+.kral-vndb-architecture article {
+  display: flex;
+  min-height: 64px;
+  padding: 8px 10px;
+  flex-direction: column;
+  background: rgba(4, 29, 47, 0.96);
+}
+
+.kral-vndb-architecture strong {
+  color: #cfe0e9;
+  font-weight: 400;
+}
+
+.kral-vndb-architecture span {
+  color: #8ca8b8;
+  font-size: 11px;
+}
+
+.kral-vndb-route-table {
+  display: grid;
+  padding: 8px;
+  gap: 7px;
+}
+
+.kral-vndb-route-table article {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  background: rgba(8, 43, 65, 0.46);
+}
+
+.kral-vndb-route-table article:nth-child(even) {
+  background: rgba(14, 54, 77, 0.5);
+}
+
+.kral-vndb-route-table header {
+  display: flex;
+  padding: 8px 10px;
+  border-right: 1px solid var(--kral-vndb-border-soft);
+  flex-direction: column;
+}
+
+.kral-vndb-route-table header span {
+  color: var(--kral-vndb-muted);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.kral-vndb-route-table header strong {
+  color: #d3e3eb;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.kral-vndb-route-table ul {
+  margin: 0;
+  padding: 7px 12px 7px 27px;
+}
+
+.kral-vndb-route-table li {
+  margin: 0;
+}
+
+.kral-vndb-route-table .is-reference {
+  border: 1px solid rgba(94, 163, 198, 0.48);
+}
+
+.kral-vndb-article-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.kral-vndb-article-table th,
+.kral-vndb-article-table td {
+  padding: 5px 8px;
+  border-bottom: 1px solid rgba(43, 98, 128, 0.35);
+  text-align: left;
+}
+
+.kral-vndb-article-table th {
+  color: #c6d8e2;
+  background: rgba(16, 54, 77, 0.65);
+  font-weight: 400;
+}
+
+.kral-vndb-article-table td:first-child,
+.kral-vndb-article-table td:last-child {
+  color: var(--kral-vndb-muted);
+  white-space: nowrap;
+}
+
+.kral-vndb-history {
+  padding: 8px 10px 10px;
+}
+
+.kral-vndb-history > div {
+  display: grid;
+  min-height: 42px;
+  padding: 6px 8px;
+  grid-template-columns: 90px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+}
+
+.kral-vndb-history > div:nth-child(odd) {
+  background: var(--kral-vndb-stripe);
+}
+
+.kral-vndb-history time {
+  color: var(--kral-vndb-muted);
+}
+
+#article-container .kral-vndb-history p {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+}
+
+.kral-vndb-history strong {
+  color: #d2e2ea;
+  font-weight: 400;
+}
+
+.kral-vndb-history span {
+  color: #8da9b8;
+  font-size: 11px;
+}
+
+@media (max-width: 900px) {
+  #article-container .kral-vndb-projects {
+    width: min(100% - 20px, 760px);
+    grid-template-columns: 1fr;
+    grid-template-rows: 128px auto auto;
+    gap: 8px;
+  }
+
+  .kral-vndb-projects__masthead {
+    grid-column: 1;
+  }
+
+  #article-container .kral-vndb-projects__brand {
+    top: 40px;
+    left: clamp(24px, 12vw, 100px);
+  }
+
+  .kral-vndb-projects__sidebar {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .kral-vndb-sidebox {
+    margin: 0;
+  }
+
+  .kral-vndb-projects__main {
+    padding-top: 0;
+  }
+
+  .kral-vndb-panel__body,
+  .kral-vndb-record__summary {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .kral-vndb-record__summary {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+
+  .kral-vndb-record__cover img {
+    width: 220px;
+    height: 310px;
+  }
+}
+
+@media (max-width: 640px) {
+  body:has(.kral-vndb-projects) #web_bg {
+    background:
+      linear-gradient(180deg, rgba(0, 10, 20, 0.22), rgba(0, 10, 20, 0.88)),
+      url('/img/projects/kita.webp') center top / auto 100vh fixed no-repeat !important;
+  }
+
+  #article-container .kral-vndb-projects {
+    width: calc(100% - 12px);
+    grid-template-rows: 106px auto auto;
+  }
+
+  #article-container .kral-vndb-projects__brand {
+    top: 31px;
+    left: 20px;
+  }
+
+  .kral-vndb-projects__brand strong {
+    font-size: 21px;
+  }
+
+  .kral-vndb-projects__sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .kral-vndb-sidebox nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 10px;
+  }
+
+  .kral-vndb-dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .kral-vndb-panel__body,
+  .kral-vndb-record__summary {
+    padding: 12px;
+  }
+
+  .kral-vndb-intro {
+    min-height: 0;
+  }
+
+  #article-container .kral-vndb-project-row {
+    grid-template-columns: 76px 28px minmax(0, 1fr);
+  }
+
+  .kral-vndb-project-row img {
+    width: 76px;
+    height: 54px;
+  }
+
+  .kral-vndb-project-row__status,
+  .kral-vndb-project-row__year {
+    display: none;
+  }
+
+  .kral-vndb-tabs {
+    overflow-x: auto;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+
+  .kral-vndb-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  #article-container .kral-vndb-tabs a {
+    flex: 0 0 auto;
+  }
+
+  .kral-vndb-record__report {
+    float: none;
+    text-align: right;
+  }
+
+  .kral-vndb-record__summary {
+    grid-template-columns: 1fr;
+  }
+
+  .kral-vndb-record__cover {
+    display: grid;
+    justify-items: center;
+  }
+
+  .kral-vndb-record__cover img {
+    width: min(100%, 360px);
+    height: 220px;
+    object-position: center 52%;
+  }
+
+  .kral-vndb-record__facts > div {
+    grid-template-columns: 76px minmax(0, 1fr);
+  }
+
+  .kral-vndb-architecture {
+    grid-template-columns: 1fr;
+  }
+
+  .kral-vndb-route-table article {
+    grid-template-columns: 1fr;
+  }
+
+  .kral-vndb-route-table header {
+    border-right: 0;
+    border-bottom: 1px solid var(--kral-vndb-border-soft);
+  }
+
+  .kral-vndb-section {
+    margin-right: 5px;
+    margin-left: 5px;
+  }
+
+  .kral-vndb-section__body {
+    overflow-x: auto;
+  }
+
+  .kral-vndb-article-table {
+    min-width: 600px;
+  }
+
+  .kral-vndb-history > div {
+    grid-template-columns: 70px minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body:has(.kral-vndb-projects) #web_bg {
+    background-attachment: scroll !important;
+  }
+}

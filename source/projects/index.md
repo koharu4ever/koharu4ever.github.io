@@ -1,118 +1,122 @@
 ---
-title: Projects
+title: Project Database
 date: 2026-08-03
 type: projects
 comments: false
 top_img: false
+aside: false
 ---
 
 {% raw %}
-<main class="kral-reading-map kral-reading-map--projects">
-  <header class="kral-reading-map__header">
-    <p class="kral-reading-map__eyebrow">PROJECT PRACTICE</p>
-    <h1>项目实践</h1>
-    <p>项目不是完成后的展示品。我更想保留它怎样形成、怎样运行，以及出现问题以后怎样修正。</p>
+<div class="kral-vndb-projects kral-vndb-projects--home">
+  <header class="kral-vndb-projects__masthead">
+    <a class="kral-vndb-projects__brand" href="/projects/">
+      <span>Kral's</span>
+      <strong>project database</strong>
+    </a>
   </header>
 
-  <article class="kral-project" aria-labelledby="kral-project-kita-title">
-    <div class="kral-project__visual">
-      <img src="/img/projects/kita.webp" alt="Kita 项目页面预览" loading="lazy" decoding="async">
-      <div class="kral-project__visual-content">
-        <span class="kral-project__status">ACTIVE PROJECT</span>
-        <h2 id="kral-project-kita-title">Kita</h2>
-        <p>一个围绕游戏、小众文化和个人内容持续演进的全栈项目。</p>
-        <ul class="kral-project__stack" aria-label="Kita 使用的主要技术">
-          <li>Next.js</li>
-          <li>Payload</li>
-          <li>PostgreSQL</li>
-          <li>Cloudflare R2</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="kral-project__actions" aria-label="Kita 项目链接">
-      <a class="kral-project__action kral-project__action--primary" href="https://kita.kral-koharu.com/" target="_blank" rel="noopener noreferrer">
-        访问项目 <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i>
-      </a>
-      <a class="kral-project__action" href="https://github.com/koharu4ever/Kita" target="_blank" rel="noopener noreferrer">
-        GitHub <i class="fab fa-github" aria-hidden="true"></i>
-      </a>
-    </div>
-
-    <section class="kral-reading-path-section" aria-labelledby="kral-kita-path-title">
-      <header class="kral-reading-path-section__header">
-        <p>READING PATH</p>
-        <h3 id="kral-kita-path-title">怎样开始阅读 Kita</h3>
-        <span>不必从头读到尾。先选择你现在真正想弄清楚的问题。</span>
-      </header>
-
-      <ol class="kral-reading-path">
-        <li class="kral-reading-path__item">
-          <div class="kral-reading-path__content">
-            <p class="kral-reading-path__kicker">ROUTE 01</p>
-            <h4>第一次了解</h4>
-            <p>先认识仓库、目录和运行层次，适合第一次打开这个项目时阅读。</p>
-            <ul class="kral-reading-path__links">
-              <li><a href="/2026/08/04/kita-basics-read-repository/">拿到项目后，应该先看哪些文件</a></li>
-              <li><a href="/2026/08/04/kita-basics-project-structure/">Kita 的目录结构从哪里来</a></li>
-              <li><a href="/2026/08/04/kita-basics-runtime-layers/">从开发到恢复的六层运行地图</a></li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="kral-reading-path__item">
-          <div class="kral-reading-path__content">
-            <p class="kral-reading-path__kicker">ROUTE 02</p>
-            <h4>技术选择</h4>
-            <p>按照真实形成顺序，理解我为什么选择这些工具，又刻意放弃了什么。</p>
-            <ul class="kral-reading-path__links">
-              <li><a href="/2026/08/01/kita-project-notes/">从视频开始搭起 Next.js 开发基座</a></li>
-              <li><a href="/2026/08/02/kita-dev-container/">为什么我一直使用 Dev Container</a></li>
-              <li><a href="/2026/08/03/kita-technology-tradeoffs/">Kita 使用了什么，也没有使用什么</a></li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="kral-reading-path__item">
-          <div class="kral-reading-path__content">
-            <p class="kral-reading-path__kicker">ROUTE 03</p>
-            <h4>工程实施</h4>
-            <p>进入真实配置、部署与恢复过程，文章可以直接当作工程说明书使用。</p>
-            <ul class="kral-reading-path__links">
-              <li><a href="/2026/08/04/kita-case-devcontainer-setup/">在 Windows 上配置 Dev Container</a></li>
-              <li><a href="/2026/08/04/kita-case-vps-coolify-deployment/">从空白 VPS 到 Coolify 部署</a></li>
-              <li><a href="/2026/08/04/kita-case-restore-drill/">从备份文件到真正恢复</a></li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="kral-reading-path__item">
-          <div class="kral-reading-path__content">
-            <p class="kral-reading-path__kicker">ROUTE 04</p>
-            <h4>生产记录与复盘</h4>
-            <p>时间线、故障和技术债不属于一条课程式 Series，但它们最接近项目真实运行的样子。</p>
-            <ul class="kral-reading-path__links">
-              <li><a href="/2026/08/04/kita-real-timeline/">Kita 不是按路线图做出来的</a></li>
-              <li><a href="/2026/08/04/kita-real-503-incident/">Build 通过，网站却 503</a></li>
-              <li><a href="/2026/08/04/kita-real-unfinished-work/">我现在明确保留的技术债</a></li>
-            </ul>
-          </div>
-        </li>
-
-        <li class="kral-reading-path__item kral-reading-path__item--reference">
-          <div class="kral-reading-path__content">
-            <p class="kral-reading-path__kicker">ROUTE 05</p>
-            <h4>完整参考</h4>
-            <p>当你需要一次看清代码、数据流、开发、部署与恢复边界时，再打开这份长文。</p>
-            <a class="kral-reading-path__reference" href="/2026/08/05/Kita-architecture-and-project-review/">
-              Kita 项目整体架构、数据流与边界审查
-              <i class="fas fa-arrow-right" aria-hidden="true"></i>
-            </a>
-          </div>
-        </li>
-      </ol>
+  <aside class="kral-vndb-projects__sidebar" aria-label="项目数据库导航">
+    <section class="kral-vndb-sidebox">
+      <h2>Menu</h2>
+      <nav>
+        <a class="is-current" href="/projects/">Project home</a>
+        <a href="/projects/kita/">Kita</a>
+        <a href="/notes/">Technical notes</a>
+        <a href="/archives/">Blog archive</a>
+        <a href="/resume/">Resume</a>
+        <a href="https://github.com/koharu4ever" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </nav>
     </section>
 
-  </article>
-</main>
+    <section class="kral-vndb-sidebox">
+      <h2>Project Status</h2>
+      <dl class="kral-vndb-stats">
+        <div><dt>Projects</dt><dd>1</dd></div>
+        <div><dt>Active</dt><dd>1</dd></div>
+        <div><dt>Main systems</dt><dd>4</dd></div>
+        <div><dt>Reading paths</dt><dd>5</dd></div>
+      </dl>
+    </section>
+
+    <section class="kral-vndb-sidebox">
+      <h2>Quick Links</h2>
+      <nav>
+        <a href="https://kita.kral-koharu.com/" target="_blank" rel="noopener noreferrer">Kita live site</a>
+        <a href="https://github.com/koharu4ever/Kita" target="_blank" rel="noopener noreferrer">Kita source</a>
+        <a href="/2026/08/05/Kita-architecture-and-project-review/">Architecture review</a>
+      </nav>
+    </section>
+
+  </aside>
+
+  <main class="kral-vndb-projects__main">
+    <section class="kral-vndb-panel kral-vndb-intro" aria-labelledby="kral-project-database-title">
+      <h1 id="kral-project-database-title">Kral Project Database</h1>
+      <div class="kral-vndb-panel__body">
+        <p>这里收录我实际开发并长期维护的项目。项目页保留成品、技术边界、运行状态，以及它在真实开发过程中怎样改变。</p>
+        <p>当前主要项目是 Kita。以后增加新的项目时，会作为新的数据库记录加入，而不是重做这个入口。</p>
+      </div>
+    </section>
+
+    <div class="kral-vndb-dashboard">
+      <section class="kral-vndb-panel">
+        <h2>Recent Changes <small>project log</small></h2>
+        <ul class="kral-vndb-linklist">
+          <li><time datetime="2026-08-05">08-05</time><a href="/2026/08/05/Kita-architecture-and-project-review/">完成 Kita 整体架构与边界审查</a></li>
+          <li><time datetime="2026-08-04">08-04</time><a href="/2026/08/04/kita-case-restore-drill/">把备份流程推进到真实恢复演练</a></li>
+          <li><time datetime="2026-08-04">08-04</time><a href="/2026/08/04/kita-case-payload-media-r2/">完成 Payload Media 与 R2 的工程记录</a></li>
+          <li><time datetime="2026-08-03">08-03</time><a href="/2026/08/03/kita-technology-tradeoffs/">整理当前技术选择与明确放弃的部分</a></li>
+        </ul>
+      </section>
+
+      <section class="kral-vndb-panel">
+        <h2>Development Notes <small>latest articles</small></h2>
+        <ul class="kral-vndb-linklist">
+          <li><a href="/2026/08/04/kita-real-503-incident/">Build 通过，网站却 503</a><span>incident</span></li>
+          <li><a href="/2026/08/04/kita-real-unfinished-work/">我现在明确保留的技术债</a><span>maintenance</span></li>
+          <li><a href="/2026/08/04/kita-case-vps-coolify-deployment/">从空白 VPS 到 Coolify 部署</a><span>deployment</span></li>
+          <li><a href="/2026/08/04/kita-basics-runtime-layers/">从开发到恢复的六层运行地图</a><span>overview</span></li>
+        </ul>
+      </section>
+    </div>
+
+    <section class="kral-vndb-panel kral-vndb-project-list" aria-labelledby="active-projects-title">
+      <h2 id="active-projects-title">Active Projects <small>1 record</small></h2>
+      <a class="kral-vndb-project-row" href="/projects/kita/">
+        <img src="/img/projects/kita.webp" alt="" loading="lazy" decoding="async">
+        <span class="kral-vndb-project-row__id">p1</span>
+        <span class="kral-vndb-project-row__title">
+          <strong>Kita</strong>
+          <small>一个围绕游戏、小众文化和个人内容持续演进的全栈项目。</small>
+        </span>
+        <span class="kral-vndb-project-row__status">Active</span>
+        <span class="kral-vndb-project-row__year">2025—</span>
+      </a>
+    </section>
+
+    <div class="kral-vndb-dashboard">
+      <section class="kral-vndb-panel">
+        <h2>Technology Index</h2>
+        <div class="kral-vndb-tagindex">
+          <a href="/tags/Next-js/">Next.js</a>
+          <a href="/tags/Payload-CMS/">Payload CMS</a>
+          <a href="/tags/PostgreSQL/">PostgreSQL</a>
+          <a href="/tags/Cloudflare-R2/">Cloudflare R2</a>
+          <a href="/tags/Dev-Container/">Dev Container</a>
+          <a href="/tags/Coolify/">Coolify</a>
+        </div>
+      </section>
+
+      <section class="kral-vndb-panel">
+        <h2>About This Archive</h2>
+        <div class="kral-vndb-panel__body">
+          <p>这里不是项目宣传页，而是一份可以继续增长的个人工程档案。项目展示成品，文章解释选择与代价。</p>
+          <p class="kral-vndb-muted">Last reviewed: 2026-08-08</p>
+        </div>
+      </section>
+    </div>
+
+  </main>
+</div>
 {% endraw %}
