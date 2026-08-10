@@ -1,0 +1,450 @@
+/* Thin Kral theme layer for the standalone Tabler Project Database. */
+.project-db-body {
+  --tblr-primary: #86df72;
+  --tblr-primary-rgb: 134, 223, 114;
+  --tblr-link-color: #a5ef8e;
+  --tblr-link-hover-color: #c7ffb8;
+  --tblr-body-bg: #040b07;
+  --tblr-body-color: #edf7ef;
+  --tblr-secondary-color: #93aa98;
+  --tblr-bg-surface: rgba(9, 20, 14, 0.96);
+  --tblr-bg-surface-secondary: rgba(14, 30, 21, 0.96);
+  --tblr-border-color: #274737;
+  --tblr-border-color-translucent: rgba(63, 112, 80, 0.45);
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 72% 0%, rgba(215, 255, 151, 0.16), transparent 34rem),
+    linear-gradient(180deg, rgba(2, 11, 5, 0.38), rgba(3, 10, 6, 0.95) 58rem),
+    url('/img/projects/project-forest.webp') center top / cover fixed no-repeat;
+  color: var(--tblr-body-color);
+}
+
+.project-db-body .page {
+  position: relative;
+  min-height: 100vh;
+  background: transparent;
+}
+
+.project-db-body .page-wrapper {
+  background: transparent;
+}
+
+.project-db-body .card,
+.project-db-body .list-group-item,
+.project-db-body .timeline-event-card {
+  --tblr-card-bg: rgba(9, 20, 14, 0.95);
+  --tblr-list-group-bg: rgba(9, 20, 14, 0.95);
+  --tblr-list-group-action-hover-bg: rgba(20, 42, 29, 0.96);
+  --tblr-list-group-action-active-bg: rgba(20, 42, 29, 0.96);
+  --tblr-card-border-color: var(--tblr-border-color);
+}
+
+.project-db-body .table {
+  --tblr-table-bg: transparent;
+  --tblr-table-striped-bg: rgba(14, 30, 21, 0.48);
+  --tblr-table-hover-bg: rgba(20, 42, 29, 0.72);
+  --tblr-table-border-color: var(--tblr-border-color);
+}
+
+.project-db-navbar {
+  position: sticky;
+  z-index: 1030;
+  top: 0;
+  border-bottom: 1px solid var(--tblr-border-color);
+  background: rgba(4, 11, 7, 0.94);
+  backdrop-filter: blur(12px);
+}
+
+.project-db-navbar .container-xl {
+  min-width: 0;
+  flex-wrap: nowrap;
+}
+
+.project-db-navbar .navbar-brand {
+  display: inline-flex;
+  min-width: max-content;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.project-db-navbar .navbar-brand > span:last-child {
+  display: grid;
+  line-height: 1.15;
+}
+
+.project-db-navbar .navbar-brand small {
+  color: var(--tblr-secondary-color);
+  font-size: 0.68rem;
+  font-weight: 500;
+}
+
+.project-db-brand-mark {
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid rgba(var(--tblr-primary-rgb), 0.55);
+  border-radius: var(--tblr-border-radius);
+  place-items: center;
+  color: var(--tblr-primary);
+  background: rgba(var(--tblr-primary-rgb), 0.1);
+  font-family: var(--tblr-font-monospace);
+  font-weight: 700;
+}
+
+.project-db-navbar__links {
+  min-width: 0;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  scrollbar-width: none;
+}
+
+.project-db-navbar__links::-webkit-scrollbar,
+.project-db-section-nav .nav::-webkit-scrollbar {
+  display: none;
+}
+
+.project-db-navbar__links .nav-link {
+  flex: 0 0 auto;
+  min-width: max-content;
+  white-space: nowrap;
+}
+
+.project-db-footer {
+  color: var(--tblr-secondary-color);
+}
+
+.project-db-container {
+  position: relative;
+}
+
+.project-db-page-header,
+.project-db-record-header {
+  margin-bottom: 1.5rem;
+}
+
+.project-db-index-meta {
+  display: grid;
+  gap: 0.15rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-db-index-meta small {
+  display: block;
+}
+
+.project-db-intro {
+  max-width: 62rem;
+  color: var(--tblr-secondary-color);
+}
+
+.project-db-intro p {
+  margin: 0 0 0.4rem;
+}
+
+.project-db-project-row {
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease;
+}
+
+.project-db-project-thumb {
+  width: 7rem;
+  height: 4.375rem;
+  object-fit: cover;
+}
+
+.project-db-project-purpose {
+  max-width: 62rem;
+  color: var(--tblr-body-color);
+  line-height: 1.55;
+}
+
+.project-db-project-stack,
+.project-db-project-row__meta {
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-db-project-row__meta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.project-db-project-arrow {
+  color: var(--tblr-primary);
+  font-size: 1.15rem;
+  transition: transform 150ms ease;
+}
+
+.project-db-project-row:hover .project-db-project-arrow {
+  transform: translateX(3px);
+}
+
+.project-db-tech-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.project-db-tech-badge > span {
+  opacity: 0.68;
+  font-variant-numeric: tabular-nums;
+}
+
+.project-db-record-title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+}
+
+.project-db-preview {
+  overflow: hidden;
+}
+
+.project-db-preview .card-img-top {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.project-db-summary {
+  display: grid;
+  margin: 0 0 1.5rem;
+  gap: 1rem;
+}
+
+.project-db-summary > div {
+  display: grid;
+  grid-template-columns: minmax(5rem, 0.25fr) minmax(0, 1fr);
+  gap: 1rem;
+}
+
+.project-db-summary dt {
+  color: var(--tblr-secondary-color);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-db-summary dd {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.project-db-section {
+  margin-top: 1.5rem;
+  scroll-margin-top: 8.5rem;
+}
+
+.project-db-section-nav {
+  position: sticky;
+  z-index: 1020;
+  top: 4.25rem;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  background: rgba(9, 20, 14, 0.95);
+  backdrop-filter: blur(10px);
+}
+
+.project-db-section-nav .nav {
+  overflow-x: auto;
+  flex-wrap: nowrap;
+  gap: 0.25rem;
+  scrollbar-width: none;
+}
+
+.project-db-section-nav .nav-link {
+  min-width: max-content;
+}
+
+.project-db-command pre {
+  padding: 0.9rem 1rem;
+  border: 1px solid var(--tblr-border-color);
+  border-radius: var(--tblr-border-radius);
+  background: rgba(2, 11, 5, 0.72);
+}
+
+.project-db-steps {
+  margin-bottom: 0;
+}
+
+.project-db-step-content {
+  display: grid;
+  gap: 0.3rem;
+}
+
+.project-db-step-content code {
+  width: fit-content;
+}
+
+.project-db-step-content small {
+  color: var(--tblr-secondary-color);
+  line-height: 1.5;
+}
+
+.project-db-parameter-table {
+  min-width: 54rem;
+}
+
+.project-db-record-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.project-db-notes {
+  opacity: 0.9;
+}
+
+.project-db-body :focus-visible {
+  outline: 2px solid var(--tblr-primary);
+  outline-offset: 2px;
+}
+
+@media (max-width: 767.98px) {
+  .project-db-root,
+  .project-db-body {
+    max-width: 100vw;
+    overflow-x: hidden;
+    background-attachment: scroll;
+  }
+
+  .project-db-body .page,
+  .project-db-body .page-wrapper,
+  .project-db-container,
+  .project-db-record,
+  .project-db-section,
+  .project-db-section > .card {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .project-db-navbar {
+    max-width: 100vw;
+    overflow: hidden;
+  }
+
+  .project-db-navbar .container-xl {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    gap: 0.5rem;
+  }
+
+  .project-db-navbar .navbar-brand small {
+    display: none;
+  }
+
+  .project-db-navbar__links {
+    max-width: 100%;
+    flex: 1 1 auto;
+    justify-content: flex-start;
+  }
+
+  .project-db-body .table-responsive {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    clip-path: inset(0);
+    overscroll-behavior-inline: contain;
+  }
+
+  .project-db-container {
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+
+  .project-db-index-meta {
+    text-align: left !important;
+  }
+
+  .project-db-project-thumb {
+    width: 5rem;
+    height: 3.125rem;
+  }
+
+  .project-db-project-row__meta {
+    width: 100%;
+    padding-left: 6rem;
+    justify-content: space-between;
+  }
+
+  .project-db-record-header > .row > .col-auto {
+    width: 100%;
+  }
+
+  .project-db-record-header .btn-list {
+    justify-content: flex-start;
+  }
+
+  .project-db-section-nav {
+    top: 3.75rem;
+  }
+
+  .project-db-summary > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.25rem;
+  }
+
+  .project-db-section {
+    scroll-margin-top: 7.75rem;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .project-db-brand-mark {
+    display: none;
+  }
+
+  .project-db-navbar .navbar-brand strong {
+    font-size: 0.9rem;
+  }
+
+  .project-db-navbar__links .nav-link {
+    padding-right: 0.55rem;
+    padding-left: 0.55rem;
+  }
+
+  .project-db-project-row__meta {
+    padding-left: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-db-body *,
+  .project-db-body *::before,
+  .project-db-body *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .project-db-body {
+    --tblr-body-bg: #fff;
+    --tblr-body-color: #111827;
+    --tblr-bg-surface: #fff;
+    --tblr-border-color: #d1d5db;
+    background: #fff !important;
+    color: #111827;
+  }
+
+  .project-db-navbar,
+  .project-db-footer,
+  .project-db-section-nav,
+  .project-db-record-switcher {
+    display: none !important;
+  }
+
+  .project-db-body .card {
+    break-inside: avoid;
+    background: #fff !important;
+    box-shadow: none !important;
+  }
+
+  .project-db-section {
+    break-inside: avoid;
+  }
+}

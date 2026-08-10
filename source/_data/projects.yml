@@ -1,0 +1,1082 @@
+database:
+  title: Project Database
+  heading: Kral Project Database
+  brand_subtitle: Software systems, architecture, rebuild notes and project history
+  masthead_label: KRAL / PROJECTS
+  index_label: INDEX · 2026
+  reviewed:
+    iso: '2026-08-08'
+    display: '2026.08.08'
+  intro:
+    kicker: Engineering archive
+    paragraphs:
+      - 这里收录我实际开发、部署并长期维护的软件项目与独立服务，以及它们在真实运行中形成的架构、决策、故障与恢复记录。
+      - 项目在这里是一条持续演进的工程记录，而不是一张完成后就不再变化的作品展示卡。
+  navigation:
+    library:
+      - label: Technical Notes
+        url: /notes/
+      - label: Blog Archive
+        url: /archives/
+    external:
+      - label: Resume
+        url: /resume/
+      - label: GitHub ↗
+        url: https://github.com/koharu4ever
+        external: true
+  sections:
+    projects:
+      kicker: Records
+      title: Projects
+    activity:
+      kicker: Event log
+      title: Recent Activity
+      note: Across active records
+    technology:
+      kicker: Lookup
+      title: Technology Index
+      note: Across active projects
+  archive_note:
+    label: ARCHIVE NOTE
+    text: Projects show the system. Technical Notes explain the decisions and operating cost behind it.
+
+technology_catalog:
+  nextjs:
+    name: Next.js
+    role: Application
+    url: /tags/Next-js/
+  payload-cms:
+    name: Payload CMS
+    role: Content
+    url: /tags/Payload-CMS/
+  postgresql:
+    name: PostgreSQL
+    role: Structured data
+    url: /tags/PostgreSQL/
+  cloudflare-r2:
+    name: Cloudflare R2
+    role: Object storage
+    url: /tags/Cloudflare-R2/
+  docker:
+    name: Docker
+    role: Runtime
+    url: /tags/Docker/
+  coolify:
+    name: Coolify
+    role: Deployment
+    url: /tags/Coolify/
+  openlist:
+    name: OpenList
+    role: File directory
+    url: /tags/OpenList/
+  hexo:
+    name: Hexo
+    role: Static generation
+    url: /tags/Hexo/
+  butterfly:
+    name: Butterfly
+    role: Presentation
+    url: /tags/Butterfly/
+  markdown:
+    name: Markdown
+    role: Content source
+    url: /tags/Markdown/
+  github-actions:
+    name: GitHub Actions
+    role: Build automation
+    url: /tags/GitHub-Actions/
+  github-pages:
+    name: GitHub Pages
+    role: Static hosting
+    url: /tags/GitHub-Pages/
+  pnpm:
+    name: pnpm
+    role: Package management
+    url: /tags/pnpm/
+  dev-container:
+    name: Dev Container
+    role: Development environment
+    url: /tags/Dev-Container/
+
+projects:
+  - id: P-001
+    order: 1
+    slug: kita
+    url: /projects/kita/
+    title: Kita
+    page_title: Kita · Project Database
+    subtitle: A personal content system
+    description: 一个围绕游戏、小众文化和个人内容持续演进的全栈项目。
+    summary:
+      what: 为 Games、Reviews、Tools 与 Media 提供内容管理、公开展示和长期维护的一体化系统。
+      why: 把内容模型、结构化数据、媒体存储和自托管部署收敛在一套可以持续演进的工程中。
+      boundary: OpenList 保持独立；Kita 只保存并跳转公开 URL，不共享数据库或部署生命周期。
+    classification: Content system
+    status:
+      active: true
+      short: Active
+      detail: Active development
+    started:
+      iso: '2025'
+      display: '2025'
+    updated:
+      iso: '2026-08-10'
+      display: '2026.08.10'
+    period: 2025 — Present
+    card:
+      image: /img/projects/kita.webp
+      stack: Next.js · Payload CMS · PostgreSQL · Cloudflare R2
+    preview:
+      image: /img/projects/kita.webp
+      alt: Kita 项目预览
+      width: 800
+      height: 500
+      domain: kita.kral-koharu.com
+      state: LIVE
+      label: CONTENT SYSTEM
+      title: Kita
+      meta: Games · Reviews · Tools · Media
+    actions:
+      - label: Live ↗
+        url: https://kita.kral-koharu.com/
+        external: true
+      - label: Source ↗
+        url: https://github.com/koharu4ever/Kita
+        external: true
+      - label: Issues ↗
+        url: https://github.com/koharu4ever/Kita/issues
+        external: true
+    technology_refs:
+      - nextjs
+      - payload-cms
+      - postgresql
+      - cloudflare-r2
+      - docker
+      - coolify
+    identity:
+      - label: Status
+        value: Active development
+        status: active
+      - label: Started
+        value: '2025'
+      - label: Maintainer
+        value: Kral
+    technical_profile:
+      - label: Application
+        value: Next.js 16 · TypeScript
+      - label: Content
+        value: Payload CMS 3 · Local API
+      - label: Data
+        value: PostgreSQL · Payload Media
+      - label: Runtime
+        value: Docker Compose · Coolify
+      - label: Media
+        value: Cloudflare R2
+    relations:
+      - title: OpenList Archive
+        note: Project record · P-002
+        url: /projects/openlist/
+      - title: Technical Notes
+        note: Engineering archive
+        url: /notes/
+    overview:
+      kicker: System
+      paragraphs:
+        - Kita 最初只是一张符合个人审美的首页，后来逐步加入内容管理、数据库、媒体存储和自托管部署。它现在既是实际使用的网站，也是我理解全栈项目边界的开发基座。
+        - 项目不追求复杂服务拆分。Next.js 与 Payload 运行在同一应用中，PostgreSQL 保存结构化数据，Cloudflare R2 保存媒体对象；OpenList 保持为独立应用，只通过链接与 Kita 相连。
+    architecture:
+      kicker: System boundaries
+      link:
+        label: Full review →
+        url: /2026/08/05/Kita-architecture-and-project-review/
+      aria_label: 'Kita architecture: Browser connects to the Next.js and Payload application boundary; PostgreSQL stores structured data, Cloudflare R2 stores media, Coolify runs the application, and OpenList remains independent.'
+      client:
+        label: Client
+        title: Browser
+        note: Request · navigation · rendering
+      boundary:
+        title: Kita application boundary
+        nodes:
+          - label: Application
+            title: Next.js
+            note: Routes · server rendering · UI
+          - label: Content
+            title: Payload Local API
+            note: Admin · collections · access
+      storage:
+        - label: Structured data
+          title: PostgreSQL
+          note: Content · relations · migrations
+        - label: Object storage
+          title: Cloudflare R2
+          note: Payload Media · game covers
+      runtime:
+        label: Runtime / deployment
+        title: Docker Compose · Coolify
+      external:
+        label: Independent relation
+        title: OpenList Archive
+        note: Separate application · URL-level connection only
+      decisions:
+        - subject: Application boundary
+          choice: Next.js and Payload share one deployable application
+          reason: Server rendering, Admin and content access stay in one runtime instead of creating a second backend service.
+          tradeoff: Next.js and Payload upgrades must be verified together.
+          url: /2026/08/02/kita-payload-local-api/
+        - subject: Server data access
+          choice: Payload Local API through server getters and mappers
+          reason: The same Node process can read content without an internal HTTP hop, while mappers keep Payload documents out of UI components.
+          tradeoff: Local API access must remain explicit; public getters use overrideAccess false and published filters.
+          url: /2026/08/04/kita-real-request-path/
+        - subject: Persistence boundary
+          choice: PostgreSQL for structured data; Cloudflare R2 for media objects
+          reason: Relations and metadata need a database, while uploaded media must outlive a replaceable application container.
+          tradeoff: A complete recovery requires PostgreSQL metadata and R2 objects to be restored together.
+          url: /2026/08/03/kita-media-r2/
+        - subject: Archive boundary
+          choice: OpenList remains an independent application connected by public URL
+          reason: Resource browsing belongs in OpenList without sharing Kita's database, secrets, volume or deployment lifecycle.
+          tradeoff: OpenList still needs its own monitoring, backup and upgrade plan.
+          url: /2026/08/03/kita-openlist-boundary/
+        - subject: Development environment
+          choice: Dev Container with Docker-in-Docker and targeted Linux volumes
+          reason: Node, pnpm and PostgreSQL stay reproducible while the Windows host only supplies Git, Docker and VS Code.
+          tradeoff: DIND, volume ownership and Windows filesystem performance require explicit safeguards.
+          url: /2026/08/02/kita-dev-container/
+        - subject: Deployment boundary
+          choice: Docker Compose describes services; Coolify builds and runs production
+          reason: The deployable application, database and backup process have visible runtime relationships without adding an orchestrator.
+          tradeoff: A successful build does not prove that migrations and the production runner can start.
+          url: /2026/08/04/kita-case-production-runtime-dependency/
+    run_locally:
+      kicker: Local development
+      title: Run Kita locally
+      nav_label: Build & run
+      intro: Windows 只负责保存源码和运行 Docker Desktop；Node、pnpm、PostgreSQL 与项目命令都留在可重建的 Dev Container 边界内。
+      command:
+        label: Development server
+        value: pnpm dev
+      items:
+        - label: Host requirements
+          value: Git · Docker Desktop · VS Code · Dev Containers
+          note: Windows 不需要全局安装 Node、pnpm、Payload 或 PostgreSQL。
+        - label: Toolchain
+          value: Node 22 · pnpm 10.28.2 · remoteUser node
+          note: Corepack 与 frozen lockfile 固定依赖入口；日常命令拒绝使用 root。
+        - label: Development services
+          value: Dev Container → DIND → PostgreSQL 16
+          note: compose.dev.yaml 只在开发环境映射 localhost:5432，生产不公开数据库端口。
+        - label: Environment contract
+          value: .env.example → .env
+          note: .env 保存本机真实值且不进入 Git 或 Docker build context；生产值由 Coolify Runtime Variables 提供。
+      links:
+        - label: Command guide ↗
+          url: /2026/08/04/kita-basics-command-guide/
+        - label: Dev Container rationale ↗
+          url: /2026/08/02/kita-dev-container/
+        - label: Environment contract ↗
+          url: /2026/08/04/kita-basics-environment-variables/
+      steps:
+        - label: Open the workspace
+          command: 'Dev Containers: Reopen in Container'
+          note: 等待 postCreate 完成依赖安装，并确认工作区用户是 node。
+        - label: Create local configuration
+          command: .env.example → .env
+          note: 填写本地数据库和 Payload 值；默认使用 local media，不复制生产 R2 secret。
+        - label: Start the application
+          command: pnpm dev
+          note: 用户守卫先检查工作区，再启动并等待 PostgreSQL healthy，最后运行 Next.js。
+        - label: Run quality gates
+          command: pnpm check && pnpm test
+          note: format、lint、typecheck 与测试是不同证据，不能互相替代。
+        - label: Verify the production build
+          command: pnpm build
+          note: 先停止开发服务器，避免两个进程同时写入 .next。
+      checks:
+        - label: Runtime identity
+          value: whoami · node --version · pnpm --version
+          note: 预期用户为 node，Node 为 22.x，pnpm 与 packageManager 声明一致。
+        - label: PostgreSQL health
+          value: docker compose -f compose.yaml -f compose.dev.yaml ps
+          note: postgres 必须为 healthy；running 不等于已经可以接受连接。
+        - label: Application surfaces
+          value: http://localhost:3000 · /admin
+          note: 同时检查公开页面、Payload Admin 和一个真实依赖数据库的页面。
+    configuration:
+      kicker: Repository map & environment contract
+      title: Project structure & configuration
+      intro: 目录按框架入口、业务功能与运行边界分层；环境变量表只公开键名、安全默认值和用途，不保存任何真实 secret。
+      items:
+        - label: Commands & dependency baseline
+          value: package.json · pnpm-lock.yaml
+          note: 固定脚本入口、packageManager 与可复现依赖解析结果。
+        - label: Routes & composition
+          value: src/app
+          note: App Router 的 page、layout、metadata、错误状态和 Payload 路由；不堆查询与复杂 UI。
+        - label: Feature modules
+          value: src/features
+          note: 按 Games、Reviews、Tools 等真实业务聚合 UI、types、utils、data 与就近测试。
+        - label: Server-only reads
+          value: src/server
+          note: 集中 Payload Local API、published filter、排序、fallback 和 mapper，不让页面组件直接依赖 CMS document。
+        - label: CMS schema & access
+          value: src/payload
+          note: Collections、access rules 与生成的 Payload types；生成文件不手工修改。
+        - label: Validated runtime config
+          value: src/config
+          note: Zod 与 @t3-oss/env-nextjs 统一验证 env 和 Media local/R2 模式，普通源码不直接读取 process.env。
+        - label: Database evolution
+          value: src/migrations
+          note: 进入 Git 的 up/down schema 历史；production entrypoint 先执行 migration 再启动 Web Server。
+        - label: Development & production runtime
+          value: .devcontainer/devcontainer.json · compose.yaml · compose.dev.yaml · Dockerfile
+          note: Dev Container 固定工具链，Compose 区分本地端口差异，Dockerfile 定义精简生产 runner。
+      parameters:
+        - key: NEXT_PUBLIC_SITE_URL
+          source: .env.example → .env / Coolify
+          scope: Public build
+          required: true
+          default: http://localhost:3000
+          effect: 允许进入浏览器 bundle 的站点 URL；不能承载任何 secret。
+          apply: Rebuild
+        - key: PAYLOAD_SECRET
+          source: .env.example → .env / Coolify
+          scope: Server runtime
+          required: true
+          secret: true
+          effect: Payload 的服务端 secret，至少 32 字符；生产值必须稳定。
+          apply: Restart
+        - key: ENABLE_DEV_SEED
+          source: .env.example → .env
+          scope: Development only
+          required: false
+          default: 'false'
+          effect: 只有非 production 且显式为 true 时才允许开发 seed。
+          apply: Restart
+        - key: POSTGRES_DB
+          source: .env.example → .env / Coolify
+          scope: Database initialization
+          required: true
+          default: kita
+          effect: PostgreSQL 首次初始化的数据库名，必须与 DATABASE_URI 对应。
+          apply: First initialization
+        - key: POSTGRES_USER
+          source: .env.example → .env / Coolify
+          scope: Database initialization
+          required: true
+          default: postgres
+          effect: PostgreSQL 首次初始化用户，必须与 DATABASE_URI 对应。
+          apply: First initialization
+        - key: POSTGRES_PASSWORD
+          source: .env.example → .env / Coolify
+          scope: Database initialization
+          required: true
+          secret: true
+          effect: 只在空数据目录首次初始化时设置数据库密码；修改变量不会自动轮换已有用户。
+          apply: Database rotation
+        - key: DATABASE_URI
+          source: .env.example → .env / Coolify
+          scope: Server runtime
+          required: true
+          secret: true
+          effect: 应用连接 PostgreSQL；本地 host 为 localhost，生产 Compose host 为 postgres。
+          apply: Restart
+        - key: MEDIA_STORAGE_MODE
+          source: .env.example → .env / Coolify
+          scope: Media runtime
+          required: true
+          default: local
+          effect: local 写入开发目录；生产选择 r2 后会强制检查完整 R2 配置。
+          apply: Restart
+        - key: MEDIA_R2_BUCKET
+          source: .env.example → .env / Coolify
+          scope: Media runtime
+          effect: MEDIA_STORAGE_MODE=r2 时指定 Payload Media 的对象 bucket。
+          apply: Restart
+        - key: MEDIA_R2_ENDPOINT
+          source: .env.example → .env / Coolify
+          scope: Media runtime
+          effect: R2 的 S3-compatible API endpoint，不是公开图片 URL。
+          apply: Restart
+        - key: MEDIA_R2_PUBLIC_URL
+          source: .env.example → .env / Coolify
+          scope: Public media
+          effect: 浏览器和 Next Image 使用的公开 custom domain。
+          apply: Rebuild & restart
+        - key: MEDIA_R2_ACCESS_KEY_ID / MEDIA_R2_SECRET_ACCESS_KEY
+          source: .env.example → .env / Coolify
+          scope: Server runtime
+          secret: true
+          effect: 仅在 r2 模式下提供给服务端 storage adapter；不得进入 NEXT_PUBLIC、文档或日志。
+          apply: Restart
+    troubleshooting:
+      title: Startup & runtime troubleshooting
+      items:
+        - title: Port 5432 is already in use
+          status: Check
+          cause: 另一套本地 PostgreSQL 或另一个项目占用了开发 override 要映射的端口。
+          checks:
+            - 先确认端口占用者和当前 Docker context，不要启动多套数据库再猜测连接目标。
+            - 检查 compose.dev.yaml 是否仍只暴露开发所需的 PostgreSQL 端口。
+          resolution:
+            - 停止重复服务，或有意识地修改开发 override 与 DATABASE_URI。
+            - 重新运行 pnpm dev，并等待 PostgreSQL healthcheck 通过。
+        - title: PostgreSQL is running, but Payload cannot connect
+          status: Check
+          cause: 容器只有 running 但尚未 healthy，或者 DATABASE_URI 的 host、用户、密码、数据库名与运行位置不一致。
+          checks:
+            - 在 Dev Container 中查看 Compose 状态与 PostgreSQL logs。
+            - 本地 Next.js 使用 localhost；生产 Compose 内部服务使用 postgres。
+          resolution:
+            - 使用 --wait 等待 healthcheck，而不是仅判断容器进程存在。
+            - 让 POSTGRES_DB、POSTGRES_USER、POSTGRES_PASSWORD 与 DATABASE_URI 保持同一组值。
+          command: docker compose -f compose.yaml -f compose.dev.yaml ps
+        - title: POSTGRES_PASSWORD changed, but authentication still fails
+          status: Caution
+          cause: PostgreSQL 官方镜像只在空 data volume 首次初始化时应用 POSTGRES_PASSWORD；修改环境变量不会改动已有数据库用户。
+          checks:
+            - 先确认 volume 中的数据是否需要保留，并核对当前数据库用户。
+          resolution:
+            - 在数据库内部正确轮换用户密码。
+            - 同步更新 DATABASE_URI 与运行时 secret，再重启应用。
+            - 只有确认开发数据可丢弃时，才考虑重建 volume。
+        - title: Build succeeds, but production returns 503
+          status: Resolved
+          cause: Payload migration 在精简 runner 中导入了未被 selective COPY 带入的源码，entrypoint 在启动 Next Server 前退出。
+          checks:
+            - 先看 Coolify runtime log，不要只重复查看成功的 build log。
+            - 区分 builder 文件系统、runner 文件系统与 Payload CLI 的运行时 import 路径。
+          resolution:
+            - 移除不必要的跨层 import，或把 migration 实际需要的源码复制进 runner。
+            - 用接近生产 runner 的最小文件集合验证 Payload config 和 migration 能加载。
+            - 重新构建镜像并确认 container 通过 migration 后开始监听端口。
+          command: pnpm build
+    articles:
+      link:
+        label: Technical Notes →
+        url: /notes/
+      items:
+        - date: '2026.08.05'
+          type: Reference
+          title: Kita 项目整体架构、数据流与边界审查
+          url: /2026/08/05/Kita-architecture-and-project-review/
+        - date: '2026.08.04'
+          type: Case
+          title: 从 Payload Media 到 Cloudflare R2 的完整配置
+          url: /2026/08/04/kita-case-payload-media-r2/
+        - date: '2026.08.04'
+          type: Incident
+          incident: true
+          title: 为什么 Build 通过了，生产容器仍然 503
+          url: /2026/08/04/kita-real-503-incident/
+        - date: '2026.08.03'
+          type: Decision
+          title: Kita 用了哪些技术，以及我刻意没有使用什么
+          url: /2026/08/03/kita-technology-tradeoffs/
+    history:
+      range: 2026.06 — Current
+      items:
+        - date: '2026.06.13'
+          datetime: '2026-06-13'
+          type: Created
+          title: Project history begins
+          description: The first recorded Kita commit establishes the repository and development base.
+        - date: '2026.07.03'
+          datetime: '2026-07-03'
+          type: Incident
+          title: Games enters Payload; production returns 503
+          description: The runtime dependency boundary becomes visible through a real failure.
+        - date: '2026.07.12'
+          datetime: '2026-07-12'
+          type: Workflow
+          title: Pull requests and quality checks guard main
+          description: Deployment and permission to enter the production branch become separate steps.
+        - date: '2026.07.22'
+          datetime: '2026-07-22'
+          type: Media
+          title: Games covers move to Payload Media and R2
+          description: Changing content no longer requires publishing application source.
+        - date: Current
+          type: Active
+          title: Architecture and recovery boundaries are being consolidated
+          description: Kita remains under active development and maintenance.
+          current: true
+    activity:
+      - date: '2026-08-05'
+        display_date: 05 AUG
+        type: Review
+        title: Kita architecture and boundary review documented
+        url: /2026/08/05/Kita-architecture-and-project-review/
+      - date: '2026-08-04'
+        display_date: 04 AUG
+        type: Recovery
+        title: Restore drill procedure and current evidence recorded
+        url: /2026/08/04/kita-case-restore-drill/
+      - date: '2026-08-04'
+        display_date: 04 AUG
+        type: Incident
+        incident: true
+        title: Production 503 incident reviewed
+        url: /2026/08/04/kita-real-503-incident/
+      - date: '2026-08-03'
+        display_date: 03 AUG
+        type: Decision
+        title: Technology boundaries and deliberate omissions documented
+        url: /2026/08/03/kita-technology-tradeoffs/
+      - date: '2026-07-22'
+        display_date: 22 JUL
+        type: Media
+        title: Games media moved beyond source-controlled assets
+        url: /2026/08/04/kita-real-timeline/
+
+  - id: P-002
+    order: 2
+    slug: openlist
+    url: /projects/openlist/
+    title: OpenList Archive
+    page_title: OpenList Archive · Project Database
+    subtitle: Independent file directory
+    description: 一个与 Kita 保持 URL 级连接、但独立部署和维护的资源目录应用。
+    summary:
+      what: 为公开资源提供目录、预览与下载入口，并由我独立运营这个 OpenList 实例。
+      why: 把文件目录和存储提供者的生命周期从 Kita 内容系统中分离出来。
+      boundary: 这里记录的是部署实例，不是自研 OpenList 源码；Kita 不调用其 API，也不共享数据库或 volume。
+    classification: Independent service
+    status:
+      active: true
+      short: Active
+      detail: Active service
+      identity: Independent service
+    started:
+      iso: '2026-07-14'
+      display: '2026.07.14'
+    updated:
+      iso: '2026-08-08'
+      display: '2026.08.08'
+    period: 2026 — Present
+    card:
+      image: /img/projects/archive.webp
+      stack: OpenList · Docker · Coolify · URL boundary
+    preview:
+      image: /img/projects/archive.webp
+      alt: OpenList Archive 项目预览
+      width: 800
+      height: 500
+      domain: archive.kral-koharu.com
+      state: LIVE
+      label: FILE DIRECTORY
+      title: OpenList Archive
+      meta: Browse · preview · download
+    actions:
+      - label: Live ↗
+        url: https://archive.kral-koharu.com/
+        external: true
+      - label: Upstream ↗
+        url: https://github.com/OpenListTeam/OpenList
+        external: true
+    technology_refs:
+      - openlist
+      - docker
+      - coolify
+    identity:
+      - label: Status
+        value: Active service
+        status: active
+      - label: Started
+        value: '2026.07.14'
+      - label: Operator
+        value: Kral
+      - label: Upstream
+        value: OpenListTeam
+    technical_profile:
+      - label: Application
+        value: OpenList official image
+      - label: Runtime
+        value: Docker · Coolify
+      - label: State
+        value: Independent data volume
+      - label: Storage
+        value: Provider-managed file sources
+      - label: Contract
+        value: Public HTTPS URL
+    relations:
+      - title: Kita
+        note: Games links · URL only
+        url: /projects/kita/
+      - title: Technical Notes
+        note: Boundary and operations
+        url: /notes/
+    overview:
+      kicker: Service
+      paragraphs:
+        - OpenList 为公开资源提供目录、预览与下载界面。Kita 的 Games 只保存对应 archive URL；用户点击后由浏览器进入 OpenList，Kita 服务端不会调用 OpenList API。
+        - 这里记录的是我维护的 OpenList 实例，而不是把上游软件称为自己的源码项目。生产使用固定的官方镜像，应用、管理员、data volume、存储凭据和升级节奏均与 Kita 分开。
+    architecture:
+      kicker: Service boundaries
+      link:
+        label: Boundary note →
+        url: /2026/08/03/kita-openlist-boundary/
+      aria_label: 'OpenList Archive architecture: the browser connects directly to an independent OpenList application; OpenList owns its data volume and storage provider configuration; Kita only stores and presents a public URL.'
+      client:
+        label: Client
+        title: Browser
+        note: Directory · preview · download
+      boundary:
+        title: OpenList service boundary
+        nodes:
+          - label: Application
+            title: OpenList
+            note: Official image · public UI
+          - label: Administration
+            title: OpenList Admin
+            note: Providers · users · configuration
+      storage:
+        - label: Application state
+          title: Data volume
+          note: Configuration · service state
+        - label: File sources
+          title: Storage providers
+          note: Independent credentials and lifecycle
+      runtime:
+        label: Runtime / deployment
+        title: Docker · Coolify
+      external:
+        label: URL-only relation
+        title: Kita Games
+        note: Stores a public archive URL · no shared database or startup dependency
+    run_locally:
+      kicker: Service operation
+      title: Run the archive service
+      nav_label: Recreate & operate
+      intro: This record describes an operated OpenList instance, not a fork of the upstream application. Deployment uses the official image and keeps its state outside Kita.
+      items:
+        - label: Image
+          value: OpenList official image
+          note: Upstream application code remains owned and released by OpenListTeam.
+        - label: Runtime
+          value: Docker · Coolify
+          note: OpenList is deployed as an independent application.
+        - label: State
+          value: Persistent data volume
+          note: Service configuration and application state require their own backup boundary.
+        - label: Access
+          value: archive.kral-koharu.com
+          note: Kita stores only the public HTTPS URL and does not call an OpenList API.
+      links:
+        - label: Upstream repository ↗
+          url: https://github.com/OpenListTeam/OpenList
+          external: true
+      steps:
+        - label: Deploy the upstream application
+          note: Use the official OpenList image as an independent Docker or Coolify application.
+        - label: Attach persistent state
+          note: Keep the OpenList data volume outside Kita and include it in the service backup boundary.
+        - label: Configure the instance
+          note: Create the administrator and storage providers through OpenList Admin; credentials stay inside this service.
+        - label: Publish and verify the URL
+          command: https://archive.kral-koharu.com/
+          note: Confirm directory browsing, preview and download without depending on Kita startup.
+      checks:
+        - label: Public service
+          value: archive.kral-koharu.com
+          note: The HTTPS directory should work independently of Kita.
+        - label: Boundary
+          value: URL-only relation
+          note: Kita stores a public link and does not call the OpenList API.
+    configuration:
+      kicker: Service boundary
+      title: Configuration surface
+      intro: Provider credentials and runtime state belong to OpenList. They are deliberately not shared with Kita, PostgreSQL or Payload.
+      items:
+        - label: Administration
+          value: OpenList Admin
+          note: Providers, users and service configuration.
+        - label: State
+          value: Application data volume
+          note: Independent lifecycle, backup and restore responsibility.
+        - label: Storage
+          value: Provider-managed file sources
+          note: Credentials remain inside the OpenList service boundary.
+        - label: Relation
+          value: Public URL only
+          note: OpenList failure does not block Kita's core content reads.
+      parameters:
+        - key: Application image
+          source: Coolify / Docker
+          scope: Runtime
+          required: true
+          effect: Selects the upstream OpenList release used by the service.
+          apply: Redeploy
+        - key: Data volume
+          source: Runtime configuration
+          scope: State
+          required: true
+          effect: Persists application configuration and service state.
+          apply: Redeploy and verify backup
+        - key: Storage providers
+          source: OpenList Admin
+          scope: Service
+          required: true
+          secret: true
+          effect: Defines the file sources exposed by the directory.
+          apply: Runtime configuration
+        - key: Public URL
+          source: DNS · Coolify
+          scope: Relation
+          required: true
+          effect: Provides the only formal link stored by Kita.
+          apply: DNS / redeploy
+    articles:
+      link:
+        label: OpenList tag →
+        url: /tags/OpenList/
+      items:
+        - date: '2026.08.03'
+          type: Decision
+          title: 为什么 OpenList 是独立应用，而不是 Kita 的一个微服务
+          url: /2026/08/03/kita-openlist-boundary/
+        - date: '2026.08.04'
+          type: Operations
+          title: 依赖升级为什么必须拆成不同风险路径
+          url: /2026/08/04/kita-real-upgrade-maintenance/
+        - date: '2026.08.03'
+          type: Recovery
+          title: 从能部署到能恢复：PostgreSQL、R2 与灾难恢复
+          url: /2026/08/03/kita-backup-recovery/
+        - date: '2026.08.04'
+          type: License
+          title: Kita 的参考、改造与许可证记录
+          url: /2026/08/04/kita-real-sources-and-licenses/
+    history:
+      range: 2026.07 — Current
+      items:
+        - date: '2026.07.14'
+          datetime: '2026-07-14'
+          type: Integration
+          title: Games begins storing public archive URLs
+          description: OpenList remains outside Kita Compose and shares no database.
+        - date: '2026.08.03'
+          datetime: '2026-08-03'
+          type: Decision
+          title: The URL-only application boundary is documented
+          description: API integration and a custom frontend fork are deliberately rejected.
+        - date: Current
+          type: Active
+          title: The independent service remains online
+          description: Storage-provider choice and complete data-volume recovery remain explicit operating work.
+          current: true
+    activity:
+      - date: '2026-07-14'
+        display_date: 14 JUL
+        type: Service
+        title: OpenList connected to Games as an independent application
+        url: /projects/openlist/
+
+  - id: P-003
+    order: 3
+    slug: kral-publishing-system
+    url: /projects/kral-publishing-system/
+    title: Kral Publishing System
+    page_title: Kral Publishing System · Project Database
+    subtitle: Personal static publishing system
+    description: 一个以 Markdown、结构化数据和静态资源为事实源，由 Hexo 构建并通过 GitHub Pages 发布的个人内容系统。
+    summary:
+      what: 用一份源码生成博客、技术档案、项目数据库和简历，并部署为静态 GitHub Pages 站点。
+      why: 保留 Markdown 的可维护性，同时把复杂页面的数据关系和生成逻辑集中在构建期。
+      boundary: 没有运行时 CMS、应用服务器或数据库；Pages 只托管生成的 HTML、CSS 和 JavaScript。
+    classification: Publishing system
+    status:
+      active: true
+      short: Active
+      detail: Active development
+      identity: Publishing system
+    started:
+      iso: '2026-08-04'
+      display: '2026.08.04'
+    updated:
+      iso: '2026-08-09'
+      display: '2026.08.09'
+    period: 2026 — Present
+    card:
+      image: /img/covers/about-site.webp
+      stack: Hexo · Butterfly · Markdown · GitHub Pages
+    preview:
+      image: /img/covers/about-site.webp
+      alt: Kral Publishing System 项目预览
+      width: 1440
+      height: 810
+      domain: koharu4ever.github.io
+      state: LIVE
+      label: STATIC PUBLISHING
+      title: Kral Publishing System
+      meta: Blog · Notes · Projects · Resume
+    actions:
+      - label: Live ↗
+        url: https://koharu4ever.github.io/
+        external: true
+      - label: Source ↗
+        url: https://github.com/koharu4ever/koharu4ever.github.io
+        external: true
+      - label: Actions ↗
+        url: https://github.com/koharu4ever/koharu4ever.github.io/actions
+        external: true
+    technology_refs:
+      - hexo
+      - butterfly
+      - markdown
+      - github-actions
+      - github-pages
+      - pnpm
+      - dev-container
+    identity:
+      - label: Status
+        value: Active development
+        status: active
+      - label: Started
+        value: '2026.08.04'
+      - label: Maintainer
+        value: Kral
+    technical_profile:
+      - label: Content
+        value: Markdown · YAML · static images
+      - label: Generator
+        value: Hexo 8 · custom build-time generators
+      - label: Presentation
+        value: Butterfly 5.5 · local CSS and JavaScript
+      - label: Environment
+        value: Dev Container · Node 22 · pnpm
+      - label: Delivery
+        value: GitHub Actions · GitHub Pages
+    relations:
+      - title: Technical Notes
+        note: Visual technical archive
+        url: /notes/
+      - title: Blog Archive
+        note: Chronological article index
+        url: /archives/
+      - title: Project Database Guide
+        note: Data-driven project records
+        url: https://github.com/koharu4ever/koharu4ever.github.io/blob/main/PROJECT_DATABASE.md
+        external: true
+    overview:
+      kicker: Publishing system
+      paragraphs:
+        - 这个仓库不再只是几份 Hexo 配置。Markdown 文章、项目数据、图片资产、构建期生成器和主题定制共同组成了一套可重复维护的个人发布系统；博客、技术档案、项目数据库和简历都由同一份源码生成。
+        - 它仍然坚持静态站点的边界：本地只维护内容和生成规则，Hexo 输出普通 HTML、CSS 与 JavaScript，GitHub Actions 负责可重复构建，GitHub Pages 只托管最终产物。复杂度集中在构建期，而不是转移给浏览器或服务器。
+    architecture:
+      kicker: Publishing pipeline
+      link:
+        label: Architecture note →
+        url: /2026/08/08/kral-publishing-system-architecture/
+      aria_label: 'Kral Publishing System architecture: the author workspace contains Markdown, YAML and images; Hexo and custom generators turn those sources into a Butterfly-based static site; the Dev Container provides the build environment; GitHub Actions publishes the output to GitHub Pages.'
+      client:
+        label: Author workspace
+        title: Markdown · YAML · Images
+        note: Articles · project records · static assets
+      boundary:
+        title: Static publishing boundary
+        nodes:
+          - label: Generator
+            title: Hexo 8
+            note: Posts · pages · taxonomy · feeds
+          - label: Build extensions
+            title: Custom generators
+            note: Start Here · Notes · Projects · random posts
+      storage:
+        - label: Presentation
+          title: Butterfly 5.5
+          note: Layout · theme configuration · scoped CSS
+        - label: Generated output
+          title: Static HTML · CSS · JavaScript
+          note: No application server or client framework
+      runtime:
+        label: Reproducible development
+        title: Dev Container · Node 22 · pnpm
+      external:
+        label: Build and delivery
+        title: GitHub Actions · GitHub Pages
+        note: Source on main · generated artifact deployed by workflow
+    run_locally:
+      kicker: Local workflow
+      title: Run the publishing system
+      nav_label: Build & publish
+      intro: Development is container-first. The host opens the repository, while Node, pnpm and Hexo run as the non-root node user inside the Dev Container.
+      command:
+        label: Preview with drafts
+        value: pnpm dev
+      items:
+        - label: Requirements
+          value: Git · Docker · VS Code · Dev Containers
+          note: The host does not need a global Node, pnpm or Hexo installation.
+        - label: Environment
+          value: 'Dev Containers: Reopen in Container'
+          note: postCreate enables Corepack and installs the locked pnpm dependencies.
+        - label: Preview
+          value: http://localhost:4000
+          note: Port 4001 is reserved for the browser reload connection.
+        - label: Verification
+          value: pnpm check
+          note: Runs formatting checks, ESLint and a clean production build.
+      links:
+        - label: Getting started ↗
+          url: /2026/08/08/kral-publishing-system-getting-started/
+      steps:
+        - label: Open the source workspace
+          command: 'Dev Containers: Reopen in Container'
+          note: The normal workspace user is node; the host does not need Node or Hexo.
+        - label: Preview content and drafts
+          command: pnpm dev
+          note: Hexo serves the site on port 4000 and uses port 4001 for reload events.
+        - label: Validate the source
+          command: pnpm check
+          note: Runs Prettier check, ESLint and a clean production build.
+        - label: Publish through the source branch
+          command: git push origin main
+          note: GitHub Actions builds and deploys the public artifact; generated public files are not committed.
+      checks:
+        - label: Local preview
+          value: http://localhost:4000
+          note: Drafts are included only in the local development command.
+        - label: Production artifact
+          value: public/
+          note: Generated by pnpm build and treated as disposable output.
+        - label: Deployment
+          value: GitHub Actions
+          note: Build success and Pages deployment success remain separate states.
+    configuration:
+      kicker: Repository map
+      title: Structure & configuration
+      intro: Content, project records, theme settings and build extensions each have one visible source location. Generated public files are never the editing surface.
+      items:
+        - label: Articles
+          value: source/_posts/*.md
+          note: Markdown content and Front Matter.
+        - label: Projects
+          value: source/_data/projects.yml
+          note: One data source generates the index and every project record.
+        - label: Images
+          value: source/img/
+          note: Static covers, project previews and page assets.
+        - label: Theme
+          value: _config.butterfly.yml · source/css/custom.css
+          note: Butterfly configuration and scoped visual systems.
+        - label: Extensions
+          value: scripts/*.js
+          note: Build-time Start Here, Notes, Projects and random-post generation.
+        - label: Delivery
+          value: .github/workflows/pages.yml
+          note: GitHub Actions builds and deploys the public artifact.
+      parameters:
+        - key: url
+          source: _config.yml
+          scope: Build
+          required: true
+          effect: Canonical site URL and generated absolute links.
+          apply: Rebuild
+        - key: timezone
+          source: _config.yml
+          scope: Build
+          default: Asia/Tokyo
+          effect: Post timestamps and archive grouping.
+          apply: Rebuild
+        - key: runtime_date
+          source: _config.butterfly.yml
+          scope: Presentation
+          default: 2025/12/14
+          effect: Website runtime shown in the information card.
+          apply: Rebuild
+        - key: Project records
+          source: source/_data/projects.yml
+          scope: Content
+          required: true
+          effect: Generates the project index, record pages and their metadata.
+          apply: Rebuild
+    activity_section:
+      kicker: Source history
+      title: Repository Activity
+      intro: Commit dates show the pace of the current source rebuild. The feed links to the real Git history instead of duplicating an editorial project timeline.
+      repository:
+        label: View all commits ↗
+        url: https://github.com/koharu4ever/koharu4ever.github.io/commits/main/
+        external: true
+      meta:
+        - label: Branch
+          value: main
+        - label: Source since
+          value: '2026.08.04'
+    articles:
+      link:
+        label: Technical Notes →
+        url: /notes/
+      items: []
+    history:
+      range: 2026.08 — Current
+      items:
+        - date: '2026.08.04'
+          datetime: '2026-08-04'
+          type: Rebuild
+          title: Editable Hexo source repository is re-established
+          description: The old generated output is replaced by a maintainable Hexo 8 and Butterfly 5.5 source base.
+        - date: '2026.08.04'
+          datetime: '2026-08-04'
+          type: Delivery
+          title: GitHub Pages deployment becomes reproducible
+          description: GitHub Actions builds the source and deploys a static Pages artifact from main.
+        - date: '2026.08.06'
+          datetime: '2026-08-06'
+          type: Archive
+          title: Technical Notes becomes a visual, searchable archive
+          description: Build-time data and a small client controller provide five dense browsing modes without adding an application framework.
+        - date: '2026.08.08'
+          datetime: '2026-08-08'
+          type: Database
+          title: Project records move to one structured data source
+          description: A Hexo generator now produces the project index and every project detail page from shared data.
+        - date: Current
+          type: Active
+          title: Content and publishing rules continue to evolve
+          description: New articles and project records extend the same source-driven system without redesigning their UI.
+          current: true
+    activity:
+      - date: '2026-08-08'
+        display_date: 08 AUG
+        type: Commit
+        commit: dbf3a16
+        title: Build VNDB-inspired project database pages
+        url: https://github.com/koharu4ever/koharu4ever.github.io/commit/dbf3a16
+      - date: '2026-08-06'
+        display_date: 06 AUG
+        type: Commit
+        commit: a554814
+        title: Build project reading map and notes archive
+        url: https://github.com/koharu4ever/koharu4ever.github.io/commit/a554814
+      - date: '2026-08-05'
+        display_date: 05 AUG
+        type: Commit
+        commit: 20bf8c2
+        title: Add article series and random navigation
+        url: https://github.com/koharu4ever/koharu4ever.github.io/commit/20bf8c2
+      - date: '2026-08-05'
+        display_date: 05 AUG
+        type: Commit
+        commit: 44ba603
+        title: Improve reading comfort and site presence
+        url: https://github.com/koharu4ever/koharu4ever.github.io/commit/44ba603
+      - date: '2026-08-05'
+        display_date: 05 AUG
+        type: Commit
+        commit: 0c2b531
+        title: Refine homepage and article presentation
+        url: https://github.com/koharu4ever/koharu4ever.github.io/commit/0c2b531
+      - date: '2026-08-04'
+        display_date: 04 AUG
+        type: Commit
+        commit: d4cc125
+        title: Add GitHub Pages deployment
+        url: https://github.com/koharu4ever/koharu4ever.github.io/commit/d4cc125
+      - date: '2026-08-04'
+        display_date: 04 AUG
+        type: Commit
+        commit: c494940
+        title: Initialize Hexo source site
+        url: https://github.com/koharu4ever/koharu4ever.github.io/commit/c494940

@@ -18,6 +18,7 @@
     "new:page": "hexo new page"
   },
   "dependencies": {
+    "@tabler/core": "1.4.0",
     "hexo": "8.0.0",
     "hexo-browser-reloader-websocket": "1.1.1",
     "hexo-generator-archive": "^2.0.0",

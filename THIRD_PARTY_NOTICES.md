@@ -2,8 +2,8 @@
 
 ## Reimu image category cards
 
-The `START HERE` image category navigation and the project visual treatment in
-this repository are adapted from the home category card markup and styles in
+The `START HERE` image category navigation in this repository is adapted from
+the home category card markup and styles in
 [`D-Sketon/hexo-theme-reimu`](https://github.com/D-Sketon/hexo-theme-reimu),
 commit `732e0cc802a51ac22c227928ab04270dfc8587f0`:
 
@@ -36,25 +36,19 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
-## Hextra Steps
+## Tabler
 
-The reading path structure in `source/projects/index.md` and its scoped styles
-in `source/css/custom.css` are adapted from the Steps shortcode in
-[`imfing/hextra`](https://github.com/imfing/hextra), commit
-`3551a56b8cdebd38170ecb5990e17ec9130aa457`:
+The standalone Project Database interface uses
+[`@tabler/core`](https://github.com/tabler/tabler) version `1.4.0`. Tabler's
+compiled CSS is copied into the generated site during the Hexo build; the
+regular Butterfly blog does not load it.
 
-- `layouts/_shortcodes/steps.html`
-- `assets/css/components/steps.css`
-
-Only the semantic step structure, left rail and numbered marker treatment are
-used. Hugo, Tailwind and the Hextra theme are not included as dependencies.
-
-The upstream project is distributed under the MIT License:
+Tabler is distributed under the MIT License:
 
 ```text
 MIT License
 
-Copyright (c) 2023 Xin
+Copyright (c) 2018-2026 The Tabler Authors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

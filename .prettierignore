@@ -12,3 +12,6 @@ source/img/
 # Long-form Markdown is edited as prose rather than auto-formatted.
 docs/
 source/_posts/
+
+# Hexo scaffold placeholders such as {{ title }} must not be rewritten as Markdown braces.
+scaffolds/*.md

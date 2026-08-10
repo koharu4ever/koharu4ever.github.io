@@ -41,9 +41,18 @@ pnpm dev
 ## 编辑位置
 
 - 简历：`source/resume/index.md`
-- 文章：`source/_posts/`
+- 文章：`source/_posts/`（完整流程见 `AUTHORING.md`）
+- 项目数据库：`source/_data/projects.yml`（维护方式见 `PROJECT_DATABASE.md`）
 - 主题设置：`_config.butterfly.yml`
-- 自定义样式：`source/css/custom.css`
+- 普通博客自定义样式：`source/css/custom.css`
+- Project Database 样式：`source/css/project-database.css`
+
+## 写作与扩展
+
+- `AUTHORING.md`：新建文章、Front Matter、图片、本地预览、检查与发布；
+- `PROJECT_DATABASE.md`：新增项目、维护项目数据并关联 Engineering Notes；
+- `source/_posts/kral-publishing-system-getting-started.md`：从启动环境到 GitHub Pages 的日常使用流程；
+- `source/_posts/kral-publishing-system-architecture.md`：源码、生成器、主题与发布之间的架构边界。
 
 ## 构建
 
