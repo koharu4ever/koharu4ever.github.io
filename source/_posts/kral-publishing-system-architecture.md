@@ -5,6 +5,7 @@ cover: /img/covers/publishing-system-architecture.png
 description: 从一篇普通文章开始，说明如何用 Markdown、YAML 和图片维护博客、技术札记与 Project Database，并完成检查和 GitHub Pages 发布，而不手写页面 HTML、JavaScript 或 CSS。
 tags:
   - Hexo
+  - Butterfly
   - Markdown
   - YAML
   - Project Database

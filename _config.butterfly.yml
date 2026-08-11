@@ -4,18 +4,18 @@ nav:
   fixed: true
 
 menu:
-  Home: / || fas fa-home
-  Resume: /resume/ || fas fa-file-lines
-  Blog||fas fa-book:
-    Notes: /notes/ || fas fa-book-open
-    Archive: /archives/ || fas fa-box-archive
-    Categories: /categories/ || fas fa-folder-open
-    Tags: /tags/ || fas fa-tags
-  Projects||fas fa-code:
-    Project Home: /projects/ || fas fa-grip
-    Kita: https://kita.kral-koharu.com/ || fas fa-rocket
-    Game Archive: https://archive.kral-koharu.com/ || fas fa-box-archive
-    GitHub: https://github.com/koharu4ever || fab fa-github
+  Home: / || fas fa-home kral-character-icon kral-character-home
+  Resume: /resume/ || fas fa-file-lines kral-character-icon kral-character-resume
+  Blog||fas fa-book kral-character-icon kral-character-blog:
+    Notes: /notes/ || fas fa-book-open kral-character-icon kral-character-notes
+    Archive: /archives/ || fas fa-box-archive kral-character-icon kral-character-archive
+    Categories: /categories/ || fas fa-folder-open kral-character-icon kral-character-categories
+    Tags: /tags/ || fas fa-tags kral-character-icon kral-character-tags
+  Projects||fas fa-code kral-character-icon kral-character-projects:
+    Project Home: /projects/ || fas fa-grip kral-character-icon kral-character-project-home
+    Kita: https://kita.kral-koharu.com/ || fas fa-rocket kral-character-icon kral-character-kita
+    Game Archive: https://archive.kral-koharu.com/ || fas fa-box-archive kral-character-icon kral-character-game-archive
+    GitHub: https://github.com/koharu4ever || fab fa-github kral-character-icon kral-character-github
 
 social:
   fab fa-github: https://github.com/koharu4ever || GitHub
@@ -24,7 +24,7 @@ social:
 favicon: /img/favicon.ico
 
 avatar:
-  img: https://github.com/koharu4ever.png
+  img: /img/kral-avatar-v1.webp
   effect: false
 
 disable_top_img: false
@@ -76,11 +76,7 @@ aside:
   card_author:
     enable: true
     description: TypeScript / JavaScript · Kita · Homelab
-    button:
-      enable: true
-      icon: fas fa-file-lines
-      text: 关于与简历
-      link: /resume/
+    button: false
   card_announcement:
     enable: true
     content: |
