@@ -1,58 +1,107 @@
-/* Thin Kral theme layer for the standalone Tabler Project Database. */
+/* Kral's standalone engineering archive, built on Tabler's layout primitives. */
 .project-db-body {
-  --tblr-primary: #86df72;
-  --tblr-primary-rgb: 134, 223, 114;
+  --project-bg: #040b07;
+  --project-bg-raised: #07110b;
+  --project-surface-1: rgba(9, 20, 14, 0.96);
+  --project-surface-2: rgba(14, 30, 21, 0.96);
+  --project-surface-hover: rgba(20, 42, 29, 0.96);
+  --project-border: #274737;
+  --project-border-strong: #365f47;
+  --project-text: #edf7ef;
+  --project-text-secondary: #93aa98;
+  --project-text-muted: #819486;
+  --project-accent: #86df72;
+  --project-accent-rgb: 134, 223, 114;
+  --project-success: #79d493;
+  --project-warning: #e7c36e;
+  --project-danger: #ef7d75;
+  --project-radius-panel: 6px;
+  --project-radius-control: 5px;
+  --project-radius-tag: 4px;
+
+  --tblr-primary: var(--project-accent);
+  --tblr-primary-rgb: var(--project-accent-rgb);
   --tblr-link-color: #a5ef8e;
   --tblr-link-hover-color: #c7ffb8;
-  --tblr-body-bg: #040b07;
-  --tblr-body-color: #edf7ef;
-  --tblr-secondary-color: #93aa98;
-  --tblr-bg-surface: rgba(9, 20, 14, 0.96);
-  --tblr-bg-surface-secondary: rgba(14, 30, 21, 0.96);
-  --tblr-border-color: #274737;
+  --tblr-body-bg: var(--project-bg);
+  --tblr-body-color: var(--project-text);
+  --tblr-secondary-color: var(--project-text-secondary);
+  --tblr-bg-surface: var(--project-surface-1);
+  --tblr-bg-surface-secondary: var(--project-surface-2);
+  --tblr-border-color: var(--project-border);
   --tblr-border-color-translucent: rgba(63, 112, 80, 0.45);
+  --tblr-border-radius: var(--project-radius-control);
   min-height: 100vh;
+  color: var(--project-text);
   background:
     radial-gradient(circle at 72% 0%, rgba(215, 255, 151, 0.16), transparent 34rem),
     linear-gradient(180deg, rgba(2, 11, 5, 0.38), rgba(3, 10, 6, 0.95) 58rem),
     url('/img/projects/project-forest.webp') center top / cover fixed no-repeat;
-  color: var(--tblr-body-color);
+  font-size: 0.9375rem;
+  line-height: 1.55;
 }
 
-.project-db-body .page {
+.project-db-body .page,
+.project-db-body .page-wrapper {
   position: relative;
   min-height: 100vh;
-  background: transparent;
-}
-
-.project-db-body .page-wrapper {
   background: transparent;
 }
 
 .project-db-body .card,
 .project-db-body .list-group-item,
 .project-db-body .timeline-event-card {
-  --tblr-card-bg: rgba(9, 20, 14, 0.95);
-  --tblr-list-group-bg: rgba(9, 20, 14, 0.95);
-  --tblr-list-group-action-hover-bg: rgba(20, 42, 29, 0.96);
-  --tblr-list-group-action-active-bg: rgba(20, 42, 29, 0.96);
-  --tblr-card-border-color: var(--tblr-border-color);
+  --tblr-card-bg: var(--project-surface-1);
+  --tblr-list-group-bg: var(--project-surface-1);
+  --tblr-list-group-action-hover-bg: var(--project-surface-hover);
+  --tblr-list-group-action-active-bg: var(--project-surface-hover);
+  --tblr-card-border-color: var(--project-border);
+  border-radius: var(--project-radius-panel);
+  box-shadow: none;
+}
+
+.project-db-body .card-header,
+.project-db-body .card-footer {
+  border-color: var(--project-border);
 }
 
 .project-db-body .table {
   --tblr-table-bg: transparent;
   --tblr-table-striped-bg: rgba(14, 30, 21, 0.48);
   --tblr-table-hover-bg: rgba(20, 42, 29, 0.72);
-  --tblr-table-border-color: var(--tblr-border-color);
+  --tblr-table-border-color: var(--project-border);
+}
+
+.project-db-body .font-monospace,
+.project-db-body time,
+.project-db-index-meta,
+.project-db-project-id,
+.project-db-project-classification {
+  font-variant-numeric: tabular-nums;
+}
+
+.project-db-body .subheader,
+.project-db-body .page-pretitle {
+  color: #86b9a0;
+  font-family: var(--tblr-font-monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.project-db-body .page-title {
+  color: var(--project-text);
+  font-weight: 700;
+  letter-spacing: -0.025em;
 }
 
 .project-db-navbar {
   position: sticky;
   z-index: 1030;
   top: 0;
-  border-bottom: 1px solid var(--tblr-border-color);
-  background: rgba(4, 11, 7, 0.94);
-  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--project-border);
+  background: rgba(4, 10, 7, 0.97);
+  backdrop-filter: blur(10px);
 }
 
 .project-db-navbar .container-xl {
@@ -73,7 +122,7 @@
 }
 
 .project-db-navbar .navbar-brand small {
-  color: var(--tblr-secondary-color);
+  color: var(--project-text-muted);
   font-size: 0.68rem;
   font-weight: 500;
 }
@@ -82,25 +131,18 @@
   display: grid;
   width: 2rem;
   height: 2rem;
-  border: 1px solid rgba(var(--tblr-primary-rgb), 0.55);
-  border-radius: var(--tblr-border-radius);
+  border: 1px solid rgba(var(--project-accent-rgb), 0.46);
+  border-radius: var(--project-radius-control);
   place-items: center;
-  color: var(--tblr-primary);
-  background: rgba(var(--tblr-primary-rgb), 0.1);
+  color: var(--project-accent);
+  background: rgba(var(--project-accent-rgb), 0.08);
   font-family: var(--tblr-font-monospace);
   font-weight: 700;
 }
 
 .project-db-navbar__links {
   min-width: 0;
-  overflow-x: auto;
   flex-wrap: nowrap;
-  scrollbar-width: none;
-}
-
-.project-db-navbar__links::-webkit-scrollbar,
-.project-db-section-nav .nav::-webkit-scrollbar {
-  display: none;
 }
 
 .project-db-navbar__links .nav-link {
@@ -110,7 +152,7 @@
 }
 
 .project-db-footer {
-  color: var(--tblr-secondary-color);
+  color: var(--project-text-muted);
 }
 
 .project-db-container {
@@ -119,13 +161,15 @@
 
 .project-db-page-header,
 .project-db-record-header {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .project-db-index-meta {
   display: grid;
   gap: 0.15rem;
-  font-variant-numeric: tabular-nums;
+  color: #adc0b2;
+  font-family: var(--tblr-font-monospace);
+  font-size: 0.75rem;
 }
 
 .project-db-index-meta small {
@@ -133,12 +177,15 @@
 }
 
 .project-db-intro {
-  max-width: 62rem;
-  color: var(--tblr-secondary-color);
+  max-width: 57rem;
 }
 
 .project-db-intro p {
-  margin: 0 0 0.4rem;
+  margin: 0;
+}
+
+.project-db-intro p + p {
+  margin-top: 0.4rem;
 }
 
 .project-db-project-row {
@@ -155,12 +202,13 @@
 
 .project-db-project-purpose {
   max-width: 62rem;
-  color: var(--tblr-body-color);
+  color: var(--project-text);
   line-height: 1.55;
 }
 
 .project-db-project-stack,
 .project-db-project-row__meta {
+  color: var(--project-text-muted) !important;
   font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
 }
@@ -172,7 +220,7 @@
 }
 
 .project-db-project-arrow {
-  color: var(--tblr-primary);
+  color: var(--project-accent);
   font-size: 1.15rem;
   transition: transform 150ms ease;
 }
@@ -181,19 +229,144 @@
   transform: translateX(3px);
 }
 
-.project-db-tech-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+/* Recent activity: a semantic event grid on desktop, a three-line feed on mobile. */
+.project-db-index-activity {
+  overflow: hidden;
 }
 
-.project-db-tech-badge > span {
-  opacity: 0.68;
+.project-db-activity-list {
+  display: grid;
+}
+
+.project-db-activity-item {
+  display: grid;
+  grid-template-columns: minmax(6.5rem, 0.65fr) minmax(6rem, 0.6fr) minmax(16rem, 2.8fr) minmax(
+      12rem,
+      1.35fr
+    );
+  align-items: center;
+  gap: 1rem;
+  min-width: 0;
+  padding: 0.85rem 1.25rem;
+  border-top: 1px solid var(--project-border);
+}
+
+.project-db-activity-item:first-child {
+  border-top: 0;
+}
+
+.project-db-activity-date,
+.project-db-activity-type,
+.project-db-activity-record {
+  font-family: var(--tblr-font-monospace);
+  font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
 }
 
+.project-db-activity-date,
+.project-db-activity-record {
+  color: var(--project-text-secondary);
+}
+
+.project-db-activity-type {
+  color: #89baa2;
+  font-weight: 700;
+  letter-spacing: 0.055em;
+  text-transform: uppercase;
+}
+
+.project-db-activity-type .badge {
+  padding: 0;
+  border: 0;
+  color: inherit !important;
+  background: transparent !important;
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+.project-db-activity-type .text-red {
+  color: var(--project-danger) !important;
+}
+
+.project-db-activity-type[data-incident='true'],
+.project-db-activity-item.is-incident .project-db-activity-type {
+  color: var(--project-danger);
+}
+
+.project-db-activity-event {
+  min-width: 0;
+  color: var(--project-text);
+  font-weight: 600;
+}
+
+/* Technology stays an auxiliary, grouped lookup rather than a badge wall. */
+.project-db-technology .card-body {
+  padding: 1rem 1.25rem;
+}
+
+.project-db-technology-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+  gap: 1rem 1.5rem;
+}
+
+.project-db-technology-group {
+  min-width: 0;
+}
+
+.project-db-technology-group-title,
+.project-db-technology-group__title {
+  margin-bottom: 0.35rem;
+  color: #86b9a0;
+  font-family: var(--tblr-font-monospace);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.project-db-technology-group-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem 0.7rem;
+}
+
+.project-db-tech-badge,
+.project-db-technology-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0;
+  border: 0;
+  color: var(--project-text-secondary) !important;
+  background: transparent !important;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.project-db-tech-badge:hover,
+.project-db-technology-link:hover {
+  color: var(--tblr-link-hover-color) !important;
+}
+
+.project-db-tech-badge > span,
+.project-db-technology-count {
+  color: var(--project-text-muted);
+  font-family: var(--tblr-font-monospace);
+  font-size: 0.68rem;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Detail records keep the denser Tabler document layout. */
 .project-db-record-title {
-  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-size: clamp(1.875rem, 5vw, 2.5rem);
+}
+
+.project-db-record-id {
+  color: var(--project-text-secondary);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
 }
 
 .project-db-preview {
@@ -219,7 +392,7 @@
 }
 
 .project-db-summary dt {
-  color: var(--tblr-secondary-color);
+  color: var(--project-text-secondary);
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -242,26 +415,32 @@
   top: 4.25rem;
   overflow: hidden;
   margin-bottom: 1.5rem;
-  background: rgba(9, 20, 14, 0.95);
-  backdrop-filter: blur(10px);
+  border-radius: var(--project-radius-panel);
+  background: rgba(9, 20, 14, 0.97);
+  backdrop-filter: blur(8px);
 }
 
 .project-db-section-nav .nav {
   overflow-x: auto;
   flex-wrap: nowrap;
   gap: 0.25rem;
-  scrollbar-width: none;
+  scrollbar-width: thin;
 }
 
 .project-db-section-nav .nav-link {
   min-width: max-content;
 }
 
+.project-db-section-nav .nav-link.active {
+  color: var(--project-text);
+  background: rgba(var(--project-accent-rgb), 0.14);
+}
+
 .project-db-command pre {
   padding: 0.9rem 1rem;
-  border: 1px solid var(--tblr-border-color);
-  border-radius: var(--tblr-border-radius);
-  background: rgba(2, 11, 5, 0.72);
+  border: 1px solid var(--project-border);
+  border-radius: var(--project-radius-control);
+  background: #020905;
 }
 
 .project-db-steps {
@@ -278,7 +457,7 @@
 }
 
 .project-db-step-content small {
-  color: var(--tblr-secondary-color);
+  color: var(--project-text-secondary);
   line-height: 1.5;
 }
 
@@ -297,16 +476,19 @@
 }
 
 .project-db-body :focus-visible {
-  outline: 2px solid var(--tblr-primary);
+  outline: 2px solid var(--project-accent);
   outline-offset: 2px;
 }
 
 @media (max-width: 767.98px) {
+  .project-db-body {
+    background-attachment: scroll;
+  }
+
   .project-db-root,
   .project-db-body {
     max-width: 100vw;
     overflow-x: hidden;
-    background-attachment: scroll;
   }
 
   .project-db-body .page,
@@ -319,16 +501,25 @@
     max-width: 100%;
   }
 
+  /* One brand line and one discoverable, wrapping navigation line. */
   .project-db-navbar {
+    position: relative;
     max-width: 100vw;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .project-db-navbar .container-xl {
+    display: grid;
     width: 100%;
     max-width: 100%;
-    overflow: hidden;
-    gap: 0.5rem;
+    gap: 0.2rem;
+    padding-top: 0.45rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .project-db-navbar .navbar-brand {
+    width: fit-content;
+    min-height: 2rem;
   }
 
   .project-db-navbar .navbar-brand small {
@@ -336,17 +527,19 @@
   }
 
   .project-db-navbar__links {
+    display: flex;
+    width: 100%;
     max-width: 100%;
-    flex: 1 1 auto;
+    overflow: visible;
+    flex-wrap: wrap;
+    gap: 0.15rem 0.75rem;
     justify-content: flex-start;
   }
 
-  .project-db-body .table-responsive {
-    width: 100%;
+  .project-db-navbar__links .nav-link {
     min-width: 0;
-    max-width: 100%;
-    clip-path: inset(0);
-    overscroll-behavior-inline: contain;
+    padding: 0.35rem 0;
+    font-size: 0.75rem;
   }
 
   .project-db-container {
@@ -358,15 +551,112 @@
     text-align: left !important;
   }
 
+  .project-db-project-row {
+    padding: 1rem;
+  }
+
   .project-db-project-thumb {
-    width: 5rem;
-    height: 3.125rem;
+    width: 5.5rem;
+    height: 3.4375rem;
   }
 
   .project-db-project-row__meta {
     width: 100%;
-    padding-left: 6rem;
+    padding-left: 6.5rem;
     justify-content: space-between;
+  }
+
+  /* New event-list markup: DATE · TYPE / EVENT / RECORD. */
+  .project-db-activity-item {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.2rem 0.65rem;
+    padding: 0.9rem 1rem;
+  }
+
+  .project-db-activity-date {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .project-db-activity-type {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .project-db-activity-event {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    margin-top: 0.1rem;
+  }
+
+  .project-db-activity-record {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    margin-top: 0.15rem;
+  }
+
+  /* Legacy table markup remains readable if cached/generated before the new list. */
+  .project-db-index-activity .table-responsive {
+    width: 100%;
+    overflow: visible;
+  }
+
+  .project-db-index-activity table,
+  .project-db-index-activity tbody {
+    display: block;
+    width: 100%;
+  }
+
+  .project-db-index-activity thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .project-db-index-activity tr {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.2rem 0.65rem;
+    padding: 0.9rem 1rem;
+    border-top: 1px solid var(--project-border);
+  }
+
+  .project-db-index-activity td {
+    display: block;
+    min-width: 0;
+    padding: 0 !important;
+    border: 0 !important;
+    white-space: normal !important;
+  }
+
+  .project-db-index-activity td:nth-child(1) {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .project-db-index-activity td:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .project-db-index-activity td:nth-child(3) {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    font-weight: 600;
+  }
+
+  .project-db-index-activity td:nth-child(4) {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    color: var(--project-text-secondary);
+  }
+
+  .project-db-technology-groups {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .project-db-record-header > .row > .col-auto {
@@ -378,7 +668,7 @@
   }
 
   .project-db-section-nav {
-    top: 3.75rem;
+    top: 0;
   }
 
   .project-db-summary > div {
@@ -387,7 +677,7 @@
   }
 
   .project-db-section {
-    scroll-margin-top: 7.75rem;
+    scroll-margin-top: 4.75rem;
   }
 }
 
@@ -400,13 +690,24 @@
     font-size: 0.9rem;
   }
 
+  .project-db-navbar__links {
+    column-gap: 0.55rem;
+  }
+
   .project-db-navbar__links .nav-link {
-    padding-right: 0.55rem;
-    padding-left: 0.55rem;
+    font-size: 0.7rem;
+  }
+
+  .project-db-project-row > .row {
+    align-items: start !important;
   }
 
   .project-db-project-row__meta {
     padding-left: 0;
+  }
+
+  .project-db-technology-groups {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 
@@ -423,12 +724,18 @@
 
 @media print {
   .project-db-body {
+    --project-bg: #fff;
+    --project-surface-1: #fff;
+    --project-surface-2: #fff;
+    --project-border: #d1d5db;
+    --project-text: #111827;
+    --project-text-secondary: #4b5563;
     --tblr-body-bg: #fff;
     --tblr-body-color: #111827;
     --tblr-bg-surface: #fff;
     --tblr-border-color: #d1d5db;
-    background: #fff !important;
     color: #111827;
+    background: #fff !important;
   }
 
   .project-db-navbar,
@@ -438,8 +745,20 @@
     display: none !important;
   }
 
-  .project-db-body .card {
+  .project-db-index .project-db-page-header,
+  .project-db-index .project-db-masthead {
+    min-height: auto;
+    padding: 1rem 0;
+    border: 0;
+    color: #111827;
+    background: #fff !important;
+  }
+
+  .project-db-body .card,
+  .project-db-project-row,
+  .project-db-activity-item {
     break-inside: avoid;
+    color: #111827;
     background: #fff !important;
     box-shadow: none !important;
   }

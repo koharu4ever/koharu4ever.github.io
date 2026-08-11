@@ -19,6 +19,8 @@ const articleTypeLabels = new Map([
   ['review', 'Review'],
 ]);
 
+const isoDayPattern = /^\d{4}-\d{2}-\d{2}$/;
+
 function asArray(value) {
   if (value === undefined || value === null || value === '') return [];
   return Array.isArray(value) ? value : [value];
@@ -64,6 +66,46 @@ function normalizeKey(value) {
 
 function canonicalProjectUrl(slug) {
   return `/projects/${encodeURIComponent(slug)}/`;
+}
+
+function isIsoDay(value) {
+  const date = String(value ?? '').trim();
+  if (!isoDayPattern.test(date)) return false;
+  const [year, month, day] = date.split('-').map(Number);
+  return new Date(Date.UTC(year, month - 1, day)).toISOString().slice(0, 10) === date;
+}
+
+function requireIsoDay(value, label) {
+  const date = String(value ?? '').trim();
+  if (!isIsoDay(date)) {
+    throw new Error(`[project-database] ${label} must be an ISO date (YYYY-MM-DD).`);
+  }
+  return date;
+}
+
+function eventIsoDay(value) {
+  const date = String(value ?? '').trim();
+  return isIsoDay(date) ? date : null;
+}
+
+function formatLongDate(value) {
+  const date = eventIsoDay(value);
+  if (!date) return String(value ?? '');
+  const [year, month, day] = date.split('-').map(Number);
+  return new Intl.DateTimeFormat('en-GB', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+    timeZone: 'UTC',
+  }).format(new Date(Date.UTC(year, month - 1, day)));
+}
+
+function absoluteSiteUrl(siteUrl, value, label) {
+  const base = safeUrl(siteUrl, 'site URL');
+  if (!/^https?:\/\//i.test(base)) {
+    throw new Error('[project-database] Hexo config.url must use http or https.');
+  }
+  return new URL(safeUrl(value, label), `${base.replace(/\/+$/, '')}/`).toString();
 }
 
 function externalLink(url, explicit) {
@@ -186,6 +228,7 @@ function validateData(data) {
   }
 
   const catalog = data.technology_catalog || {};
+  const technologyGroups = data.technology_groups || {};
   const rawProjects = asArray(data.projects);
   rawProjects.forEach((project, index) => {
     if (typeof project.status?.active !== 'boolean') {
@@ -259,6 +302,37 @@ function validateData(data) {
     }
   }
 
+  for (const [key, technology] of Object.entries(catalog)) {
+    if (!technology.group || !technologyGroups[technology.group]) {
+      throw new Error(
+        `[project-database] Technology "${key}" must reference a known technology group.`
+      );
+    }
+  }
+
+  const reviewed = requireIsoDay(data.database?.reviewed?.iso, 'database.reviewed.iso');
+  let newestProjectUpdate = '';
+  for (const project of projects) {
+    const updated = requireIsoDay(project.updated?.iso, `${project.id} updated.iso`);
+    newestProjectUpdate = updated > newestProjectUpdate ? updated : newestProjectUpdate;
+
+    const eventDates = [
+      ...asArray(project.activity).map((item) => eventIsoDay(item?.date)),
+      ...asArray(project.history?.items).map((item) => eventIsoDay(item?.datetime || item?.date)),
+    ].filter(Boolean);
+    const newestEvent = eventDates.sort().at(-1);
+    if (newestEvent && updated < newestEvent) {
+      throw new Error(
+        `[project-database] ${project.id} updated.iso (${updated}) is earlier than its newest activity/history date (${newestEvent}).`
+      );
+    }
+  }
+  if (newestProjectUpdate && reviewed < newestProjectUpdate) {
+    throw new Error(
+      `[project-database] database.reviewed.iso (${reviewed}) is earlier than the newest project update (${newestProjectUpdate}).`
+    );
+  }
+
   const knownProjectUrls = new Set(projects.map((project) => project.url));
   for (const project of projects) {
     for (const relation of asArray(project.relations)) {
@@ -271,7 +345,7 @@ function validateData(data) {
     }
   }
 
-  return { database: data.database || {}, catalog, projects };
+  return { database: data.database || {}, catalog, technologyGroups, projects };
 }
 
 function validatePostAssociations(posts, projects) {
@@ -287,16 +361,17 @@ function validatePostAssociations(posts, projects) {
   }
 }
 
-function activityItems(projects, limit = 8) {
+function activityItems(projects, limit = 8, perProjectLimit = 3) {
   const items = [];
   projects.forEach((project, projectIndex) => {
+    const projectItems = [];
     asArray(project.activity).forEach((activity, itemIndex) => {
-      items.push({ ...activity, project, _order: projectIndex * 1000 + itemIndex });
+      projectItems.push({ ...activity, project, _order: projectIndex * 1000 + itemIndex });
     });
     asArray(project.history?.items)
       .filter((history) => history.activity)
       .forEach((history, itemIndex) => {
-        items.push({
+        projectItems.push({
           date: history.datetime || history.date,
           display_date: history.display_date || history.date,
           type: history.type,
@@ -307,6 +382,14 @@ function activityItems(projects, limit = 8) {
           _order: projectIndex * 1000 + 500 + itemIndex,
         });
       });
+    items.push(
+      ...projectItems
+        .sort((left, right) => {
+          const dateDifference = Date.parse(right.date) - Date.parse(left.date);
+          return dateDifference || left._order - right._order;
+        })
+        .slice(0, perProjectLimit)
+    );
   });
   return items
     .sort((left, right) => {
@@ -316,16 +399,27 @@ function activityItems(projects, limit = 8) {
     .slice(0, limit);
 }
 
-function technologyItems(projects, catalog) {
+function technologyItems(projects, catalog, technologyGroups) {
   const counts = new Map();
   for (const project of projects.filter((item) => item.status.active)) {
     for (const reference of new Set(asArray(project.technology_refs))) {
       counts.set(reference, (counts.get(reference) || 0) + 1);
     }
   }
-  return Object.entries(catalog)
-    .filter(([key]) => counts.has(key))
-    .map(([key, technology]) => ({ ...technology, count: counts.get(key) }));
+  return Object.entries(technologyGroups)
+    .map(([key, label]) => ({
+      key,
+      label,
+      items: Object.entries(catalog)
+        .filter(([, technology]) => technology.group === key)
+        .filter(([technologyKey]) => counts.has(technologyKey))
+        .map(([technologyKey, technology]) => ({
+          key: technologyKey,
+          ...technology,
+          count: counts.get(technologyKey),
+        })),
+    }))
+    .filter((group) => group.items.length > 0);
 }
 
 function hasSectionData(value) {
@@ -418,8 +512,7 @@ function renderTablerNavbar(database, project) {
   return `<header class="navbar navbar-expand-md navbar-dark d-print-none project-db-navbar">
     <div class="container-xl">
       <a class="navbar-brand navbar-brand-autodark" href="/projects/">
-        <span class="project-db-brand-mark" aria-hidden="true">K</span>
-        <span><strong>Kral Projects</strong><small>Engineering archive</small></span>
+        <strong>Kral / Projects</strong>
       </a>
       <nav class="navbar-nav flex-row ms-auto project-db-navbar__links" aria-label="Project Database navigation">
         ${links
@@ -444,15 +537,45 @@ function renderTablerNavbar(database, project) {
   </header>`;
 }
 
-function renderTablerDocument({ title, description, database, project, body, pageClass }) {
+function renderTablerDocument({
+  title,
+  description,
+  database,
+  project,
+  body,
+  pageClass,
+  siteUrl,
+  canonicalPath,
+  socialImage,
+}) {
+  const canonical = absoluteSiteUrl(siteUrl, canonicalPath, 'canonical path');
+  const shareImage = absoluteSiteUrl(
+    siteUrl,
+    socialImage || database.social_image || '/img/projects/project-forest.webp',
+    'social image'
+  );
   return `<!doctype html>
 <html class="project-db-root" lang="zh-CN" data-bs-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#07140f">
   <meta name="description" content="${escapeHtml(description)}">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="Kral Project Database">
+  <meta property="og:title" content="${escapeHtml(title)}">
+  <meta property="og:description" content="${escapeHtml(description)}">
+  <meta property="og:url" content="${escapeHtml(canonical)}">
+  <meta property="og:image" content="${escapeHtml(shareImage)}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="${escapeHtml(title)}">
+  <meta name="twitter:description" content="${escapeHtml(description)}">
+  <meta name="twitter:image" content="${escapeHtml(shareImage)}">
   <title>${escapeHtml(title)}</title>
+  <link rel="canonical" href="${escapeHtml(canonical)}">
+  <link rel="icon" type="image/svg+xml" href="/img/projects/project-database-icon.svg">
   <link rel="stylesheet" href="/vendor/tabler/tabler.min.css">
   <link rel="stylesheet" href="/css/project-database.css">
 </head>
@@ -472,36 +595,27 @@ function renderTablerDocument({ title, description, database, project, body, pag
 </html>`;
 }
 
-function renderTablerIndexHeader(database, activeCount) {
-  const intro = asArray(database.intro?.paragraphs).filter(hasValue);
-  return `<div class="page-header d-print-none project-db-page-header">
+function renderTablerIndexHeader(database, recordCount) {
+  return `<header class="page-header d-print-none project-db-page-header project-db-masthead">
     <div class="row align-items-end g-3">
       <div class="col">
-        <div class="page-pretitle">${escapeHtml(database.masthead_label || 'KRAL / PROJECTS')}</div>
-        <h1 class="page-title">${escapeHtml(database.title || 'Project Database')}</h1>
+        <div class="page-pretitle">${escapeHtml(
+          database.masthead_label || 'PROJECT DATABASE · 2026'
+        )}</div>
+        <h1 class="page-title">${escapeHtml(database.title || 'Projects')}</h1>
         <p class="text-secondary mb-0">${escapeHtml(
-          database.brand_subtitle || 'Software systems, operations and project history'
+          database.brand_subtitle || '实际开发、部署并长期维护的软件系统与独立服务。'
         )}</p>
-      </div>
-      <div class="col-auto">
-        <div class="project-db-index-meta text-secondary text-end">
-          <strong>${activeCount}</strong> active record${activeCount === 1 ? '' : 's'}
-          ${
-            database.reviewed?.display
-              ? `<small>Reviewed ${escapeHtml(database.reviewed.display)}</small>`
+        <div class="project-db-index-meta text-secondary font-monospace mt-2">
+          ${recordCount} record${recordCount === 1 ? '' : 's'}${
+            database.reviewed?.iso
+              ? ` · Updated ${escapeHtml(formatLongDate(database.reviewed.iso))}`
               : ''
           }
         </div>
       </div>
     </div>
-    ${
-      intro.length
-        ? `<div class="project-db-intro mt-3">${intro
-            .map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`)
-            .join('')}</div>`
-        : ''
-    }
-  </div>`;
+  </header>`;
 }
 
 function renderTablerProjectRows(projects) {
@@ -550,7 +664,11 @@ function renderTablerProjectRows(projects) {
 }
 
 function renderTablerIndexActivity(projects, database) {
-  const activity = activityItems(projects, Number(database.activity_limit) || 8);
+  const activity = activityItems(
+    projects,
+    Number(database.activity_limit) || 8,
+    Number(database.activity_per_project) || 3
+  );
   if (!activity.length) return '';
   return `<section class="card project-db-index-activity" aria-labelledby="project-activity-title">
     <div class="card-header">
@@ -561,63 +679,71 @@ function renderTablerIndexActivity(projects, database) {
         )}</h2>
       </div>
     </div>
-    <div class="table-responsive">
-      <table class="table table-vcenter card-table table-hover">
-        <thead><tr><th>Date</th><th>Type</th><th>Event</th><th>Record</th></tr></thead>
-        <tbody>${activity
-          .map(
-            (item) => `<tr>
-              <td class="text-secondary font-monospace text-nowrap">${escapeHtml(
-                item.display_date || item.date
-              )}</td>
-              <td><span class="badge ${
-                item.incident ? 'bg-red-lt text-red' : 'bg-secondary-lt text-secondary'
-              }">${escapeHtml(item.type)}</span></td>
-              <td><a ${anchorAttributes(item, `${item.project.id} activity URL`)}>${escapeHtml(
-                item.title
-              )}</a></td>
-              <td><a href="${escapeHtml(item.project.url)}" class="font-monospace">${escapeHtml(
-                item.project.id
-              )}</a></td>
-            </tr>`
-          )
-          .join('')}</tbody>
-      </table>
-    </div>
+    <div class="project-db-activity-list" role="list">${activity
+      .map(
+        (item) => `<article class="project-db-activity-item" role="listitem">
+          <time class="project-db-activity-date text-secondary font-monospace text-nowrap" datetime="${escapeHtml(
+            item.date
+          )}">${escapeHtml(item.display_date || item.date)}</time>
+          <div class="project-db-activity-type"><span class="badge ${
+            item.incident ? 'bg-red-lt text-red' : 'bg-secondary-lt text-secondary'
+          }">${escapeHtml(item.type)}</span></div>
+          <div class="project-db-activity-event"><a ${anchorAttributes(
+            item,
+            `${item.project.id} activity URL`
+          )}>${escapeHtml(item.title)}</a></div>
+          <div class="project-db-activity-record"><a href="${escapeHtml(
+            item.project.url
+          )}" class="font-monospace"><span>${escapeHtml(
+            item.project.id
+          )}</span> · ${escapeHtml(item.project.title)}</a></div>
+        </article>`
+      )
+      .join('')}</div>
   </section>`;
 }
 
-function renderTablerTechnology(projects, catalog, database) {
-  const technologies = technologyItems(projects, catalog);
-  if (!technologies.length) return '';
+function renderTablerTechnology(projects, catalog, technologyGroups, database) {
+  const groups = technologyItems(projects, catalog, technologyGroups);
+  if (!groups.length) return '';
   return `<section class="card project-db-technology" aria-labelledby="technology-index-title">
     <div class="card-body">
-      <div class="d-flex flex-wrap align-items-center gap-2">
-        <div class="me-2">
-          <div class="subheader">${escapeHtml(database.sections?.technology?.kicker || 'Lookup')}</div>
-          <h2 class="card-title mb-0" id="technology-index-title">${escapeHtml(
-            database.sections?.technology?.title || 'Technology Index'
-          )}</h2>
-        </div>
-        ${technologies
-          .map((technology) => {
-            const count = `${technology.count} project${technology.count === 1 ? '' : 's'}`;
-            return `<a class="badge bg-secondary-lt text-secondary project-db-tech-badge" href="${escapeHtml(
-              safeUrl(technology.url, `${technology.name} technology URL`)
-            )}" title="${escapeHtml(`${technology.role || ''} · ${count}`)}">${escapeHtml(
-              technology.name
-            )}<span>${technology.count}</span></a>`;
-          })
+      <div class="subheader">${escapeHtml(database.sections?.technology?.kicker || 'Lookup')}</div>
+      <h2 class="card-title" id="technology-index-title">${escapeHtml(
+        database.sections?.technology?.title || 'Technology Index'
+      )}</h2>
+      <div class="project-db-technology-groups">
+        ${groups
+          .map(
+            (
+              group
+            ) => `<section class="project-db-technology-group" aria-labelledby="technology-${escapeHtml(
+              group.key
+            )}">
+              <h3 class="project-db-technology-group__title font-monospace" id="technology-${escapeHtml(
+                group.key
+              )}">${escapeHtml(group.label)}</h3>
+              <div class="d-flex flex-wrap gap-2">${group.items
+                .map((technology) => {
+                  const count = `${technology.count} project${technology.count === 1 ? '' : 's'}`;
+                  return `<a class="badge bg-secondary-lt text-secondary project-db-tech-badge" href="${escapeHtml(
+                    safeUrl(technology.url, `${technology.name} technology URL`)
+                  )}" aria-label="${escapeHtml(`${technology.name}, ${technology.role}, ${count}`)}">${escapeHtml(
+                    technology.name
+                  )}${technology.count > 1 ? `<span>${technology.count}</span>` : ''}</a>`;
+                })
+                .join('')}</div>
+            </section>`
+          )
           .join('')}
       </div>
     </div>
   </section>`;
 }
 
-function renderTablerIndex(database, catalog, projects) {
-  const activeCount = projects.filter((project) => project.status.active).length;
-  const body = `<div class="container-xl py-4 project-db-container">
-    ${renderTablerIndexHeader(database, activeCount)}
+function renderTablerIndex(database, catalog, technologyGroups, projects, siteUrl) {
+  const body = `<main class="container-xl py-4 project-db-container">
+    ${renderTablerIndexHeader(database, projects.length)}
     <div class="row row-cards">
       <div class="col-12">
         <section class="card project-db-projects" aria-labelledby="project-records-title">
@@ -625,7 +751,7 @@ function renderTablerIndex(database, catalog, projects) {
             <div>
               <div class="subheader">${escapeHtml(database.sections?.projects?.kicker || 'Records')}</div>
               <h2 class="card-title" id="project-records-title">${escapeHtml(
-                database.sections?.projects?.title || 'Projects'
+                database.sections?.projects?.title || 'Project records'
               )}</h2>
             </div>
             <div class="card-actions text-secondary font-monospace">${projects.length} total</div>
@@ -634,7 +760,12 @@ function renderTablerIndex(database, catalog, projects) {
         </section>
       </div>
       <div class="col-12">${renderTablerIndexActivity(projects, database)}</div>
-      <div class="col-12">${renderTablerTechnology(projects, catalog, database)}</div>
+      <div class="col-12">${renderTablerTechnology(
+        projects,
+        catalog,
+        technologyGroups,
+        database
+      )}</div>
     </div>
     ${
       database.archive_note?.text
@@ -643,13 +774,16 @@ function renderTablerIndex(database, catalog, projects) {
           )}</strong> · ${escapeHtml(database.archive_note.text)}</p>`
         : ''
     }
-  </div>`;
+  </main>`;
   return renderTablerDocument({
     title: database.title || 'Project Database',
     description: database.brand_subtitle || 'Kral Project Database',
     database,
     body,
     pageClass: 'project-db-index',
+    siteUrl,
+    canonicalPath: '/projects/',
+    socialImage: database.social_image,
   });
 }
 
@@ -738,7 +872,7 @@ function renderTablerOverview(project, catalog) {
       ${
         preview.image
           ? `<div class="col-lg-5">
-          <figure class="card h-100 project-db-preview">
+          <figure class="card project-db-preview">
             <img class="card-img-top" src="${escapeHtml(
               safeUrl(preview.image, `${project.id} preview image`)
             )}" alt="${escapeHtml(preview.alt || `${project.title} preview`)}" width="${escapeHtml(
@@ -1058,7 +1192,7 @@ function renderTablerConfiguration(project) {
       ${
         parameters.length
           ? `<div class="table-responsive"><table class="table table-vcenter card-table project-db-parameter-table">
-          <thead><tr><th>Parameter</th><th>Source / scope</th><th>Requirement</th><th>Effect</th></tr></thead>
+          <thead><tr><th scope="col">Parameter</th><th scope="col">Source / scope</th><th scope="col">Requirement</th><th scope="col">Effect</th></tr></thead>
           <tbody>${parameters
             .map((parameter) => {
               const meta = renderTablerParameterMeta(parameter);
@@ -1244,7 +1378,7 @@ function renderTablerProjectActivity(project) {
             )}</p></div>`
           : ''
       }
-      <div class="table-responsive"><table class="table table-vcenter card-table table-hover"><thead><tr><th>Date</th><th>Type</th><th>Event</th></tr></thead><tbody>${items
+      <div class="table-responsive"><table class="table table-vcenter card-table table-hover"><thead><tr><th scope="col">Date</th><th scope="col">Type</th><th scope="col">Event</th></tr></thead><tbody>${items
         .map(
           (item) =>
             `<tr><td class="text-secondary font-monospace text-nowrap">${escapeHtml(
@@ -1284,7 +1418,7 @@ function renderTablerEngineeringNotes(project, articles) {
             )}>${escapeHtml(project.articles.link.label)}</a></div>`
           : ''
       }</div>
-      <div class="table-responsive"><table class="table table-vcenter card-table table-hover"><thead><tr><th>Date</th><th>Type</th><th>Title</th></tr></thead><tbody>${articles
+      <div class="table-responsive"><table class="table table-vcenter card-table table-hover"><thead><tr><th scope="col">Date</th><th scope="col">Type</th><th scope="col">Title</th></tr></thead><tbody>${articles
         .map(
           (article) =>
             `<tr><td class="text-secondary font-monospace text-nowrap">${escapeHtml(
@@ -1336,7 +1470,7 @@ function renderTablerSectionNav(project, articles) {
     .join('')}</div></div></nav>`;
 }
 
-function renderTablerDetail(database, catalog, projects, project, associated) {
+function renderTablerDetail(database, catalog, projects, project, associated, siteUrl) {
   const articles = mergeProjectArticles(project, associated);
   const body = `<div class="container-xl py-4 project-db-container">
     ${renderTablerDetailHeader(project)}
@@ -1373,6 +1507,9 @@ function renderTablerDetail(database, catalog, projects, project, associated) {
     project,
     body,
     pageClass: 'project-db-detail',
+    siteUrl,
+    canonicalPath: project.url,
+    socialImage: project.preview?.image || project.card?.image,
   });
 }
 
@@ -1414,7 +1551,8 @@ function generatedPage(path, title, content, updated) {
 
 hexo.extend.generator.register('project-database', (locals) => {
   const data = hexo.locals.get('data')?.projects;
-  const { database, catalog, projects } = validateData(data);
+  const { database, catalog, technologyGroups, projects } = validateData(data);
+  const siteUrl = String(hexo.config.url || '').trim();
   const posts = locals.posts?.toArray ? locals.posts.toArray() : [];
   validatePostAssociations(posts, projects);
   const pages = [
@@ -1422,7 +1560,7 @@ hexo.extend.generator.register('project-database', (locals) => {
     generatedPage(
       'projects/index.html',
       database.title || 'Project Database',
-      renderTablerIndex(database, catalog, projects),
+      renderTablerIndex(database, catalog, technologyGroups, projects, siteUrl),
       database.reviewed?.iso
     ),
   ];
@@ -1432,7 +1570,14 @@ hexo.extend.generator.register('project-database', (locals) => {
       generatedPage(
         `${project.url.replace(/^\/+/, '')}index.html`,
         project.page_title || `${project.title} · Project Database`,
-        renderTablerDetail(database, catalog, projects, project, associatedPosts(posts, project)),
+        renderTablerDetail(
+          database,
+          catalog,
+          projects,
+          project,
+          associatedPosts(posts, project),
+          siteUrl
+        ),
         project.updated?.iso
       )
     );

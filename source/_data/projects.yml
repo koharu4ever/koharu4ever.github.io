@@ -1,17 +1,13 @@
 database:
-  title: Project Database
-  heading: Kral Project Database
-  brand_subtitle: Software systems, architecture, rebuild notes and project history
-  masthead_label: KRAL / PROJECTS
-  index_label: INDEX · 2026
+  title: Projects
+  brand_subtitle: 实际开发、部署并长期维护的软件系统与独立服务。
+  masthead_label: PROJECT DATABASE · 2026
+  social_image: /img/projects/project-forest.webp
   reviewed:
-    iso: '2026-08-08'
-    display: '2026.08.08'
-  intro:
-    kicker: Engineering archive
-    paragraphs:
-      - 这里收录我实际开发、部署并长期维护的软件项目与独立服务，以及它们在真实运行中形成的架构、决策、故障与恢复记录。
-      - 项目在这里是一条持续演进的工程记录，而不是一张完成后就不再变化的作品展示卡。
+    iso: '2026-08-10'
+    display: '2026.08.10'
+  activity_limit: 8
+  activity_per_project: 3
   navigation:
     library:
       - label: Technical Notes
@@ -27,7 +23,7 @@ database:
   sections:
     projects:
       kicker: Records
-      title: Projects
+      title: Project records
     activity:
       kicker: Event log
       title: Recent Activity
@@ -40,62 +36,82 @@ database:
     label: ARCHIVE NOTE
     text: Projects show the system. Technical Notes explain the decisions and operating cost behind it.
 
+technology_groups:
+  application: Application
+  data-storage: Data & Storage
+  runtime-delivery: Runtime & Delivery
+  authoring: Authoring
+
 technology_catalog:
   nextjs:
     name: Next.js
     role: Application
+    group: application
     url: /tags/Next-js/
   payload-cms:
     name: Payload CMS
     role: Content
+    group: application
     url: /tags/Payload-CMS/
   postgresql:
     name: PostgreSQL
     role: Structured data
+    group: data-storage
     url: /tags/PostgreSQL/
   cloudflare-r2:
     name: Cloudflare R2
     role: Object storage
+    group: data-storage
     url: /tags/Cloudflare-R2/
   docker:
     name: Docker
     role: Runtime
+    group: runtime-delivery
     url: /tags/Docker/
   coolify:
     name: Coolify
     role: Deployment
+    group: runtime-delivery
     url: /tags/Coolify/
   openlist:
     name: OpenList
     role: File directory
+    group: application
     url: /tags/OpenList/
   hexo:
     name: Hexo
     role: Static generation
+    group: application
     url: /tags/Hexo/
   butterfly:
     name: Butterfly
     role: Presentation
+    group: authoring
     url: /tags/Butterfly/
   markdown:
     name: Markdown
     role: Content source
+    group: authoring
     url: /tags/Markdown/
   github-actions:
     name: GitHub Actions
     role: Build automation
+    group: runtime-delivery
     url: /tags/GitHub-Actions/
   github-pages:
     name: GitHub Pages
     role: Static hosting
+    group: runtime-delivery
     url: /tags/GitHub-Pages/
   pnpm:
     name: pnpm
     role: Package management
+    group: authoring
     url: /tags/pnpm/
   dev-container:
     name: Dev Container
     role: Development environment
+    group: authoring
     url: /tags/Dev-Container/
 
 projects:
@@ -794,8 +810,8 @@ projects:
       iso: '2026-08-04'
       display: '2026.08.04'
     updated:
-      iso: '2026-08-09'
-      display: '2026.08.09'
+      iso: '2026-08-10'
+      display: '2026.08.10'
     period: 2026 — Present
     card:
       image: /img/covers/about-site.webp
@@ -1038,6 +1054,12 @@ projects:
           description: New articles and project records extend the same source-driven system without redesigning their UI.
           current: true
     activity:
+      - date: '2026-08-10'
+        display_date: 10 AUG
+        type: Commit
+        commit: 08ca8e9
+        title: Build data-driven Tabler project database
+        url: https://github.com/koharu4ever/koharu4ever.github.io/commit/08ca8e9
       - date: '2026-08-08'
         display_date: 08 AUG
         type: Commit
