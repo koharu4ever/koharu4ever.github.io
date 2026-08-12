@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
-  <title id="title">Kral Project Database</title>
-  <rect width="64" height="64" rx="12" fill="#07120b"/>
-  <path d="M17 14h8v15.2L38.4 14H49L33.4 31.1 50 50H39.1L25 33.6V50h-8V14Z" fill="#9fe68b"/>
-  <path d="M8 8h48" stroke="#d9ffd0" stroke-opacity=".45" stroke-width="2" stroke-linecap="round"/>
-</svg>

@@ -575,7 +575,7 @@ function renderTablerDocument({
   <meta name="twitter:image" content="${escapeHtml(shareImage)}">
   <title>${escapeHtml(title)}</title>
   <link rel="canonical" href="${escapeHtml(canonical)}">
-  <link rel="icon" type="image/svg+xml" href="/img/projects/project-database-icon.svg">
+  <link rel="icon" type="image/webp" href="/img/favicons/koharu1.webp">
   <link rel="stylesheet" href="/vendor/tabler/tabler.min.css">
   <link rel="stylesheet" href="/css/project-database.css">
 </head>
