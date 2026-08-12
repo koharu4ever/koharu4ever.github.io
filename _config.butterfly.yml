@@ -29,7 +29,7 @@ avatar:
 
 disable_top_img: false
 default_top_img: false
-index_img: /img/cover.png
+index_img: /img/cover.webp
 archive_img: false
 tag_img: false
 category_img: false
@@ -41,7 +41,7 @@ cover:
   aside_enable: true
   archives_enable: true
   default_cover:
-    - /img/cover.png
+    - /img/cover.webp
 
 index_site_info_top: 46%
 index_top_img_height: 100vh

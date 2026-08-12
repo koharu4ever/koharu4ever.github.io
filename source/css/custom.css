@@ -83,55 +83,55 @@ body {
 }
 
 .kral-character-home {
-  --kral-character-image: url('/img/H.webp');
+  --kral-character-image: url('/img/icons/navigation/home.webp');
 }
 
 .kral-character-resume {
-  --kral-character-image: url('/img/R.webp');
+  --kral-character-image: url('/img/icons/navigation/resume.webp');
 }
 
 .kral-character-blog {
-  --kral-character-image: url('/img/B1.webp');
+  --kral-character-image: url('/img/icons/navigation/blog.webp');
 }
 
 .kral-character-notes {
-  --kral-character-image: url('/img/B2.webp');
+  --kral-character-image: url('/img/icons/navigation/notes.webp');
 }
 
 .kral-character-archive {
-  --kral-character-image: url('/img/B3.webp');
+  --kral-character-image: url('/img/icons/navigation/archive.webp');
 }
 
 .kral-character-categories {
-  --kral-character-image: url('/img/B4.webp');
+  --kral-character-image: url('/img/icons/navigation/categories.webp');
 }
 
 .kral-character-tags {
-  --kral-character-image: url('/img/B5.webp');
+  --kral-character-image: url('/img/icons/navigation/tags.webp');
 }
 
 .kral-character-projects {
-  --kral-character-image: url('/img/P1.webp');
+  --kral-character-image: url('/img/icons/navigation/projects.webp');
 }
 
 .kral-character-project-home {
-  --kral-character-image: url('/img/P2.webp');
+  --kral-character-image: url('/img/icons/navigation/project-home.webp');
 }
 
 .kral-character-kita {
-  --kral-character-image: url('/img/P3.webp');
+  --kral-character-image: url('/img/icons/navigation/kita.webp');
 }
 
 .kral-character-game-archive {
-  --kral-character-image: url('/img/P4.webp');
+  --kral-character-image: url('/img/icons/navigation/game-archive.webp');
 }
 
 .kral-character-github {
-  --kral-character-image: url('/img/P5.webp');
+  --kral-character-image: url('/img/icons/navigation/github.webp');
 }
 
 #search-button .site-page > i.fa-search {
-  --kral-character-image: url('/img/S.webp');
+  --kral-character-image: url('/img/icons/navigation/search.webp');
 }
 
 #nav .site-page:hover > .kral-character-icon,
