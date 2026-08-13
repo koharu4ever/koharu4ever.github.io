@@ -1,4 +1,31 @@
 /* Kral's standalone engineering archive, built on Tabler's layout primitives. */
+@media (hover: hover) and (pointer: fine) {
+  .project-db-body {
+    cursor: url('/img/cursor/kral-cursor-default.png'), auto;
+  }
+
+  .project-db-body a,
+  .project-db-body button,
+  .project-db-body [role='button'],
+  .project-db-body summary,
+  .project-db-body label,
+  .project-db-body select {
+    cursor: url('/img/cursor/kral-cursor-pointer.png'), pointer !important;
+  }
+
+  .project-db-body input:not([type]),
+  .project-db-body input[type='email'],
+  .project-db-body input[type='password'],
+  .project-db-body input[type='search'],
+  .project-db-body input[type='tel'],
+  .project-db-body input[type='text'],
+  .project-db-body input[type='url'],
+  .project-db-body textarea,
+  .project-db-body [contenteditable='true'] {
+    cursor: url('/img/cursor/kral-cursor-text.png'), text !important;
+  }
+}
+
 .project-db-body {
   --project-bg: #040b07;
   --project-bg-raised: #07110b;

@@ -36,6 +36,18 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
 
+## Custom cursor assets
+
+The three desktop cursor states in `source/img/cursor/` are copied without
+modification from
+[`qwqdhs/qwqdhs_blog`](https://github.com/qwqdhs/qwqdhs_blog), where they are
+stored under `static/images/cursor/`.
+
+That repository does not currently state a license for these customized image
+files. Its cursor behavior is based on the Reimu theme's configurable
+three-state cursor feature; the code license and image-asset rights are
+separate.
+
 ## Tabler
 
 The standalone Project Database interface uses

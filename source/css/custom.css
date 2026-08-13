@@ -2846,6 +2846,46 @@ html[data-theme='dark'] .kral-notes-gallery {
   }
 }
 
+@media (hover: hover) and (pointer: fine) {
+  html,
+  body,
+  #body-wrap {
+    cursor: url('/img/cursor/kral-cursor-default.png'), auto;
+  }
+
+  a,
+  button,
+  [role='button'],
+  summary,
+  label,
+  select,
+  input[type='button'],
+  input[type='checkbox'],
+  input[type='radio'],
+  input[type='reset'],
+  input[type='submit'],
+  .site-page,
+  .menus_item {
+    cursor: url('/img/cursor/kral-cursor-pointer.png'), pointer !important;
+  }
+
+  input:not([type]),
+  input[type='email'],
+  input[type='password'],
+  input[type='search'],
+  input[type='tel'],
+  input[type='text'],
+  input[type='url'],
+  textarea,
+  [contenteditable='true'],
+  #article-container p,
+  #article-container li,
+  #article-container code,
+  #article-container blockquote {
+    cursor: url('/img/cursor/kral-cursor-text.png'), text !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;
