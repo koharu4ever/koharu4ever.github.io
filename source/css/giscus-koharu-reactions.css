@@ -1,0 +1,253 @@
+/*
+ * Shared Giscus presentation and reaction artwork.
+ * The nth-child mapping follows Giscus's current Reaction order:
+ * +1, -1, laugh, hooray, confused, heart, rocket, eyes.
+ * Existing reaction-count chips deliberately keep their native emoji because
+ * Giscus only renders non-zero types there and exposes no stable type hook.
+ */
+
+.gsc-main {
+  gap: 1.35rem;
+}
+
+.gsc-comment-box:not(.gsc-comment-box-is-reply),
+.gsc-comment > div:first-child {
+  border-color: var(--color-border-muted);
+  border-radius: 14px;
+  background: var(--kral-giscus-panel);
+  box-shadow: 0 12px 30px -24px var(--kral-giscus-reaction-shadow);
+}
+
+.gsc-comment-box:not(.gsc-comment-box-is-reply) {
+  overflow: hidden;
+}
+
+.gsc-comment-box-tabs,
+.gsc-comment-header {
+  background: var(--kral-giscus-panel-soft);
+}
+
+.gsc-comment-header {
+  border-radius: 13px 13px 0 0;
+}
+
+.gsc-comment-box-write:focus-within {
+  box-shadow: 0 0 0 2px var(--color-accent-muted);
+}
+
+.gsc-reactions-button {
+  width: 34px;
+  height: 34px;
+  padding: 2px;
+  border: 1px solid var(--kral-giscus-reaction-border);
+  background: var(--kral-giscus-reaction-tile)
+    url('https://koharu4ever.github.io/img/reactions/anki-tan/eyes.png') center / 28px no-repeat;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    color 150ms ease,
+    transform 150ms ease;
+}
+
+.gsc-reactions-button.popover-only {
+  border: 1px solid var(--kral-giscus-reaction-border);
+  background: var(--kral-giscus-reaction-tile)
+    url('https://koharu4ever.github.io/img/reactions/anki-tan/eyes.png') center / 28px no-repeat;
+}
+
+.gsc-reactions-button > svg {
+  opacity: 0;
+}
+
+.gsc-reactions-button:hover,
+.gsc-reactions-button:focus-visible {
+  border-color: var(--color-accent-emphasis);
+  background-color: var(--kral-giscus-reaction-hover);
+  color: var(--color-accent-fg);
+  transform: translateY(-1px);
+}
+
+.gsc-reactions-popover {
+  width: 236px;
+  border-color: var(--kral-giscus-reaction-border);
+  border-radius: 16px;
+  background: var(--color-canvas-overlay);
+  box-shadow: 0 18px 46px -20px var(--kral-giscus-reaction-shadow);
+}
+
+.gsc-reactions-popover > p.m-2 {
+  min-height: 2.4rem;
+  margin: 0;
+  padding: 0.72rem 0.85rem 0.32rem;
+  color: var(--color-fg-muted);
+  font-size: 0.78rem;
+  line-height: 1.35;
+  text-align: center;
+}
+
+.gsc-reactions-popover > .border-t {
+  margin: 0.35rem 0.75rem;
+  border-color: var(--color-border-muted);
+}
+
+.gsc-reactions-popover > div.m-2:last-child {
+  display: grid;
+  grid-template-columns: repeat(4, 48px);
+  gap: 4px;
+  width: max-content;
+  margin: 0.65rem auto 0.8rem;
+}
+
+.gsc-emoji-button {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  padding: 2px;
+  border: 1px solid var(--kral-giscus-reaction-border);
+  border-radius: 12px;
+  background: var(--kral-giscus-reaction-tile);
+  box-shadow: none;
+  place-items: center;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    box-shadow 150ms ease,
+    transform 150ms ease;
+}
+
+.gsc-emoji-button:not(:disabled):hover,
+.gsc-emoji-button:not(:disabled):focus-visible,
+.gsc-emoji-button.has-reacted {
+  border-color: var(--color-accent-emphasis);
+  background: var(--kral-giscus-reaction-hover);
+  box-shadow: 0 7px 16px -10px var(--kral-giscus-reaction-shadow);
+  transform: translateY(-2px);
+}
+
+.gsc-emoji-button:focus-visible {
+  outline: 2px solid var(--color-accent-fg);
+  outline-offset: 2px;
+}
+
+.gsc-emoji-button.no-token {
+  cursor: not-allowed;
+}
+
+.gsc-emoji-button.no-token:hover {
+  transform: none;
+}
+
+.gsc-emoji-button.no-token:hover .gsc-emoji {
+  transform: none;
+}
+
+.gsc-emoji {
+  display: block;
+  width: 42px;
+  height: 42px;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  transition:
+    filter 150ms ease,
+    transform 150ms ease;
+}
+
+.gsc-emoji-button:focus .gsc-emoji,
+.gsc-emoji-button:hover .gsc-emoji {
+  transform: scale(1.06);
+}
+
+.gsc-emoji-button:nth-child(1) .gsc-emoji {
+  background-image: url('https://koharu4ever.github.io/img/reactions/anki-tan/thumbs-up.png');
+}
+
+.gsc-emoji-button:nth-child(2) .gsc-emoji {
+  background-image: url('https://koharu4ever.github.io/img/reactions/anki-tan/thumbs-down.png');
+}
+
+.gsc-emoji-button:nth-child(3) .gsc-emoji {
+  background-image: url('https://koharu4ever.github.io/img/reactions/anki-tan/laugh.png');
+}
+
+.gsc-emoji-button:nth-child(4) .gsc-emoji {
+  background-image: url('https://koharu4ever.github.io/img/reactions/anki-tan/hooray.png');
+}
+
+.gsc-emoji-button:nth-child(5) .gsc-emoji {
+  background-image: url('https://koharu4ever.github.io/img/reactions/anki-tan/confused.png');
+}
+
+.gsc-emoji-button:nth-child(6) .gsc-emoji {
+  background-image: url('https://koharu4ever.github.io/img/reactions/anki-tan/heart.png');
+}
+
+.gsc-emoji-button:nth-child(7) .gsc-emoji {
+  background-image: url('https://koharu4ever.github.io/img/reactions/anki-tan/rocket.png');
+}
+
+.gsc-emoji-button:nth-child(8) .gsc-emoji {
+  background-image: url('https://koharu4ever.github.io/img/reactions/anki-tan/eyes.png');
+}
+
+.gsc-direct-reaction-button {
+  border-color: var(--kral-giscus-reaction-border);
+  background: var(--kral-giscus-reaction-tile);
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    transform 150ms ease;
+}
+
+.gsc-direct-reaction-button:not(:disabled):hover,
+.gsc-direct-reaction-button:not(:disabled):focus-visible {
+  border-color: var(--color-accent-emphasis);
+  background: var(--kral-giscus-reaction-hover);
+  transform: translateY(-1px);
+}
+
+@media (max-width: 360px) {
+  .gsc-reactions-popover {
+    width: 220px;
+  }
+
+  .gsc-reactions-popover > div.m-2:last-child {
+    grid-template-columns: repeat(4, 44px);
+  }
+
+  .gsc-emoji-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .gsc-emoji {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gsc-reactions-button,
+  .gsc-emoji-button,
+  .gsc-emoji,
+  .gsc-direct-reaction-button {
+    transition: none;
+  }
+
+  .gsc-reactions-button:hover,
+  .gsc-reactions-button:focus-visible,
+  .gsc-emoji-button:not(:disabled):hover,
+  .gsc-emoji-button:not(:disabled):focus-visible,
+  .gsc-emoji-button.has-reacted,
+  .gsc-emoji-button:focus .gsc-emoji,
+  .gsc-emoji-button:hover .gsc-emoji,
+  .gsc-direct-reaction-button:not(:disabled):hover,
+  .gsc-direct-reaction-button:not(:disabled):focus-visible {
+    transform: none;
+  }
+}

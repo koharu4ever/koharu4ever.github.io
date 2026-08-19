@@ -1,5 +1,20 @@
 # Third-party notices
 
+## Anki-tan reaction images
+
+The eight anime reaction images in `source/img/reactions/anki-tan/` are
+unmodified selections from
+[`Anki-tan Free Assets v1.0`](https://github.com/shigeyukey/shige-addons-wiki/releases/tag/Anki-tan)
+by [Shigeyuki](https://www.patreon.com/Shigeyuki). The files have only been
+renamed to describe the GitHub reaction they represent.
+
+The upstream asset pack is licensed under the
+[Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
+The project's license notes and attribution guidance are available on the
+[official Anki-tan assets page](https://shigeyukey.github.io/shige-addons-wiki/Anki-tan.html#license).
+
+Attribution: Shigeyuki — https://www.patreon.com/Shigeyuki
+
 ## Reimu image category cards
 
 The `START HERE` image category navigation in this repository is adapted from

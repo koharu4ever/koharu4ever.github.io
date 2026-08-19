@@ -1,0 +1,25 @@
+/*
+ * Giscus theme for Kral, based on Giscus's bundled light theme.
+ * Anime reaction image attribution lives in /img/reactions/anki-tan/NOTICE.txt.
+ */
+@import url('https://giscus.app/themes/light.css');
+@import url('./giscus-koharu-reactions.css');
+
+main {
+  color-scheme: light;
+  --color-btn-primary-bg: #2f9da7;
+  --color-btn-primary-hover-bg: #278c96;
+  --color-btn-primary-selected-bg: #237f88;
+  --color-accent-fg: #248c98;
+  --color-accent-emphasis: #39aeb6;
+  --color-accent-muted: rgb(57 174 182 / 35%);
+  --color-accent-subtle: #e7f8f8;
+  --color-social-reaction-bg-hover: #edf9f9;
+  --color-social-reaction-bg-reacted-hover: #d4f1f1;
+  --kral-giscus-panel: rgb(255 255 255 / 88%);
+  --kral-giscus-panel-soft: #f6fbfb;
+  --kral-giscus-reaction-tile: #f4fbfc;
+  --kral-giscus-reaction-border: #cde8e9;
+  --kral-giscus-reaction-hover: #e3f7f7;
+  --kral-giscus-reaction-shadow: rgb(35 117 124 / 16%);
+}
