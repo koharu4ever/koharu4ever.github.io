@@ -1,25 +1,73 @@
 /*
- * Shared Giscus presentation and reaction artwork.
+ * Small, deliberately isolated Giscus customizations.
  * The nth-child mapping follows Giscus's current Reaction order:
  * +1, -1, laugh, hooray, confused, heart, rocket, eyes.
- * Existing reaction-count chips deliberately keep their native emoji because
- * Giscus only renders non-zero types there and exposes no stable type hook.
+ * Non-zero reaction chips are mapped separately from their localized count
+ * titles because their filtered DOM position is not a stable identifier.
  */
 
-.gsc-main {
-  gap: 1.35rem;
+.gsc-main,
+.gsc-comments {
+  gap: 0.85rem;
+  background: transparent;
+}
+
+.gsc-reactions {
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding-inline: 0.15rem;
+}
+
+.gsc-reactions-count {
+  flex: none;
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.4;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.gsc-reactions > div.flex {
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  max-width: 100%;
+  min-width: 0;
+  margin-top: 0;
+}
+
+.gsc-header {
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+  padding-inline: 0.15rem;
+}
+
+.gsc-left-header {
+  min-width: 0;
+  gap: 0.35rem;
+}
+
+.gsc-right-header {
+  flex: none;
+  margin-left: auto;
+}
+
+.gsc-comments-count,
+.gsc-comments-count-separator,
+.gsc-replies-count {
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
 .gsc-comment-box:not(.gsc-comment-box-is-reply),
 .gsc-comment > div:first-child {
-  border-color: var(--color-border-muted);
-  border-radius: 14px;
+  border-color: var(--kral-giscus-reaction-border);
+  border-radius: 12px;
   background: var(--kral-giscus-panel);
-  box-shadow: 0 12px 30px -24px var(--kral-giscus-reaction-shadow);
-}
-
-.gsc-comment-box:not(.gsc-comment-box-is-reply) {
-  overflow: hidden;
+  box-shadow: none;
 }
 
 .gsc-comment-box-tabs,
@@ -28,7 +76,33 @@
 }
 
 .gsc-comment-header {
-  border-radius: 13px 13px 0 0;
+  border-radius: 11px 11px 0 0;
+}
+
+.gsc-comment-box-tabs {
+  border-radius: 11px 11px 0 0;
+}
+
+.gsc-comment-box-main {
+  margin: 0.65rem 0.7rem 0.3rem;
+}
+
+.gsc-comment-box-textarea {
+  min-height: 96px;
+  border-radius: 9px 9px 0 0;
+}
+
+.gsc-comment-box-textarea-extras {
+  border-radius: 0 0 9px 9px;
+}
+
+.gsc-comment-box-bottom {
+  margin: 0.4rem 0.7rem 0.7rem;
+}
+
+.gsc-comment-box-buttons > .btn-primary {
+  min-height: 38px;
+  border-radius: 9px;
 }
 
 .gsc-comment-box-write:focus-within {
@@ -41,7 +115,7 @@
   padding: 2px;
   border: 1px solid var(--kral-giscus-reaction-border);
   background: var(--kral-giscus-reaction-tile)
-    url('https://koharu4ever.github.io/img/reactions/anki-tan/eyes.png') center / 28px no-repeat;
+    url('https://koharu4ever.github.io/img/reactions/anki-tan/picker.png') center / 28px no-repeat;
   transition:
     border-color 150ms ease,
     background-color 150ms ease,
@@ -52,7 +126,7 @@
 .gsc-reactions-button.popover-only {
   border: 1px solid var(--kral-giscus-reaction-border);
   background: var(--kral-giscus-reaction-tile)
-    url('https://koharu4ever.github.io/img/reactions/anki-tan/eyes.png') center / 28px no-repeat;
+    url('https://koharu4ever.github.io/img/reactions/anki-tan/picker.png') center / 28px no-repeat;
 }
 
 .gsc-reactions-button > svg {
@@ -70,9 +144,9 @@
 .gsc-reactions-popover {
   width: 236px;
   border-color: var(--kral-giscus-reaction-border);
-  border-radius: 16px;
+  border-radius: 14px;
   background: var(--color-canvas-overlay);
-  box-shadow: 0 18px 46px -20px var(--kral-giscus-reaction-shadow);
+  box-shadow: 0 16px 40px -22px var(--kral-giscus-reaction-shadow);
 }
 
 .gsc-reactions-popover > p.m-2 {
@@ -105,7 +179,7 @@
   margin: 0;
   padding: 2px;
   border: 1px solid var(--kral-giscus-reaction-border);
-  border-radius: 12px;
+  border-radius: 11px;
   background: var(--kral-giscus-reaction-tile);
   box-shadow: none;
   place-items: center;
@@ -134,10 +208,7 @@
   cursor: not-allowed;
 }
 
-.gsc-emoji-button.no-token:hover {
-  transform: none;
-}
-
+.gsc-emoji-button.no-token:hover,
 .gsc-emoji-button.no-token:hover .gsc-emoji {
   transform: none;
 }
@@ -196,6 +267,11 @@
 }
 
 .gsc-direct-reaction-button {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.15rem 0.45rem 0.15rem 0.2rem;
   border-color: var(--kral-giscus-reaction-border);
   background: var(--kral-giscus-reaction-tile);
   transition:
@@ -211,23 +287,155 @@
   transform: translateY(-1px);
 }
 
+/*
+ * Giscus only renders direct reaction chips whose count is greater than zero,
+ * so their DOM position is not a stable reaction identifier. Match the
+ * localized reaction name carried by the count element instead. If Giscus or
+ * the configured language changes, these selectors stop matching and the
+ * native emoji remains visible as the fallback.
+ */
+.gsc-direct-reaction-button:is(
+    :has(> .gsc-social-reaction-summary-item-count[title$='回应 +1']),
+    :has(> .gsc-social-reaction-summary-item-count[title$='回应 -1']),
+    :has(> .gsc-social-reaction-summary-item-count[title$='回应 大笑']),
+    :has(> .gsc-social-reaction-summary-item-count[title$='回应 好耶']),
+    :has(> .gsc-social-reaction-summary-item-count[title$='回应 困惑']),
+    :has(> .gsc-social-reaction-summary-item-count[title$='回应 爱了']),
+    :has(> .gsc-social-reaction-summary-item-count[title$='回应 太快啦']),
+    :has(> .gsc-social-reaction-summary-item-count[title$='回应 围观'])
+  )
+  .gsc-direct-reaction-button-emoji {
+  display: block;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  color: transparent;
+  font-size: 0;
+  line-height: 0;
+  transition: transform 150ms ease;
+}
+
+.gsc-direct-reaction-button:has(> .gsc-social-reaction-summary-item-count[title$='回应 +1'])
+  .gsc-direct-reaction-button-emoji {
+  background-image: url('https://koharu4ever.github.io/img/reactions/anki-tan/thumbs-up.png');
+}
+
+.gsc-direct-reaction-button:has(> .gsc-social-reaction-summary-item-count[title$='回应 -1'])
+  .gsc-direct-reaction-button-emoji {
+  background-image: url('https://koharu4ever.github.io/img/reactions/anki-tan/thumbs-down.png');
+}
+
+.gsc-direct-reaction-button:has(> .gsc-social-reaction-summary-item-count[title$='回应 大笑'])
+  .gsc-direct-reaction-button-emoji {
+  background-image: url('https://koharu4ever.github.io/img/reactions/anki-tan/laugh.png');
+}
+
+.gsc-direct-reaction-button:has(> .gsc-social-reaction-summary-item-count[title$='回应 好耶'])
+  .gsc-direct-reaction-button-emoji {
+  background-image: url('https://koharu4ever.github.io/img/reactions/anki-tan/hooray.png');
+}
+
+.gsc-direct-reaction-button:has(> .gsc-social-reaction-summary-item-count[title$='回应 困惑'])
+  .gsc-direct-reaction-button-emoji {
+  background-image: url('https://koharu4ever.github.io/img/reactions/anki-tan/confused.png');
+}
+
+.gsc-direct-reaction-button:has(> .gsc-social-reaction-summary-item-count[title$='回应 爱了'])
+  .gsc-direct-reaction-button-emoji {
+  background-image: url('https://koharu4ever.github.io/img/reactions/anki-tan/heart.png');
+}
+
+.gsc-direct-reaction-button:has(> .gsc-social-reaction-summary-item-count[title$='回应 太快啦'])
+  .gsc-direct-reaction-button-emoji {
+  background-image: url('https://koharu4ever.github.io/img/reactions/anki-tan/rocket.png');
+}
+
+.gsc-direct-reaction-button:has(> .gsc-social-reaction-summary-item-count[title$='回应 围观'])
+  .gsc-direct-reaction-button-emoji {
+  background-image: url('https://koharu4ever.github.io/img/reactions/anki-tan/eyes.png');
+}
+
+.gsc-direct-reaction-button:not(:disabled):is(:hover, :focus-visible)
+  .gsc-direct-reaction-button-emoji {
+  transform: scale(1.05);
+}
+
+@media (max-width: 560px) {
+  .gsc-main,
+  .gsc-comments {
+    gap: 0.65rem;
+  }
+
+  .gsc-reactions,
+  .gsc-header {
+    align-items: flex-start;
+  }
+
+  .gsc-right-header {
+    margin-left: 0;
+  }
+
+  .gsc-comment-box-bottom {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .gsc-comment-box-buttons {
+    margin-left: auto;
+  }
+
+  .gsc-comment-box-buttons > .btn-primary {
+    min-height: 42px;
+  }
+}
+
 @media (max-width: 360px) {
+  .gsc-reactions {
+    position: relative;
+  }
+
+  .gsc-reactions .gsc-reactions-menu {
+    position: static;
+  }
+
   .gsc-reactions-popover {
-    width: 220px;
+    right: auto !important;
+    left: 0 !important;
+    width: min(220px, calc(100vw - 16px));
+    transform: none;
   }
 
   .gsc-reactions-popover > div.m-2:last-child {
-    grid-template-columns: repeat(4, 44px);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 2px;
+    width: auto;
+    margin: 0.55rem 0.45rem 0.7rem;
   }
 
   .gsc-emoji-button {
-    width: 44px;
-    height: 44px;
+    width: 40px;
+    height: 40px;
   }
 
   .gsc-emoji {
-    width: 38px;
-    height: 38px;
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (forced-colors: active) {
+  .gsc-direct-reaction-button-emoji {
+    width: auto !important;
+    height: auto !important;
+    flex: 0 0 auto !important;
+    background-image: none !important;
+    color: ButtonText !important;
+    font-size: 1rem !important;
+    line-height: 1 !important;
   }
 }
 
@@ -235,7 +443,8 @@
   .gsc-reactions-button,
   .gsc-emoji-button,
   .gsc-emoji,
-  .gsc-direct-reaction-button {
+  .gsc-direct-reaction-button,
+  .gsc-direct-reaction-button-emoji {
     transition: none;
   }
 
@@ -247,7 +456,9 @@
   .gsc-emoji-button:focus .gsc-emoji,
   .gsc-emoji-button:hover .gsc-emoji,
   .gsc-direct-reaction-button:not(:disabled):hover,
-  .gsc-direct-reaction-button:not(:disabled):focus-visible {
+  .gsc-direct-reaction-button:not(:disabled):focus-visible,
+  .gsc-direct-reaction-button:not(:disabled):is(:hover, :focus-visible)
+    .gsc-direct-reaction-button-emoji {
     transform: none;
   }
 }

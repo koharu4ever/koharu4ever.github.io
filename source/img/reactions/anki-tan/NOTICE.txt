@@ -7,8 +7,8 @@ Attribution: Shigeyuki https://www.patreon.com/Shigeyuki
 License: Creative Commons Attribution-ShareAlike 4.0 International
 License URL: https://creativecommons.org/licenses/by-sa/4.0/
 
-These eight images are unmodified selections from the upstream asset pack.
-Only the filenames have been changed to describe their GitHub reaction use.
+These sixteen images are unmodified selections from the upstream asset pack.
+Only the filenames have been changed to describe their local UI use.
 Anki-tan is unofficial and is not affiliated with or endorsed by Anki.
 
 Original file -> local file
@@ -20,3 +20,11 @@ Ankitan_19_thinking.png -> confused.png
 Ankitan_44_big_heart.png -> heart.png
 Ankitan_09_fire_eyes.png -> rocket.png
 Ankitan_29_big_eyes.png -> eyes.png
+Ankitan_00_smile.png -> picker.png
+Ankitan_01_heart_wink.png -> sticker-heart.png
+Ankitan_21_saluting.png -> sticker-salute.png
+Ankitan_30_folded_hands.png -> sticker-thanks.png
+Ankitan_32_light_bulb.png -> sticker-idea.png
+Ankitan_11_sunglasses.png -> sticker-cool.png
+Ankitan_22_hand_over_mouth.png -> sticker-giggle.png
+Ankitan_43_crown.png -> sticker-crown.png

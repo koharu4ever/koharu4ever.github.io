@@ -2,24 +2,24 @@
  * Giscus theme for Kral, based on Giscus's bundled dark theme.
  * Anime reaction image attribution lives in /img/reactions/anki-tan/NOTICE.txt.
  */
-@import url('https://giscus.app/themes/dark.css');
-@import url('./giscus-koharu-reactions.css');
+@import url('https://giscus.app/themes/noborder_dark.css');
+@import url('./giscus-koharu-reactions.css?v=5');
 
 main {
   color-scheme: dark;
   --color-btn-primary-bg: #2e9da4;
   --color-btn-primary-hover-bg: #38b3b8;
   --color-btn-primary-selected-bg: #277e85;
-  --color-accent-fg: #69d6d2;
-  --color-accent-emphasis: #39c5bb;
-  --color-accent-muted: rgb(57 197 187 / 36%);
-  --color-accent-subtle: rgb(57 197 187 / 11%);
-  --color-social-reaction-bg-hover: #182d31;
-  --color-social-reaction-bg-reacted-hover: #184348;
+  --color-accent-fg: #b0a8ff;
+  --color-accent-emphasis: #f09ac8;
+  --color-accent-muted: rgb(168 157 244 / 34%);
+  --color-accent-subtle: rgb(165 152 239 / 12%);
+  --color-social-reaction-bg-hover: #25233d;
+  --color-social-reaction-bg-reacted-hover: #3a263d;
   --kral-giscus-panel: rgb(13 22 28 / 92%);
-  --kral-giscus-panel-soft: #121f26;
-  --kral-giscus-reaction-tile: #14262d;
-  --kral-giscus-reaction-border: #2b5257;
-  --kral-giscus-reaction-hover: #1b3a40;
+  --kral-giscus-panel-soft: #171a2d;
+  --kral-giscus-reaction-tile: #20233b;
+  --kral-giscus-reaction-border: #4a4f76;
+  --kral-giscus-reaction-hover: #35263e;
   --kral-giscus-reaction-shadow: rgb(0 0 0 / 32%);
 }

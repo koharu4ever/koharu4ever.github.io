@@ -138,8 +138,8 @@ giscus:
   repo: koharu4ever/koharu4ever.github.io
   repo_id: R_kgDOP0cTOA
   category_id: DIC_kwDOP0cTOM4DDtyO
-  light_theme: https://koharu4ever.github.io/css/giscus-koharu-light.css
-  dark_theme: https://koharu4ever.github.io/css/giscus-koharu-dark.css
+  light_theme: https://koharu4ever.github.io/css/giscus-koharu-light.css?v=5
+  dark_theme: https://koharu4ever.github.io/css/giscus-koharu-dark.css?v=5
   option:
     data-category: Announcements
     data-mapping: pathname

@@ -119,9 +119,29 @@
     rightside.insertBefore(button, goUp);
   };
 
+  const commentStickerNames = ['idea', 'cool', 'salute', 'thanks', 'giggle', 'crown', 'heart'];
+
+  const initCommentStickers = () => {
+    const comments = document.getElementById('post-comment');
+    if (!comments || comments.querySelector('.kral-comment-stickers')) return;
+
+    const stickers = document.createElement('span');
+    stickers.className = 'kral-comment-stickers';
+    stickers.setAttribute('aria-hidden', 'true');
+
+    commentStickerNames.forEach((name) => {
+      const sticker = document.createElement('span');
+      sticker.className = `kral-comment-sticker kral-comment-sticker--${name}`;
+      stickers.append(sticker);
+    });
+
+    comments.prepend(stickers);
+  };
+
   const initComfort = () => {
     initStats();
     initRandomPost();
+    initCommentStickers();
   };
 
   if (document.readyState === 'loading') {

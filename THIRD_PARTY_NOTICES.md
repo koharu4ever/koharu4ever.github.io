@@ -1,12 +1,13 @@
 # Third-party notices
 
-## Anki-tan reaction images
+## Anki-tan reaction and sticker images
 
-The eight anime reaction images in `source/img/reactions/anki-tan/` are
+The sixteen anime reaction and sticker images in
+`source/img/reactions/anki-tan/` are
 unmodified selections from
 [`Anki-tan Free Assets v1.0`](https://github.com/shigeyukey/shige-addons-wiki/releases/tag/Anki-tan)
 by [Shigeyuki](https://www.patreon.com/Shigeyuki). The files have only been
-renamed to describe the GitHub reaction they represent.
+renamed to describe their GitHub reaction or comment-frame use.
 
 The upstream asset pack is licensed under the
 [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
