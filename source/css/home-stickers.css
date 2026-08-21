@@ -1,0 +1,52 @@
+/* Homepage decoration is intentionally isolated from the Butterfly overrides. */
+
+#content-inner.kral-home-sticker-host {
+  position: relative;
+}
+
+.kral-home-sticker-rail {
+  position: absolute;
+  z-index: 0;
+  width: max(84px, calc((100vw - 1200px) / 2 - 12px));
+  inset-block: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.kral-home-sticker-rail--left {
+  right: calc(100% + 4px);
+}
+
+.kral-home-sticker-rail--right {
+  left: calc(100% + 4px);
+}
+
+.kral-home-sticker {
+  position: absolute;
+  top: var(--kral-sticker-top);
+  left: var(--kral-sticker-x);
+  display: block;
+  width: var(--kral-sticker-size);
+  height: var(--kral-sticker-size);
+  object-fit: contain;
+  opacity: 0.88;
+  filter: drop-shadow(0 6px 10px rgba(15, 23, 42, 0.16));
+  transform: translate(-50%, -50%) rotate(var(--kral-sticker-rotation));
+}
+
+html[data-theme='dark'] .kral-home-sticker {
+  opacity: 0.82;
+  filter: drop-shadow(0 7px 12px rgba(0, 0, 0, 0.42));
+}
+
+@media (max-width: 1439px) {
+  .kral-home-sticker-rail {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .kral-home-sticker {
+    opacity: 1;
+  }
+}

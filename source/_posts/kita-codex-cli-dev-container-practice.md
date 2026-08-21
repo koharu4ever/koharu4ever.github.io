@@ -2,7 +2,7 @@
 title: 把 Codex CLI 接进 Kita：Dev Container 实践与踩坑
 date: 2026-08-15 12:40:00
 cover: /img/covers/kita-codex-cli-dev-container-practice.webp
-description: 以 Kita 的 PR #22 为现场，记录 Codex CLI 进入 Dev Container 后遇到的凭据持久化、Linux sandbox、Windows Git 配置、named volume 和 Next.js 构建问题。
+description: '以 Kita 的 PR #22 为现场，记录 Codex CLI 进入 Dev Container 后遇到的凭据持久化、Linux sandbox、Windows Git 配置、named volume 和 Next.js 构建问题。'
 tags:
   - Codex CLI
   - Dev Container

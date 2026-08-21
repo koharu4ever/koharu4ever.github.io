@@ -2,12 +2,12 @@
 
 ## Anki-tan reaction and sticker images
 
-The sixteen anime reaction and sticker images in
+The complete set of fifty anime reaction and sticker images in
 `source/img/reactions/anki-tan/` are
-unmodified selections from
+unmodified files from
 [`Anki-tan Free Assets v1.0`](https://github.com/shigeyukey/shige-addons-wiki/releases/tag/Anki-tan)
 by [Shigeyuki](https://www.patreon.com/Shigeyuki). The files have only been
-renamed to describe their GitHub reaction or comment-frame use.
+renamed to describe their GitHub reaction, comment-frame or homepage use.
 
 The upstream asset pack is licensed under the
 [Creative Commons Attribution-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-sa/4.0/).
@@ -51,6 +51,20 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 ```
+
+## Authorship badge frame
+
+The authorship badge frame in `source/img/badges/handmade-frame.svg` is a local
+derivative assembled from these CC0 references:
+
+- Kenney, [Medals 1.1](https://kenney.nl/assets/medals)
+- Amousey,
+  [Blue profile frame transparent.svg](https://commons.wikimedia.org/wiki/File:Blue_profile_frame_transparent.svg)
+
+Both references are released under the Creative Commons CC0 1.0 Universal
+Public Domain Dedication. The local derivative enlarges the portrait opening,
+shortens and recolors the ribbons, combines the circular frame geometry, and
+adds site-specific highlights and an empty label plate.
 
 ## Custom cursor assets
 

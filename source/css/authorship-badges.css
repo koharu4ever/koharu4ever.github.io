@@ -1,0 +1,182 @@
+.kral-authorship-badge {
+  --kral-authorship-size: 3.4rem;
+
+  position: relative;
+  isolation: isolate;
+  display: inline-grid;
+  width: var(--kral-authorship-size);
+  height: calc(var(--kral-authorship-size) * 1.015625);
+  flex: 0 0 var(--kral-authorship-size);
+  place-items: center;
+  margin: 0.12rem 0 0.12rem 0.58rem;
+  vertical-align: middle;
+  transform: rotate(-2deg);
+}
+
+#recent-posts .recent-post-item {
+  position: relative;
+}
+
+#recent-posts .kral-authorship-card--badged .post_cover {
+  position: relative;
+  z-index: 2;
+  overflow: visible;
+}
+
+#recent-posts .kral-authorship-card--badged .post_cover > a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+}
+
+.kral-authorship-badge--card {
+  --kral-authorship-size: 4.35rem;
+
+  position: absolute;
+  z-index: 5;
+  right: auto;
+  bottom: calc(var(--kral-authorship-size) * -0.555);
+  left: 1rem;
+  margin: 0;
+  pointer-events: none;
+}
+
+.kral-authorship-badge--card-fallback {
+  --kral-authorship-size: 4.1rem;
+
+  position: absolute;
+  z-index: 5;
+  top: 0.85rem;
+  right: auto;
+  left: 0.85rem;
+  margin: 0;
+  pointer-events: none;
+}
+
+.kral-authorship-badge__emblem {
+  position: absolute;
+  z-index: 1;
+  top: 9.2%;
+  left: 13.25%;
+  width: 73.5%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  background-color: #c8f6fb;
+  background-image: url('/img/badges/handmade-miku-seal-v3.webp');
+  background-position: 40% 37%;
+  background-size: 175% auto;
+  box-shadow: inset 0 0 0 1px rgb(26 113 143 / 24%);
+  filter: saturate(1.12) brightness(1.06);
+}
+
+.kral-authorship-badge__frame {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  pointer-events: none;
+  background: url('/img/badges/handmade-frame.svg') center / 100% 100% no-repeat;
+  filter: drop-shadow(0 2px 2px rgb(8 72 105 / 28%)) drop-shadow(0 7px 9px rgb(0 159 195 / 22%));
+}
+
+.kral-authorship-badge__label {
+  position: absolute;
+  z-index: 3;
+  top: 61.5%;
+  left: 50%;
+  display: grid;
+  width: 70%;
+  height: 13.5%;
+  min-height: 0.72rem;
+  place-items: center;
+  padding: 0 0.12rem;
+  color: #f8feff;
+  font-size: clamp(0.48rem, calc(var(--kral-authorship-size) * 0.118), 0.58rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+  border: 1px solid rgb(240 255 255 / 82%);
+  border-radius: 999px;
+  background: linear-gradient(100deg, #008bf2 0%, #20d9f4 44%, #2de6b5 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 58%),
+    0 2px 4px rgb(0 92 143 / 34%);
+  text-shadow: 0 1px 1px rgb(0 67 105 / 78%);
+  transform: translateX(-50%) rotate(1deg);
+}
+
+#page-header.post-bg.kral-authorship-header--badged {
+  overflow: visible;
+}
+
+#page-header.post-bg.kral-authorship-header--badged > .kral-authorship-badge--detail {
+  --kral-authorship-size: 4.6rem;
+
+  position: absolute;
+  z-index: 10;
+  bottom: calc(var(--kral-authorship-size) * -0.555);
+  left: max(15px, calc((100% - 1200px) / 2 + 15px));
+  margin: 0;
+  pointer-events: none;
+}
+
+html[data-theme='dark'] .kral-authorship-badge__emblem {
+  filter: saturate(1.16) brightness(1.04);
+}
+
+html[data-theme='dark'] .kral-authorship-badge__frame {
+  filter: drop-shadow(0 2px 2px rgb(0 0 0 / 42%)) drop-shadow(0 7px 10px rgb(0 163 199 / 26%));
+}
+
+@media (max-width: 576px) {
+  .kral-authorship-badge--card {
+    --kral-authorship-size: 4rem;
+
+    bottom: calc(var(--kral-authorship-size) * -0.555);
+    left: 0.75rem;
+  }
+
+  #page-header.post-bg.kral-authorship-header--badged > .kral-authorship-badge--detail {
+    --kral-authorship-size: 4rem;
+
+    bottom: calc(var(--kral-authorship-size) * -0.555);
+    left: max(12px, env(safe-area-inset-left, 0px));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .kral-authorship-badge {
+    transform: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .kral-authorship-badge {
+    height: var(--kral-authorship-size);
+    color: CanvasText;
+    border: 2px solid CanvasText;
+    border-radius: 50%;
+    background: Canvas;
+    transform: none;
+  }
+
+  .kral-authorship-badge__emblem,
+  .kral-authorship-badge__frame {
+    display: none;
+  }
+
+  .kral-authorship-badge__label {
+    top: 50%;
+    width: auto;
+    min-height: 0;
+    color: CanvasText;
+    border: 0;
+    background: Canvas;
+    box-shadow: none;
+    text-shadow: none;
+    transform: translate(-50%, -50%);
+  }
+}

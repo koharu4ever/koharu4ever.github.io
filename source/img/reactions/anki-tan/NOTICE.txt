@@ -7,7 +7,7 @@ Attribution: Shigeyuki https://www.patreon.com/Shigeyuki
 License: Creative Commons Attribution-ShareAlike 4.0 International
 License URL: https://creativecommons.org/licenses/by-sa/4.0/
 
-These sixteen images are unmodified selections from the upstream asset pack.
+These fifty images are unmodified selections from the upstream asset pack.
 Only the filenames have been changed to describe their local UI use.
 Anki-tan is unofficial and is not affiliated with or endorsed by Anki.
 
@@ -28,3 +28,37 @@ Ankitan_32_light_bulb.png -> sticker-idea.png
 Ankitan_11_sunglasses.png -> sticker-cool.png
 Ankitan_22_hand_over_mouth.png -> sticker-giggle.png
 Ankitan_43_crown.png -> sticker-crown.png
+Ankitan_02_cry.png -> sticker-02-cry.png
+Ankitan_03_heart_eyes.png -> sticker-03-heart-eyes.png
+Ankitan_05_shocked.png -> sticker-05-shocked.png
+Ankitan_06_pleading.png -> sticker-06-pleading.png
+Ankitan_07_star_eyes.png -> sticker-07-star-eyes.png
+Ankitan_08_upside_down.png -> sticker-08-upside-down.png
+Ankitan_12_again.png -> sticker-12-again.png
+Ankitan_13_hard.png -> sticker-13-hard.png
+Ankitan_14_good.png -> sticker-14-good.png
+Ankitan_15_easy.png -> sticker-15-easy.png
+Ankitan_16_notification_badge.png -> sticker-16-notification-badge.png
+Ankitan_18_smirking.png -> sticker-18-smirking.png
+Ankitan_20_sweat.png -> sticker-20-sweat.png
+Ankitan_23_savoring.png -> sticker-23-savoring.png
+Ankitan_24_screaming_in_fear.png -> sticker-24-screaming-in-fear.png
+Ankitan_25_shushing_close.png -> sticker-25-shushing-close.png
+Ankitan_26_smiling.png -> sticker-26-smiling.png
+Ankitan_27_smiling_halo.png -> sticker-27-smiling-halo.png
+Ankitan_28_spiral_eyes.png -> sticker-28-spiral-eyes.png
+Ankitan_31_police_car_light.png -> sticker-31-police-car-light.png
+Ankitan_33_melting.png -> sticker-33-melting.png
+Ankitan_34_flushed.png -> sticker-34-flushed.png
+Ankitan_35_sleeping.png -> sticker-35-sleeping.png
+Ankitan_37_tear.png -> sticker-37-tear.png
+Ankitan_38_expressionless.png -> sticker-38-expressionless.png
+Ankitan_39_crossed_out_eyes.png -> sticker-39-crossed-out-eyes.png
+Ankitan_40_woozy.png -> sticker-40-woozy.png
+Ankitan_41_blowing_a_kiss.png -> sticker-41-blowing-a-kiss.png
+Ankitan_42_open_hands.png -> sticker-42-open-hands.png
+Ankitan_45_big_heart_blue.png -> sticker-45-big-heart-blue.png
+Ankitan_46_anki.png -> sticker-46-anki.png
+Ankitan_47_robot.png -> sticker-47-robot.png
+Ankitan_48_perfect_streaks.png -> sticker-48-perfect-streaks.png
+Ankitan_49_lost_streaks.png -> sticker-49-lost-streaks.png

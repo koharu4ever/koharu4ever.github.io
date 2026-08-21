@@ -38,6 +38,7 @@ tags:
   - Markdown
 categories:
   - 建站记录
+authorship:
 ---
 ```
 
@@ -48,6 +49,9 @@ categories:
 - `categories`：宽泛归档主题。
 - `tags`：横向检索词，避免堆叠近义词。
 - `series`：确实有阅读顺序或共同叙事的文章组。
+- `authorship`：写作来源声明。确认正文由作者独立撰写时填 `human`；AI 参与正文写作或整理时填 `ai_assisted`；尚未核对时留空。只有 `human` 会在文章卡片和详情页显示“手作”勋章，留空不代表任何结论。
+
+`authorship` 是事实声明，不要根据文章语气、发布时间或结构自动推断，也不要为了让页面更好看而批量填写。
 
 普通文章不需要为了适配索引页而填写 Project Database 字段。只有文章确实要进入 Notes 或关联某个项目时，才增加下面的可选字段。
 

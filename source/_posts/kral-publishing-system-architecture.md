@@ -12,6 +12,7 @@ tags:
   - GitHub Pages
 categories:
   - 建站记录
+authorship: human
 project: kral-publishing-system
 project_type: reference
 project_order: 20

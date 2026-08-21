@@ -5,4 +5,5 @@ cover:
 description:
 tags:
 categories:
+authorship:
 ---

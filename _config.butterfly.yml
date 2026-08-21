@@ -204,10 +204,15 @@ footer:
   copyright:
     enable: true
     version: false
+  custom_text: '<span class="kral-art-credit">Anki-tan artwork: <a href="https://www.patreon.com/Shigeyuki" target="_blank" rel="noopener">Shigeyuki</a> · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a></span>'
 
 inject:
   head:
     - <link rel="stylesheet" href="/css/custom.css">
+    - <link rel="stylesheet" href="/css/authorship-badges.css">
+    - <link rel="stylesheet" href="/css/home-stickers.css">
   bottom:
     - <script defer src="/js/site-comfort.js"></script>
     - <script defer src="/js/reading-resume.js"></script>
+    - <script defer src="/js/authorship-badges.js"></script>
+    - <script defer src="/js/home-stickers.js"></script>

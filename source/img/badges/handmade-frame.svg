@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 260" role="img" aria-label="">
+  <defs>
+    <linearGradient id="ribbon-cyan" x1="40" y1="145" x2="100" y2="255" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#f9ffff" />
+      <stop offset="0.18" stop-color="#63f3ff" />
+      <stop offset="0.52" stop-color="#00bdf2" />
+      <stop offset="0.78" stop-color="#087de8" />
+      <stop offset="1" stop-color="#54eaff" />
+    </linearGradient>
+    <linearGradient id="ribbon-mint" x1="151" y1="150" x2="214" y2="253" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="0.24" stop-color="#b8ffe9" />
+      <stop offset="0.55" stop-color="#35edc1" />
+      <stop offset="0.82" stop-color="#00bfa6" />
+      <stop offset="1" stop-color="#7affdd" />
+    </linearGradient>
+    <linearGradient id="chrome" x1="39" y1="30" x2="215" y2="212" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" />
+      <stop offset="0.13" stop-color="#a6f7ff" />
+      <stop offset="0.3" stop-color="#31cfee" />
+      <stop offset="0.46" stop-color="#effeff" />
+      <stop offset="0.62" stop-color="#58eed2" />
+      <stop offset="0.79" stop-color="#eaffff" />
+      <stop offset="1" stop-color="#078ecf" />
+    </linearGradient>
+    <linearGradient id="plate" x1="72" y1="159" x2="184" y2="188" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#006fd4" />
+      <stop offset="0.45" stop-color="#20d9f4" />
+      <stop offset="1" stop-color="#21dbaa" />
+    </linearGradient>
+    <radialGradient id="glass" cx="0" cy="0" r="1" gradientTransform="translate(87 63) rotate(45) scale(153)">
+      <stop stop-color="#ffffff" stop-opacity="0.24" />
+      <stop offset="0.3" stop-color="#d8fbff" stop-opacity="0.08" />
+      <stop offset="0.7" stop-color="#4ae0ec" stop-opacity="0.02" />
+      <stop offset="1" stop-color="#00679d" stop-opacity="0.08" />
+    </radialGradient>
+    <mask id="outside-portrait">
+      <rect width="256" height="260" fill="white" />
+      <circle cx="128" cy="118" r="94" fill="black" />
+    </mask>
+    <filter id="soft-shadow" x="-25%" y="-20%" width="150%" height="160%" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#006f96" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <g mask="url(#outside-portrait)" filter="url(#soft-shadow)">
+    <path d="M49 139C63 147 82 151 103 151L96 258L72 240L47 257L35 153Z" fill="url(#ribbon-cyan)" stroke="#dffcff" stroke-width="3" />
+    <path d="M62 145C70 150 79 153 88 154L81 246L72 239L63 246L53 149Z" fill="#ffffff" fill-opacity="0.62" />
+    <path d="M153 150C176 150 194 145 207 137L222 253L196 239L174 259Z" fill="url(#ribbon-mint)" stroke="#edfffb" stroke-width="3" />
+    <path d="M170 151C180 150 190 146 199 142L209 243L197 237L187 245Z" fill="#ffffff" fill-opacity="0.58" />
+  </g>
+
+  <circle cx="128" cy="118" r="112" fill="none" stroke="#0a6da8" stroke-width="4" opacity="0.78" />
+  <circle cx="128" cy="118" r="106" fill="none" stroke="url(#chrome)" stroke-width="15" filter="url(#soft-shadow)" />
+  <circle cx="128" cy="118" r="98" fill="url(#glass)" stroke="#ffffff" stroke-width="3" stroke-opacity="0.9" />
+  <circle cx="128" cy="118" r="94" fill="none" stroke="#22d9d2" stroke-width="2" stroke-opacity="0.72" />
+
+  <path d="M47 75A91 91 0 0 1 112 28" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" stroke-opacity="0.72" />
+  <path d="M189 187A94 94 0 0 1 159 205" fill="none" stroke="#007ac3" stroke-width="4" stroke-linecap="round" stroke-opacity="0.48" />
+
+  <g fill="#ffffff" stroke="#34dce4" stroke-width="2">
+    <path d="M204 34L209 45L220 50L209 55L204 66L199 55L188 50L199 45Z" />
+    <path d="M226 71L229 78L236 81L229 84L226 91L223 84L216 81L223 78Z" opacity="0.86" />
+  </g>
+
+  <path d="M72 157C89 166 109 170 128 170C148 170 168 166 184 157L187 181C169 190 149 194 128 194C107 194 87 190 69 181Z" fill="url(#plate)" stroke="#efffff" stroke-width="3" filter="url(#soft-shadow)" />
+  <path d="M79 164C95 170 111 173 128 173C145 173 161 170 177 164" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-opacity="0.5" />
+</svg>
