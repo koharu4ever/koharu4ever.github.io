@@ -4,8 +4,8 @@ database:
   masthead_label: PROJECT DATABASE · 2026
   social_image: /img/projects/project-forest.webp
   reviewed:
-    iso: '2026-08-10'
-    display: '2026.08.10'
+    iso: '2026-09-05'
+    display: '2026.09.05'
   activity_limit: 8
   activity_per_project: 3
   navigation:
@@ -122,7 +122,7 @@ projects:
     title: Kita
     page_title: Kita · Project Database
     subtitle: A personal content system
-    description: 一个围绕游戏、小众文化和个人内容持续演进的全栈项目。
+    description: 一个具有视觉小说氛围的游戏目录与长评网站，v1 已收尾，进入内容与稳定性维护。
     summary:
       what: 为 Games、Reviews、Tools 与 Media 提供内容管理、公开展示和长期维护的一体化系统。
       why: 把内容模型、结构化数据、媒体存储和自托管部署收敛在一套可以持续演进的工程中。
@@ -130,14 +130,14 @@ projects:
     classification: Content system
     status:
       active: true
-      short: Active
-      detail: Active development
+      short: Maintenance
+      detail: v1 complete · Content & stability maintenance
     started:
       iso: '2025'
       display: '2025'
     updated:
-      iso: '2026-08-10'
-      display: '2026.08.10'
+      iso: '2026-09-05'
+      display: '2026.09.05'
     period: 2025 — Present
     card:
       image: /img/projects/kita.webp
@@ -171,7 +171,7 @@ projects:
       - coolify
     identity:
       - label: Status
-        value: Active development
+        value: v1 complete · Maintenance
         status: active
       - label: Started
         value: '2025'
@@ -198,7 +198,7 @@ projects:
     overview:
       kicker: System
       paragraphs:
-        - Kita 最初只是一张符合个人审美的首页，后来逐步加入内容管理、数据库、媒体存储和自托管部署。它现在既是实际使用的网站，也是我理解全栈项目边界的开发基座。
+        - Kita 最初只是一张符合个人审美的首页，后来逐步加入游戏目录、长评、工具目录和后台编辑。第一版现已收尾，主要功能与视觉调整完成，接下来补充内容并维护稳定性。
         - 项目不追求复杂服务拆分。Next.js 与 Payload 运行在同一应用中，PostgreSQL 保存结构化数据，Cloudflare R2 保存媒体对象；OpenList 保持为独立应用，只通过链接与 Kita 相连。
     architecture:
       kicker: System boundaries
@@ -471,6 +471,11 @@ projects:
       link:
         label: Technical Notes →
         url: /notes/
+      pinned:
+        - date: '2026.09.05'
+          type: Review
+          title: Kita 的第一版，终于可以收尾了
+          url: /2026/09/05/kita-v1-wrap-up/
       items:
         - date: '2026.08.05'
           type: Reference
@@ -512,12 +517,18 @@ projects:
           type: Media
           title: Games covers move to Payload Media and R2
           description: Changing content no longer requires publishing application source.
-        - date: Current
-          type: Active
-          title: Architecture and recovery boundaries are being consolidated
-          description: Kita remains under active development and maintenance.
+        - date: '2026.09.05'
+          datetime: '2026-09-05'
+          type: Milestone
+          title: v1 complete; content and stability maintenance begins
+          description: The first functional and visual version is complete. Content curation and known maintenance issues remain ongoing.
           current: true
     activity:
+      - date: '2026-09-05'
+        display_date: 05 SEP
+        type: Review
+        title: Kita v1 wrap-up and current maintenance stage recorded
+        url: /2026/09/05/kita-v1-wrap-up/
       - date: '2026-08-05'
         display_date: 05 AUG
         type: Review
