@@ -77,3 +77,16 @@ browser_reloader_websocket:
   enable: true
   server:
     port: 4001
+
+# Only canonical articles and primary pages belong in the sitemap.
+sitemap:
+  path: sitemap.xml
+  template: ./sitemap-template.xml
+  rel: true
+  tags: false
+  categories: false
+  primary_pages:
+    - /
+    - /notes/
+    - /resume/
+    - /projects/
