@@ -1,0 +1,54 @@
+name: Check Sitemap
+
+on:
+  push:
+    branches: [codex/automatic-sitemap]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sitemap:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm
+    steps:
+      - uses: actions/checkout@v6
+      - name: Enable pnpm
+        run: corepack enable
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Check and build
+        run: pnpm check
+      - name: Verify canonical sitemap and ownership file
+        run: |
+          python3 - <<'PYTHON'
+          from pathlib import Path
+          from urllib.parse import urlsplit, unquote
+          import xml.etree.ElementTree as ET
+
+          public = Path('public')
+          root = ET.parse(public / 'sitemap.xml').getroot()
+          assert root.tag == '{http://www.sitemaps.org/schemas/sitemap/0.9}urlset'
+          urls = [node.text for node in root.findall('{*}url/{*}loc')]
+          assert urls and len(urls) == len(set(urls)), 'Empty sitemap or duplicate URLs'
+          paths = set()
+          for url in urls:
+              parsed = urlsplit(url)
+              assert parsed.scheme == 'https' and parsed.netloc == 'koharu4ever.github.io', url
+              assert not parsed.query and not parsed.fragment, url
+              assert not parsed.path.endswith('index.html'), url
+              assert not parsed.path.startswith(('/tags/', '/categories/', '/archives/', '/page/')), url
+              assert (public / unquote(parsed.path).lstrip('/') / 'index.html').is_file(), url
+              paths.add(unquote(parsed.path))
+          required = {'/', '/notes/', '/resume/', '/projects/'}
+          assert required <= paths, f'Missing primary pages: {required - paths}'
+          assert any(path.startswith('/projects/') and path != '/projects/' for path in paths), 'Missing project records'
+          assert len(paths) > len(required) + 3, 'Missing published posts'
+          verification = 'google9252ee29ea65d1ac.html'
+          assert (public / verification).read_bytes() == (Path('source') / verification).read_bytes()
+          assert (public / verification).read_text().strip() == 'google-site-verification: ' + verification
+          assert not any(verification in url for url in urls)
+          print(f'Validated {len(urls)} unique, canonical URLs and unchanged Google verification file.')
+          PYTHON
