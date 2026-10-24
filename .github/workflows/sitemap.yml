@@ -1,0 +1,35 @@
+name: Prepare Sitemap Dependencies
+on:
+  push:
+    branches: [codex/automatic-sitemap]
+permissions:
+  contents: read
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    container: mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm
+    steps:
+      - uses: actions/checkout@v6
+      - name: Prepare sitemap files
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const files = {"_config.yml": "title: Kral\nsubtitle:\ndescription: Kral's personal site, projects and development notes\nkeywords:\nauthor: Kral\nlanguage: zh-CN\ntimezone: Asia/Tokyo\n\nurl: https://koharu4ever.github.io\nroot: /\npermalink: :year/:month/:day/:title/\npermalink_defaults:\npretty_urls:\n  trailing_index: false\n  trailing_html: false\n\nsource_dir: source\npublic_dir: public\ntag_dir: tags\narchive_dir: archives\ncategory_dir: categories\ncode_dir: downloads/code\ni18n_dir: :lang\nskip_render: google9252ee29ea65d1ac.html\n\nnew_post_name: :title.md\ndefault_layout: post\ntitlecase: false\nexternal_link:\n  enable: true\n  field: site\n  exclude: ''\nfilename_case: 0\nrender_drafts: false\npost_asset_folder: false\nrelative_link: false\nfuture: false\nsyntax_highlighter: highlight.js\n\nindex_generator:\n  path: ''\n  per_page: 10\n  order_by: -date\n\nsearch:\n  path: search.json\n  field: post\n  content: true\n  format: striptags\n\nfeed:\n  enable: true\n  type: atom\n  path: atom.xml\n  limit: 20\n  content: false\n  content_limit: 240\n  content_limit_delim: ' '\n  order_by: -date\n  autodiscovery: true\n\ndefault_category: uncategorized\ncategory_map:\ntag_map:\n\ndate_format: YYYY-MM-DD\ntime_format: HH:mm:ss\nupdated_option: mtime\n\nper_page: 10\npagination_dir: page\n\ntheme: butterfly\n\n# Local development only: reload the browser after Hexo rebuilds a changed file.\nbrowser_reloader_websocket:\n  enable: true\n  server:\n    port: 4001\n\n# Only canonical articles and primary pages belong in the sitemap.\nsitemap:\n  path: sitemap.xml\n  template: ./sitemap-template.xml\n  rel: true\n  tags: false\n  categories: false\n  primary_pages:\n    - /\n    - /notes/\n    - /resume/\n    - /projects/\n", "scripts/sitemap-entries.js": "/* global hexo */\n\n'use strict';\n\n// Project pages are generated routes, not Hexo Page records.\nhexo.extend.filter.register('before_generate', () => {\n  const entries = new Set();\n  const base = new URL(hexo.config.url);\n  const add = (path) => {\n    const url = new URL(path, `${base.href.replace(/\\/$/, '')}/`);\n    if (url.origin !== base.origin) {\n      throw new Error(`[sitemap] Expected an internal URL: ${path}`);\n    }\n    url.pathname = url.pathname.replace(/\\/index\\.html$/, '/');\n    url.search = '';\n    url.hash = '';\n    entries.add(url.href);\n  };\n\n  for (const post of hexo.locals.get('posts').toArray()) {\n    if (post.published !== false && post.draft !== true && post.sitemap !== false) {\n      add(post.permalink);\n    }\n  }\n  for (const path of hexo.config.sitemap.primary_pages) {\n    add(path);\n  }\n  for (const project of hexo.locals.get('data').projects.projects) {\n    if (project.sitemap !== false) {\n      add(project.url);\n    }\n  }\n\n  // A Set also collapses equivalent index.html and trailing-slash URLs.\n  hexo.config.sitemap.entries = [...entries].sort();\n});\n", "sitemap-template.xml": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\">\n  {% for url in config.sitemap.entries %}\n  <url>\n    <loc>{{ url | uriencode }}</loc>\n  </url>\n  {% endfor %}\n</urlset>\n", ".github/workflows/sitemap.yml": "name: Check Sitemap\n\non:\n  push:\n    branches: [codex/automatic-sitemap]\n  pull_request:\n  workflow_dispatch:\n\npermissions:\n  contents: read\n\njobs:\n  sitemap:\n    runs-on: ubuntu-latest\n    container: mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm\n    steps:\n      - uses: actions/checkout@v6\n      - name: Enable pnpm\n        run: corepack enable\n      - name: Install dependencies\n        run: pnpm install --frozen-lockfile\n      - name: Check and build\n        run: pnpm check\n      - name: Verify canonical sitemap and ownership file\n        run: |\n          python3 - <<'PYTHON'\n          from pathlib import Path\n          from urllib.parse import urlsplit, unquote\n          import xml.etree.ElementTree as ET\n          import json\n\n          public = Path('public')\n          root = ET.parse(public / 'sitemap.xml').getroot()\n          assert root.tag == '{http://www.sitemaps.org/schemas/sitemap/0.9}urlset'\n          urls = [node.text for node in root.findall('{*}url/{*}loc')]\n          assert urls and len(urls) == len(set(urls)), 'Empty sitemap or duplicate URLs'\n          paths = set()\n          for url in urls:\n              parsed = urlsplit(url)\n              assert parsed.scheme == 'https' and parsed.netloc == 'koharu4ever.github.io', url\n              assert not parsed.query and not parsed.fragment, url\n              assert not parsed.path.endswith('index.html'), url\n              assert not parsed.path.startswith(('/tags/', '/categories/', '/archives/', '/page/')), url\n              assert (public / unquote(parsed.path).lstrip('/') / 'index.html').is_file(), url\n              paths.add(unquote(parsed.path))\n          required = {'/', '/notes/', '/resume/', '/projects/'}\n          required.update('/' + entry.removesuffix('index.html').lstrip('/') for entry in json.loads((public / 'random-posts.json').read_text())['posts'])\n          required.update('/' + str(path.parent.relative_to(public)) + '/' for path in (public / 'projects').glob('*/index.html'))\n          assert paths == required, f'Missing: {required - paths}; unexpected: {paths - required}'\n          verification = 'google9252ee29ea65d1ac.html'\n          assert (public / verification).read_bytes() == (Path('source') / verification).read_bytes()\n          assert (public / verification).read_text().strip() == 'google-site-verification: ' + verification\n          assert not any(verification in url for url in urls)\n          print(f'Validated {len(urls)} unique, canonical URLs and unchanged Google verification file.')\n          PYTHON\n"};
+          for (const [path, content] of Object.entries(files)) fs.writeFileSync(path, content);
+          NODE
+      - run: corepack enable
+      - run: pnpm add --save-exact hexo-generator-sitemap@3.0.1
+      - run: pnpm exec prettier --write _config.yml scripts/sitemap-entries.js .github/workflows/sitemap.yml
+      - run: pnpm check
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sitemap-reviewed-files
+          include-hidden-files: true
+          path: |
+            _config.yml
+            package.json
+            pnpm-lock.yaml
+            sitemap-template.xml
+            scripts/sitemap-entries.js
+            .github/workflows/sitemap.yml
+            public/sitemap.xml
